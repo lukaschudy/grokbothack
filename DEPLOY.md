@@ -52,4 +52,6 @@ Demo start state (idempotent): `DEMO_VENUE_PHONE=+44… npx tsx --env-file-if-ex
 
 `npx tsx scripts/smoke.ts <base-url>` checks `/`, `/api/stats`, `/api/events`, `/events.ics` (parses),
 join → token → `/api/me`, search for 80 near Old Street on Thu 29 Oct (venues, no contact fields), `/phone`
-hidden without key, and the `/twilio/stream` WebSocket upgrade. Exits non-zero on any failure.
+hidden without key, `/` is the minimal landing (webcal + Grok Bot, no forms), dashboard paths (`/events`,
+`/venues`, `/people`, `/add`, `/account`, `/signin`, `/communities`) return 404, and the `/twilio/stream`
+WebSocket upgrade. Exits non-zero on any failure.

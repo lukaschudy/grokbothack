@@ -1,5 +1,4 @@
-import { json, preflight, requireUser, route, uuid } from "../../_lib/http";
-import { callView } from "../../_lib/calls";
+import { callView, json, preflight, requireUser, route, uuid } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
 export const OPTIONS = preflight;

@@ -1,5 +1,5 @@
 import { sql } from "@/lib/db";
-import { json, preflight, route } from "../_lib/http";
+import { json, preflight, route } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
 export const OPTIONS = preflight;

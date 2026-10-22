@@ -1,5 +1,5 @@
 import { asUser } from "@/lib/db";
-import { json, preflight, readJson, requireUser, route, str, uuid } from "../../../_lib/http";
+import { json, preflight, readJson, requireUser, route, str, uuid } from "@/lib/api";
 
 export const OPTIONS = preflight;
 

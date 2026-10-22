@@ -1,6 +1,6 @@
 import { asUser, sql } from "@/lib/db";
 import { formatWindow } from "@/lib/time";
-import { deps, HttpError, int, json, preflight, readJson, requirePoster, requireUser, route, str, timeWindow, uuid } from "../_lib/http";
+import { deps, HttpError, int, json, preflight, readJson, requirePoster, requireUser, route, str, timeWindow, uuid } from "@/lib/api";
 
 export const OPTIONS = preflight;
 

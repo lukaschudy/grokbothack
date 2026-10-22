@@ -1,7 +1,7 @@
 import { createAccount, signSession } from "@/lib/auth";
 import { sql } from "@/lib/db";
 import { parseLumaLink } from "@/lib/sources/luma";
-import { email, HttpError, json, preflight, readJson, route, str } from "../_lib/http";
+import { email, HttpError, json, preflight, readJson, route, str } from "@/lib/api";
 
 export const OPTIONS = preflight;
 
