@@ -19,6 +19,8 @@ import * as callById from "../app/api/calls/[id]/route";
 import * as events from "../app/api/events/route";
 import * as communities from "../app/api/communities/route";
 import * as stats from "../app/api/stats/route";
+import { execFileSync } from "node:child_process";
+import { freeFirst } from "../lib/find-venues";
 import { member, OLD_STREET, resetDb, venueAt } from "./helpers";
 
 const sent: Email[] = [];
@@ -137,6 +139,34 @@ describe("venues", () => {
     assert.ok(v.reasons.includes("Biggest turnout seen: 70"));
     assert.match(r.json.clash_warning, /Big AI Night \(300 going\)/);
     assert.ok(!/secret@venue|Secret Person|7700900123/.test(r.text), "contacts leaked");
+  });
+
+  test("free only keeps venues with unknown terms (labelled), drops paid, ranks confirmed free first", async () => {
+    const rootId = await member("Root", { root: true });
+    await venueAt(rootId, { name: "Unknown Terms Hall", terms: "unknown" });
+    await venueAt(rootId, { name: "Paid Hall", terms: "paid" });
+    await venueAt(rootId, { name: "Free Hall", terms: "free", lat: OLD_STREET.lat + 0.01 });
+    const r = await api(search.GET, "GET", "/api/venues/search?near=Old%20Street&headcount=80&start=2026-10-29T18:30&free_only=true", { token: signSession(rootId) });
+    assert.equal(r.status, 200, r.text);
+    assert.deepEqual(r.json.venues.map((v: any) => v.name), ["Free Hall", "Unknown Terms Hall"]);
+    const unknown = r.json.venues[1];
+    assert.equal(unknown.terms_label, "terms unconfirmed: ask");
+    assert.ok(unknown.reasons.includes("Terms unconfirmed: ask"), unknown.reasons.join(" | "));
+    const all = await api(search.GET, "GET", "/api/venues/search?near=Old%20Street&headcount=80&start=2026-10-29T18:30", { token: signSession(rootId) });
+    assert.equal(all.json.venues.length, 3, "without free_only, paid venues stay");
+  });
+
+  test('"free space for 80 next Thursday near Old Street" on seed data returns 3 venues', async () => {
+    execFileSync(process.execPath, ["node_modules/tsx/dist/cli.mjs", "scripts/seed-pg.ts"], { env: process.env, stdio: "ignore" });
+    const token = await rootToken();
+    const r = await api(search.GET, "GET", `/api/venues/search?q=${encodeURIComponent("free space for 80 next Thursday near Old Street")}`, { token });
+    assert.equal(r.status, 200, r.text);
+    assert.equal(r.json.query.free_only, true);
+    assert.equal(r.json.query.headcount, 80);
+    assert.equal(r.json.query.place, "Old Street");
+    assert.match(r.json.query.when, /^Thu \d+ \w+, 18:30–21:30$/);
+    assert.equal(r.json.venues.length, 3, r.text.slice(0, 500));
+    assert.ok(r.json.venues.every((v: any) => v.terms !== "paid"));
   });
 
   test("search needs a known place, a headcount and a token", async () => {
@@ -344,6 +374,11 @@ describe("helpers", () => {
     const no = callSummary({ ...base, status: "completed", result: { status: "unavailable", start_time: null, end_time: null, max_people: null, price: null,
       conditions: null, contact_name: null, contact_role: null, next_step: null, alternative: "Wed 28 Oct" } });
     assert.equal(no, "X Hall isn't free Thu 29 Oct, 18:30–21:30. They offered: Wed 28 Oct.");
+  });
+
+  test("freeFirst drops paid and puts confirmed free first, keeping order within each", () => {
+    const rows = [{ terms: "unknown", n: 1 }, { terms: "paid", n: 2 }, { terms: "free_for_community", n: 3 }, { terms: "unknown", n: 4 }, { terms: "free", n: 5 }];
+    assert.deepEqual(freeFirst(rows).map((r) => r.n), [3, 5, 1, 4]);
   });
 
   test("phone numbers normalise to E.164", () => {
