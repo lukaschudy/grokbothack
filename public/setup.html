@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set up Mates Rates in Grok Bot</title>
+<style>
+  :root { --ink:#16181d; --muted:#5b616e; --line:#e3e5ea; --bg:#fafaf7; --card:#fff; --accent:#d9480f; --ok:#2b8a3e; --bad:#c92a2a; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#eceef2; --muted:#a2a8b4; --line:#2c3038; --bg:#121418; --card:#1a1d23; --accent:#ff8a4c; --ok:#69db7c; --bad:#ff8787; } }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; color:var(--ink); background:var(--bg); }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+  h1 { font-size: 30px; line-height:1.2; margin: 0 0 6px; letter-spacing:-0.01em; }
+  .lede { color: var(--muted); margin: 0 0 24px; }
+  .status { display:inline-flex; gap:8px; align-items:center; font-size:14px; padding:6px 12px; border:1px solid var(--line); border-radius:999px; background:var(--card); }
+  .dot { width:8px; height:8px; border-radius:50%; background:var(--muted); }
+  .status.ok .dot { background: var(--ok); } .status.bad .dot { background: var(--bad); }
+  ol.steps { list-style:none; padding:0; margin:28px 0 0; counter-reset: s; }
+  ol.steps > li { counter-increment: s; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 18px 18px 60px; margin-bottom:14px; position:relative; }
+  ol.steps > li::before { content: counter(s); position:absolute; left:18px; top:16px; width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; display:grid; place-items:center; font-size:14px; }
+  h2 { font-size:18px; margin:0 0 4px; }
+  p { margin: 6px 0; }
+  .muted { color: var(--muted); font-size: 14px; }
+  button { font: inherit; font-size: 14px; font-weight:600; cursor:pointer; border:0; border-radius:10px; padding:9px 14px; background:var(--accent); color:#fff; margin-top:8px; }
+  button.secondary { background:transparent; color:var(--ink); border:1px solid var(--line); }
+  button:disabled { opacity:.5; cursor:default; }
+  details { margin-top:8px; } summary { cursor:pointer; color:var(--muted); font-size:14px; }
+  pre { white-space:pre-wrap; word-break:break-word; font:13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:12px; max-height:260px; overflow:auto; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+  .try { margin:8px 0 0; padding:0; list-style:none; }
+  .try li { display:flex; gap:8px; align-items:center; margin:6px 0; flex-wrap:wrap; }
+  .try code { background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:4px 8px; }
+  .try button { margin:0; padding:4px 10px; font-size:13px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Set up Mates Rates in Grok Bot</h1>
+  <p class="lede">Grok Bot is the whole product. Two pastes and you can ask it for a free venue. About 3 minutes.</p>
+  <span class="status" id="status"><span class="dot"></span><span id="status-text">Checking the Mates Rates API…</span></span>
+
+  <ol class="steps">
+    <li>
+      <h2>Create the bot</h2>
+      <p>Open the Grok Bot app (desktop or iPhone) and create a new Bot called <strong>Mates Rates</strong>.</p>
+    </li>
+    <li>
+      <h2>Give it its instructions</h2>
+      <p>Paste this as the Bot's description / instructions. This server's address is already filled in.</p>
+      <button data-copy="instructions" disabled>Copy instructions</button>
+      <details><summary>Show</summary><pre id="instructions">Loading…</pre></details>
+    </li>
+    <li>
+      <h2>Teach it the skills</h2>
+      <p>Open a chat with the bot and send this one message. It asks the bot to save 9 skills: find a venue, add a venue, join, vouch, check availability (phone call), send a request, events, communities, report junk.</p>
+      <button data-copy="skills" disabled>Copy skills message</button>
+      <details><summary>Show</summary><pre id="skills">Loading…</pre></details>
+      <p class="muted">Check afterwards: type <code>/</code> in the composer and the skills should be listed.</p>
+    </li>
+    <li>
+      <h2>Say hi</h2>
+      <p>The bot signs you up (name, community, email, password) and keeps your token on its own computer. To add venues, an existing member has to vouch for you.</p>
+      <ul class="try" id="try"></ul>
+    </li>
+    <li>
+      <h2>Share it with other organisers</h2>
+      <p>In Grok Bot: <strong>Share → Create template → Public link</strong>. Everyone who opens the link gets their own copy of the bot, all talking to the same venue database. Send the link to whoever runs the server so the site's "Open in Grok Bot" button uses it.</p>
+    </li>
+  </ol>
+</main>
+<script>
+  const RAW = 'https://raw.githubusercontent.com/lukaschudy/grokbothack/grok-bot/bot/';
+  const SKILLS = ['find-venue', 'add-venue', 'join', 'vouch', 'check-availability', 'send-request', 'events', 'communities', 'report-junk'];
+  const TRY = [
+    'Hi, I run a London tech community and want to join Mates Rates.',
+    'Free space for 80 people next Thursday evening near Old Street?',
+    "What are the best London builder events in the next two weeks?",
+    'Which communities run AI events, and where do they host?',
+  ];
+  const origin = location.origin;
+  const texts = {};
+
+  async function get(name) {
+    const r = await fetch(RAW + name, { cache: 'no-store' });
+    if (!r.ok) throw new Error(name + ': ' + r.status);
+    return r.text();
+  }
+
+  async function load() {
+    try {
+      const instructions = (await get('instructions.md')).replaceAll('https://MATES-RATES-URL', origin);
+      const skills = await Promise.all(SKILLS.map((s) => get('skills/' + s + '.md')));
+      texts.instructions = instructions;
+      texts.skills = 'Save each of the following as a separate skill, using the name in its header. ' +
+        'Keep the text exactly as written. The API base URL is ' + origin + '. Reply with the list of skills you saved.\n\n' +
+        skills.map((t, i) => '===== SKILL: ' + SKILLS[i] + ' =====\n' + t.trim()).join('\n\n');
+      document.getElementById('instructions').textContent = texts.instructions;
+      document.getElementById('skills').textContent = texts.skills;
+      document.querySelectorAll('[data-copy]').forEach((b) => (b.disabled = false));
+    } catch (e) {
+      document.getElementById('instructions').textContent = 'Could not load the bot files (' + e.message + '). They are in bot/ on GitHub: https://github.com/lukaschudy/grokbothack/tree/grok-bot/bot';
+    }
+  }
+
+  async function status() {
+    const el = document.getElementById('status'), t = document.getElementById('status-text');
+    try {
+      const r = await fetch('/api/stats', { cache: 'no-store' });
+      if (!r.ok) throw new Error(r.status);
+      const s = await r.json();
+      el.classList.add('ok');
+      t.textContent = 'API live · ' + (s.venues ?? '?') + ' venues · ' + (s.events ?? '?') + ' events';
+    } catch {
+      el.classList.add('bad');
+      t.textContent = 'API not reachable yet. The bot will not work until it is.';
+    }
+  }
+
+  function copy(text, btn) {
+    const done = () => { const o = btn.textContent; btn.textContent = 'Copied'; setTimeout(() => (btn.textContent = o), 1500); };
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(done, () => fallback(text, done));
+    else fallback(text, done);
+  }
+  function fallback(text, done) {
+    const ta = Object.assign(document.createElement('textarea'), { value: text });
+    document.body.append(ta); ta.select(); document.execCommand('copy'); ta.remove(); done();
+  }
+
+  document.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', () => copy(texts[b.dataset.copy], b)));
+  const ul = document.getElementById('try');
+  for (const msg of TRY) {
+    const li = document.createElement('li');
+    const c = Object.assign(document.createElement('code'), { textContent: msg });
+    const b = Object.assign(document.createElement('button'), { textContent: 'Copy', className: 'secondary' });
+    b.addEventListener('click', () => copy(msg, b));
+    li.append(c, b); ul.append(li);
+  }
+  load(); status();
+</script>
+</body>
+</html>
