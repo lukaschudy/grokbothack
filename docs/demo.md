@@ -1,110 +1,138 @@
 # Demo runbook (3 minutes, 22:20)
 
-Roomline web app, run with `CALL_MODE=scripted` unless an xAI key turns up (then `virtual`, see the end). Everything below was clicked through on local Postgres with the seed data and `CALL_MODE=scripted` on 22 Oct; timings are from that run.
+Grok Bot is the only interface. On stage: one laptop showing the Grok Bot chat, one phone as the venue (`/phone`, only in virtual-voice mode), and a calendar app subscribed to `/events.ics`. There are no web app beats.
+
+The API calls behind every beat (`/api/venues/from-luma`, `/api/vouch`, `/api/venues/search`, `/api/calls`, `/api/requests`, `/api/events`) were run on 22 Oct against local Postgres with the seed data and `CALL_MODE=scripted` (branch `api-server` + `demo`). The responses quoted below are from that run. The Grok Bot side (how fast it replies, how it words things) was not tested here; rehearse it.
 
 | Who | Does |
 |---|---|
-| **Presenter** (Lukas) | Mic, pitch, drives the presenter laptop (projected) |
-| **Lead A** | Stands at the laptop for beat 1 and types their own venue |
-| **Lead B** | Clicks "Vouch" in beat 2 (same laptop, B's window) |
-| **Venue** | Only in `virtual` mode: holds the phone with `/phone` open |
-| **Operator** | Back of room: server logs, tunnel, backup video |
+| **Presenter** (Lukas) | Mic, pitch, types C's messages, narrates |
+| **Lead A** | Types beat 1 in A's chat (same laptop) |
+| **Lead B** | Types "Vouch for …" in B's chat |
+| **Venue** | Virtual mode only: holds the phone with `/phone` open and answers |
+| **Operator** | Back of room: server log, tunnel, backup video, the reset command |
 
 ## Before going on (from 21:50)
 
-1. Server up: `CALL_MODE=scripted npm run dev` (or the Deploy agent's production server), public URL loads.
-2. Reset the start state **after the last rehearsal**. Otherwise the stage call is "reused" from the rehearsal and the call card shows the old answer instead of a new call:
+1. Server up at the public URL (see `DEPLOY.md` on `integration`); `npx tsx scripts/smoke.ts <PUBLIC_URL>` passes.
+2. Pick the call mode by 22:00 (switching needs a restart):
+   - **virtual**, if `XAI_API_KEY` is set and a rehearsal call worked: the Venue's phone rings in the browser and Grok talks live.
+   - **scripted** otherwise: the same pipeline plays a written call (about 55 s) and nothing rings. Without the key, virtual calls fall back to scripted anyway.
+3. **Reset the start state after the last rehearsal.** Run it in the deploy sandbox, so it uses the server's `DATABASE_URL` and `SESSION_SECRET`:
    ```sh
-   DATABASE_URL=… DEMO_PASSWORD=… DEMO_VENUE_PHONE=+44… DEMO_VENUE_EMAIL=<inbox you can show> \
-   DEMO_A="<Lead A's name>|<community>" DEMO_B="<Lead B's name>|<community>" DEMO_C="<C's name>|<community>" \
-   npx tsx --env-file-if-exists=.env.local scripts/demo-setup.ts
+   DEMO_VENUE_PHONE=+44… DEMO_VENUE_EMAIL=<inbox you can show> \
+   DEMO_A="<A's name>|<community>" DEMO_B="<B's name>|<community>" DEMO_C="<C's name>|<community>" \
+   npx tsx --env-file-if-exists=.env.local scripts/demo-setup.ts --tokens
    ```
-   Expect `C … BLOCKED (unvouched)` and `venue Demo Hall, Old Street … callable`. If Lukas already has an account: `DEMO_ROOTS="Lukas||<his email>"`. Default names are Lead A, Lead B, Organiser C; all accounts use `DEMO_PASSWORD`.
-3. Presenter laptop: three Chrome profiles (not incognito windows, which share cookies), each signed in at `/signin`:
-   - **A**: on `/add`.
-   - **B**: on `/people`.
-   - **C**: on `/` (Find a room). Also open tabs for `/events` and the calendar app.
-4. Lead A has a Luma link to an in-person event **they ran** at a venue **not yet in Roomline**, unused in rehearsal, plus a second one as backup.
-5. Search wording: "free" in the question means "only venues confirmed free". Seeded venues have unconfirmed terms, so "free space for 80…" currently returns only Demo Hall. Check right before:
-   ```sql
-   select count(*) from venues where terms in ('free','free_for_community') and junk_at is null
-     and st_dwithin(location, st_setsrid(st_makepoint(-0.0875, 51.5257), 4326)::geography, 3000);
-   ```
-   3 or more → ask the "free space" question. Fewer → ask "Space for 80 next Thursday near Old Street" (3 rooms; Demo Hall is #2).
-6. Calendar: subscribe Apple Calendar to `webcal://<host>/events.ics` beforehand (Google Calendar refreshes subscriptions only every few hours).
-7. Backup video of beats 2–3 recorded at the 21:30 rehearsal, paused on the Operator laptop.
+   Expect `C … BLOCKED (unvouched)` and `venue Demo Hall, Old Street … callable`. Without the reset, the stage call returns the rehearsal's answer ("reused") instead of calling, and C is already vouched. If Lukas already has an account: `DEMO_ROOTS="Lukas||<his email>"`.
+4. Three copies of the bot from the share link on the laptop (Mates Rates A, B, C), each with its `MATES_RATES_TOKEN` secret set to the token printed for A, B or C. Open each one in a **fresh chat**, so C's chat isn't already vouched in its memory. Check each with "Who am I?": the bot calls `/api/me`, and C should say it can't post yet.
+5. Venue phone (virtual mode): open `<PUBLIC_URL>/phone?key=<PHONE_KEY>` in the phone's browser and tap once, so audio is allowed. Ringer up, screen-lock off.
+6. Calendar: Apple Calendar → File → New Calendar Subscription → `webcal://<host>/events.ics`, done before the demo (Google Calendar takes hours to refresh).
+7. Lead A has a Luma link to an in-person event **they ran**, at a venue not yet in the database, unused in rehearsal, plus a second link as backup.
+8. Search wording: if the question contains "free", the bot filters to venues **confirmed** free, and seeded venues are unconfirmed. Right now "free space for 80…" returns only Demo Hall. Unless 3 or more free venues near Old Street have been confirmed by 22:00, ask without "free" (below).
+9. Paste buffer: keep the messages below in a note on the laptop. Paste them, don't type them.
+10. Backup video of beat 3 (search → call → result), recorded at the 21:30 rehearsal, paused on the Operator laptop.
 
 ## The 3 minutes
 
 ### 0:00–0:30 Pitch (Presenter)
 
 > If you run a London tech community, finding a free room for 80 people takes days of DMs, cold emails and "anyone know a space?" in five WhatsApp groups.
-> Roomline makes it one question. Ask "space for 80 next Thursday near Old Street" and you get rooms backed by evidence (events that really happened there), a clash check, and an AI assistant that rings the venue to check the date and writes down the answer for everyone.
+> Mates Rates makes it one message to a shared Grok Bot. Ask "space for 80 next Thursday near Old Street?" and you get rooms backed by evidence (events that really happened there), a clash check, and an assistant that rings the venue to check the date, then sends the request.
 > It stays clean because of mates: you can only post once an organiser vouches for you, and if someone you vouched for posts junk, you lose your vouching rights.
 
-### 0:30–1:05 Beat 1: a lead adds a real venue (A's window, `/add`)
+At "one message", Lead A sends beat 1, so the bot is already working.
 
-Lead A pastes their Luma link → **Fill it in** (about 1 s). It should show the venue name and address from Luma and "Hosted <community>: <event>, <date>, N went". If the venue is already in Roomline, it says "Already in Roomline: we'll add this event as evidence".
+### 0:30–1:00 Beat 1: a lead adds a real venue (A's chat)
 
-Lead A answers the 3 questions: people standing, kind, weekday evenings or weekends, terms, contact (members only), and either "OK to call" + phone or "Intro via me". Then **Publish venue** → **Open venue**.
+> Add this venue: https://lu.ma/XXXXXXXX
 
-Presenter: "Thirty seconds from a Luma link. Every field carries Lead A's name and today's date."
+API result: the venue name and address from Luma, A's event recorded as a past host, and 3 questions:
+- Roughly how many people does it hold, and does it have AV?
+- Free, free for communities, or paid? Evenings and weekends OK?
+- Who's the contact, and is it OK for our assistant to phone them, or should people go through you for an intro?
 
-Fallback: "Couldn't read that Luma event" or "hides its venue" → second link. Still failing → move on; the home page counter shows "N added tonight".
+Lead A answers in one message, with their real answers, e.g.:
 
-### 1:05–1:25 Beat 2: trust (C's window, then B's)
+> About 60, screen and two mics. Free for community groups, evenings fine, no weekends. Intro via me, don't call them.
 
-C's window, `/add`: paste any Luma link → Fill it in → **Publish venue**. Shows: **"Posting needs a vouch from a member. Ask an organiser who knows you to vouch for you."**
+Bot: it's live, and the contact stays private.
 
-B's window, `/people`: next to C, click **Vouch for <C>**. C's pill changes to "Vouched by <B>" and B's button to "You vouched".
+Presenter: "Thirty seconds, from a Luma link. Every field records who set it and when."
 
-Presenter (pointing at the "How trust works" panel): "B is now on the hook for what C posts. This is enforced in the database with row-level security, not just in the app."
+Fallback: the Luma read fails, or the venue is hidden until you register → second link. Still failing → move on.
 
-Fallback: none needed; this beat doesn't depend on the network.
+### 1:00–1:25 Beat 2: trust (C's chat, then B's)
 
-### 1:25–2:40 Beat 3: find, call, request (C's window, `/`)
+C's chat:
 
-Type (wording per pre-check 5) and press **Find a room**:
+> Add this venue: https://lu.ma/XXXXXXXX
 
-> Space for 80 next Thursday near Old Street
+API: `403 not_trusted`, "You can't post yet: a member needs to vouch for you (they say: vouch for <your name>). Vouchers are accountable for what you post."
 
-Should appear instantly ("Found in 0.0s"): **3 rooms that fit · 80 people · Thu 29 Oct, 18:30–21:30 · near Old Street**, and a clash banner: "Is AI making us less creative?: An Oxford-style debate (The Founder-writer Collective), 126 going, runs the same evening at Granola." Rooms: Civo Tech Junction (fits 180, hosted Cloud Native London, DevSecOps London and 4 more, company office → "Ask for an intro"), **Demo Hall, Old Street** (fits 120, free for community events, **Call to check**), Incubeta (hosted London.js and others).
+B's chat:
 
-Presenter: "Every room here hosted real community events. Note the date: next Thursday is after the clocks go back, and it's handled."
+> Vouch for Organiser C
 
-Click **Call to check** on Demo Hall. The live call card runs Dialling → Ringing → Talking (about 5 s), then the transcript streams: "Hi there, this is Roomline, an AI assistant calling on behalf of <C>… this call is recorded…", with the venue ("Sam") answering. Narrate over it: it says it's an AI, asks date, headcount, price, conditions. At about 0:55 it shows **CALL RECORDED** and the availability record: **Free · Thu 29 Oct, 18:30–21:30**, fits 120, free for community tech events, "Guest list 48 hours before; everyone out by 21:30", confirmed by Sam by phone, with the time.
+(Use C's exact display name.) The bot first reminds B they're accountable. API: "Organiser C can now post venues."
 
-Presenter: "Saved to the venue: the next organiser who asks about this evening gets this answer without a new call. One call per venue per week, max."
+Presenter: "B is now on the hook for what C posts. It's enforced in the database with row-level security, not in the bot."
 
-Click **Draft request** → a draft "Venue request: 80 people, Thu 29 Oct, 18:30–21:30", which mentions the phone confirmation → **Send** opens the mail app addressed to the venue's email (`DEMO_VENUE_EMAIL`).
+Fallback: B's bot asks to confirm → "Yes". The bot stalls → Operator runs the vouch with B's token via curl (`POST /api/vouch {"display_name": "…"}`).
+
+### 1:25–2:40 Beat 3: find, call, request (C's chat)
+
+> Space for 80 next Thursday evening near Old Street?
+
+The bot should say back "Thu 29 Oct, 18:30–21:30" (that's after the clocks go back), then:
+- **Civo Tech Junction**: fits 180, 100 m, hosted Cloud Native London, DevSecOps London and 4 more, biggest turnout 180, last hosted 16 Sept. Company office: ask a past host for an intro.
+- **Demo Hall, Old Street**: fits 120, 150 m, free for community events, capacity confirmed by Lead B. "We can phone them to check availability."
+- **Incubeta**: fits 145, 100 m, hosted London.js and others.
+- ⚠️ "Same evening: Is AI making us less creative?: An Oxford-style debate (126 going) at Granola, 468 m away."
+
+Presenter: "Every room here hosted real community events, and it warns you about a clash 450 metres away."
+
+> Call Demo Hall to check
+
+The bot confirms the venue, date and headcount, and asks "Shall I call them now?"
+
+> Yes
+
+API: "Calling now, usually under 2 minutes." The bot polls every 10 s.
+- **Virtual:** the Venue's phone rings on stage. The Venue answers on speaker. The assistant opens by saying it's an AI calling for C, and that the call is recorded. Venue says: "Yes, the main room's free that evening. It's free for community groups. You'd need to be out by half nine, and send a guest list 48 hours before." Optional: ask it "Are you a real person?"
+- **Scripted:** nothing rings; about 55 s later the result arrives. Narrate while it runs: "it says it's an AI, asks the date, headcount, price and conditions."
+
+Result (the API's summary, scripted run): "Demo Hall, Old Street is free Thu 29 Oct, 18:30–21:30: up to 120 people. Free for community tech events. Conditions: Guest list 48 hours before; everyone out by 21:30. Confirmed by Sam, events."
+
+Presenter: "That answer is saved against the venue. The next organiser who asks about that evening gets it without another call: max one call per venue per week."
+
+> Send them the request
+
+The bot shows a short draft and asks "Send it?"
+
+> Send it
+
+API: sent, with C in Reply-To and CC, if email is configured. Otherwise: "Email sending isn't configured on the server yet; kept as a draft." Say so plainly: "email goes out once we add the mail key; the draft is stored".
 
 Fallbacks:
-- The call card shows an old answer: the reset (step 2) was skipped. Say "someone already asked, so no second call" and move on.
-- "Couldn't start the call" or the card stalls → Operator plays the backup video; continue with **Draft request**.
-- Search error → retype with a station name ("near Old Street"); the parser falls back to Old Street anyway.
-- Running long → skip Draft request.
+- Virtual: no answer in 40 s → `no_answer` → "Send them the request".
+- The call fails, or the bot stops polling → "How did the call to Demo Hall go?" (the bot re-polls `/api/calls/<id>`). Still nothing → Operator plays the backup video, then "Send them the request".
+- The bot says it was called recently or reused → the reset was skipped; present it as "someone already asked, so no second call".
+- Demo Hall missing from the results → "Show me venues near Old Street for 80 that you can call".
 
-### 2:40–2:55 Beat 4: events (C's window, `/events`, then the calendar)
+### 2:40–2:55 Beat 4: events (C's chat, then the calendar)
 
-`/events` shows "London tech events, ranked", with the reasons as pills: hackathons on top (Agent Eval Harness, tonight's hackathon, Typelevel Open Source Hack, House London Data Hackathon), networking drinks at the bottom. Show **Subscribe in your calendar**, then the calendar app already subscribed.
+> What's on for builders in London this week?
 
-Presenter: "Hackathons above talks above networking. We hand-labelled all 60 events to check the ranking: 8 of the top 10 are ones a builder would want, and no filler."
+API order: Agent Eval Harness hackathon (Wed 4 Nov, 72 going), tonight's Grok Bot hackathon, Typelevel Open Source Hack, House London Data Hackathon… The reasons come with each ("Hackathon · Free · 72 going · Run by The Friendly Data Meetup London, 3 past events"), plus the `webcal://…/events.ics` link. Switch to the calendar app already subscribed.
+
+Presenter: "Hackathons above talks above networking. We hand-labelled all 60 events to check it: 8 of the top 10 are ones a builder wants, and no networking drinks."
 
 ### 2:55–3:00 Close
 
-> 143 venues and 389 hosted events as evidence, plus what leads added tonight. Open source; open data except contacts. Leads: post your venues tomorrow.
+> 143 venues and 389 hosted events as evidence, plus what leads added tonight. Open source, open data except contacts. Leads: post your venues tomorrow.
 
-(Replace with the live counts at 22:00 from the SQL in [judges.md](judges.md). Don't read "added tonight" off the home page: it counts every venue created in the last 12 hours, seeded ones included.)
-
-## Call modes
-
-- **scripted** (default for the demo): a written call through the same pipeline and UI. No phone, no voice model. Be upfront if asked: "this is the scripted mode; the live voice mode uses Grok's realtime voice".
-- **virtual** (only if `XAI_API_KEY` appears and works in rehearsal): run with `CALL_MODE=virtual` and open `https://<tunnel>/phone?key=<PHONE_KEY>` on the Venue's phone (needs HTTPS). On **Call to check**, that phone rings in the browser; the Venue answers and says: "Yes, the main room's free that evening. It's free for community groups. You'd need to be out by ten and send a guest list." If nobody answers within 40 s, the call becomes "No answer" → use **Draft request**. Switching modes needs a server restart, so pick one before 22:00.
-- **twilio**: needs Twilio keys and a number. Not available tonight.
-
-## Grok Bot
-
-The Grok Bot instructions and skills (branch `grok-bot`, `bot/`) call `/api/*` routes (join, vouch, venues/search, calls, requests, events). The roomline server doesn't serve `/api/*`, so the bot only works if those routes are deployed. Don't show or claim the bot on stage unless it was tested end to end against the deployed URL. If it was, swap beat 3's typing for the bot message "Space for 80 next Thursday near Old Street?" and keep the web app as the fallback.
+(Use the live numbers at 22:00: SQL in [judges.md](judges.md). `/api/stats` counts Demo Hall too.)
 
 ## If everything is down
 

@@ -115,17 +115,19 @@ export async function setupDemo(cfg: DemoConfig): Promise<DemoIds> {
         name = excluded.name, address = excluded.address, area = excluded.area, location = excluded.location,
         kind = excluded.kind, capacity = excluded.capacity, av = excluded.av, evening_ok = excluded.evening_ok,
         weekend_ok = excluded.weekend_ok, terms = excluded.terms, ok_to_call = excluded.ok_to_call,
-        notes = excluded.notes, created_by = excluded.created_by, junk_at = null`;
+        notes = excluded.notes, created_by = excluded.created_by, price_note = null, junk_at = null`;
   });
   await sql`
     insert into venue_contacts (venue_id, contact_name, email, phone) values (${DEMO_VENUE_ID}, ${v.contactName}, ${v.email}, ${v.phone})
     on conflict (venue_id) do update set contact_name = excluded.contact_name, email = excluded.email, phone = excluded.phone, updated_at = now()`;
 
-  // Start state: no rehearsal calls, answers, requests or junk reports on the demo venue.
+  // Start state: no rehearsal calls, answers, requests, junk reports or confirmations on the demo venue.
   await sql`delete from availability where venue_id = ${DEMO_VENUE_ID}`;
   await sql`delete from calls where venue_id = ${DEMO_VENUE_ID}`;
   await sql`delete from requests where venue_id = ${DEMO_VENUE_ID}`;
   await sql`delete from venue_reports where venue_id = ${DEMO_VENUE_ID}`;
+  // A rehearsal call re-confirms fields as the caller; keep only the poster's provenance.
+  await sql`delete from field_log where venue_id = ${DEMO_VENUE_ID} and by_profile is distinct from ${b}`;
 
   return { roots, a, b, c, venue: DEMO_VENUE_ID };
 }

@@ -51,6 +51,7 @@ describe("demo setup", () => {
     await sql`insert into vouches (voucher_id, vouchee_id) values (${first.b}, ${first.c})`;
     const [call] = await sql`insert into calls (venue_id, starts_at, ends_at, headcount, status) values (${DEMO_VENUE_ID}, ${THU.starts}, ${THU.ends}, 80, 'completed') returning id`;
     await sql`insert into availability (venue_id, starts_at, ends_at, status, source, call_id) values (${DEMO_VENUE_ID}, ${THU.starts}, ${THU.ends}, 'available', 'call', ${call!.id})`;
+    await asUser(first.c, (tx) => tx`select confirm_venue_fields(${DEMO_VENUE_ID}, ${["capacity"]}, 'call')`);
 
     const second = await setupDemo({ ...cfg, password: null }); // existing accounts don't need the password again
     assert.deepEqual(second, first);
@@ -60,6 +61,8 @@ describe("demo setup", () => {
     assert.equal(await canPost(first.c), false);
     assert.equal((await sql`select count(*)::int as n from calls`)[0]!.n, 0);
     assert.equal((await sql`select count(*)::int as n from availability`)[0]!.n, 0);
+    const [log] = await sql`select confirmed_by from venue_field_status where venue_id = ${DEMO_VENUE_ID} and field = 'capacity'`;
+    assert.equal(log!.confirmed_by, "Lead B");
   });
 
   test("an existing account keeps its community when the env gives none", async () => {
