@@ -22,7 +22,8 @@ function script(c: CallContext): Turn[] {
   ];
 }
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+// SCRIPTED_PACE scales every pause (0 = instant, for tests).
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms * Number(process.env.SCRIPTED_PACE ?? 1)));
 
 export async function runScriptedCall(callId: string) {
   const c = await loadCall(callId);
@@ -51,6 +52,7 @@ export async function runScriptedCall(callId: string) {
     emitCall(callId, { type: "transcript", id, who: turn.who, text: turn.text, final: true });
     await appendTranscript(callId, { id, who: turn.who, text: turn.text });
     if (i === 7) {
+      // A rehearsal must not overwrite real venue facts: only the availability row and call result are written.
       await saveCallResult(c, {
         status: "available",
         start_time: null,
@@ -62,7 +64,7 @@ export async function runScriptedCall(callId: string) {
         contact_role: "events",
         next_step: "Email the events inbox with the date and headcount",
         alternative: null
-      });
+      }, { updateVenue: false });
     }
     await sleep(turn.who === "agent" ? 700 : 500);
   }

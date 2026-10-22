@@ -11,8 +11,13 @@ import { formatWindow } from "./time";
  * - "virtual" (default): rings the in-browser phone at /phone; Grok voice talks live.
  * - "twilio": dials the venue's real number.
  * - "scripted": plays a written conversation (no phone, no voice model).
+ * Virtual mode needs XAI_API_KEY; without it calls fall back to scripted.
  */
-export const callMode = () => (process.env.CALL_MODE ?? "virtual") as "virtual" | "twilio" | "scripted";
+export function callMode(): "virtual" | "twilio" | "scripted" {
+  const mode = process.env.CALL_MODE ?? "virtual";
+  if (mode === "twilio" || mode === "scripted") return mode;
+  return process.env.XAI_API_KEY ? "virtual" : "scripted";
+}
 
 export type RingEvent = { type: "ring"; callId: string; token: string; venue: string; organiser: string; when: string } | { type: "cancel"; callId: string };
 
@@ -20,10 +25,15 @@ export async function placeCall(callId: string) {
   const mode = callMode();
   if (mode === "twilio") {
     const ctx = await loadCall(callId);
-    if (!ctx?.phone) throw new Error("no phone");
+    const missing = !ctx?.phone ? "no phone" : !process.env.XAI_API_KEY ? "XAI_API_KEY is not set" : null;
+    if (missing) {
+      await sql`update calls set error = ${missing} where id = ${callId}`;
+      await setCallStatus(callId, "failed");
+      throw new Error(missing);
+    }
     await setCallStatus(callId, "dialing");
     try {
-      const sid = await dial(callId, ctx.phone);
+      const sid = await dial(callId, ctx!.phone!);
       await sql`update calls set twilio_sid = ${sid} where id = ${callId}`;
     } catch (e) {
       await sql`update calls set error = ${(e as Error).message} where id = ${callId}`;
@@ -33,7 +43,11 @@ export async function placeCall(callId: string) {
     return;
   }
   if (mode === "scripted") {
-    void runScriptedCall(callId);
+    runScriptedCall(callId).catch(async (e) => {
+      console.error(`[call ${callId}] scripted`, e);
+      await sql`update calls set error = ${(e as Error).message} where id = ${callId}`.catch(() => {});
+      await setCallStatus(callId, "failed").catch(() => {});
+    });
     return;
   }
   await ringVirtualLine(callId);
