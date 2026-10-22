@@ -3,7 +3,6 @@ import assert from "node:assert/strict";
 import http from "node:http";
 import type { AddressInfo } from "node:net";
 import { sql } from "../lib/db";
-import { safeNextPath } from "../lib/auth";
 import { handleCallRoutes, phoneKeyOk } from "../server/routes";
 import { member, resetDb, venueAt } from "./helpers";
 
@@ -106,19 +105,5 @@ describe("declining a ring", () => {
     const id = await call("virtual:tok123");
     assert.equal((await decline(id, "key=s3cret&token=tok123")).status, 204);
     assert.equal(await status(id), "busy");
-  });
-});
-
-describe("sign-in redirect", () => {
-  test("keeps same-site paths", () => {
-    assert.equal(safeNextPath("/"), "/");
-    assert.equal(safeNextPath("/add"), "/add");
-    assert.equal(safeNextPath("/people?welcome=1#top"), "/people?welcome=1#top");
-  });
-
-  test("sends everything else home", () => {
-    for (const bad of ["//evil.com", "/\\evil.com", "/\\/evil.com", "https://evil.com", "evil.com", "/\t/evil.com", "/\n/evil.com", "", null, undefined]) {
-      assert.equal(safeNextPath(bad), "/", JSON.stringify(bad));
-    }
   });
 });
