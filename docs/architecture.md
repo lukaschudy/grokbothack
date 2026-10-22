@@ -15,7 +15,7 @@ Code freeze 21:50. Everything below is sized for ~2 hours.
                    ▼
               Supabase (Postgres + PostGIS)      Resend (request emails)
                    ▲
- Ingest script ────┘  Luma, Meetup, Devpost, BuilderBase → venues, events, communities
+ fetch-sources + seed ┘  Luma, Meetup, Devpost, BuilderBase → venues, hosts, events
 ```
 
 ## Why this shape
@@ -28,17 +28,9 @@ Code freeze 21:50. Everything below is sized for ~2 hours.
 
 ## Database
 
-[`supabase/schema.sql`](../supabase/schema.sql). Tested on Postgres 15 + PostGIS 3.3.
+Live schema: `db/migrations/` on the `data-sources` branch, applied to Supabase. Main tables: `profiles`, `vouches`, `venues`, `venue_contacts` (members only), `venue_hosts` (past events as evidence), `field_log` / `venue_field_status` (who set or confirmed each field), `availability`, `calls`, `requests`, `events`. Functions: `search_venues`, `event_clashes`, `can_post`, `can_vouch`, `request_call`, `report_junk`.
 
-| Table | Public read | Notes |
-|---|---|---|
-| `venues` | yes | `location geography`, `kind`, `terms`, `callable`, `verified` |
-| `venue_contacts` | no | name, email, phone; backend only |
-| `organisers`, `vouches` | no | token hash; `is_approved(org, threshold)` |
-| `communities`, `events` | yes | events carry `score` + `reasons[]` |
-| `calls`, `requests`, `flags` | no | 2 flags hide a venue from search |
-
-`search_venues(lat, lng, radius_m, min_capacity, at)` returns free-first, then verified, then nearest. Capacity counts the biggest past turnout as evidence. `clash` = an event already listed there that London day.
+Loaded 22 Oct: 153 venues, 389 past-host records, 60 ranked events.
 
 ## API
 
@@ -70,13 +62,10 @@ Start from the xAI cookbook's Twilio example (inbound); outbound is the one REST
 
 ## Ingest
 
-`npm run ingest`, rerun any time. Caches raw responses in `data/raw/`.
+On `data-sources` + `seed-loader`:
 
-1. Luma discover (all pages), Meetup, Devpost (ended since 2024 + upcoming), BuilderBase.
-2. Keep London only: lat/lng inside the London box or country GB. Drop online.
-3. Venues: dedupe on Google `place_id`, then on normalised name + postcode. Seeded venues are `verified = false`.
-4. Communities from Luma calendars. Pull each calendar's `.ics` for past venues (stretch).
-5. Score events: kind (hackathon 3, talk 2, networking 1) + log turnout + host history − online − paid. Store reasons.
+1. `npx tsx scripts/fetch-sources.ts`: Luma discover + calendar history, Meetup find + group history, Devpost, BuilderBase → `data/seed/venues.json` (venues seen hosting, with evidence) and `data/seed/events.json` (next 3 weeks, ranked with reasons).
+2. `npm run db:seed`: loads both over Supabase REST with the secret key. Re-runnable: existing venues are never overwritten; events are refreshed.
 
 ## Grok Bot
 

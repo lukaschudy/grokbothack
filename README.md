@@ -68,17 +68,14 @@ See [docs/architecture.md](docs/architecture.md) for the system design and [docs
 
 ## Run
 
-Needs Node 23.6+ and `psql`.
+Code lives on the `data-sources` branch (loader on `seed-loader`) until merged.
 
 ```sh
 npm install
-npm test
-npm run ingest                      # fetch all sources → data/seed.sql (raw cache in data/raw/)
-psql "$SUPABASE_DB_URL" -f supabase/schema.sql   # once, on an empty project
-npm run ingest -- --cached --apply  # load data/seed.sql into SUPABASE_DB_URL
+npm run db:migrate                  # DATABASE_URL
+npx tsx scripts/fetch-sources.ts    # → data/seed/venues.json, events.json
+npm run db:seed                     # SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY (sb_secret_)
 ```
-
-`.env` holds `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_DB_URL` (never committed).
 
 ## License
 
