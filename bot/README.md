@@ -5,7 +5,7 @@ Grok Bot is the interface. Every organiser gets their own copy of the bot from o
 ## Set up (owner, once)
 
 1. In the Grok Bot app, create a Bot named **Mates Rates**.
-2. Paste [instructions.md](instructions.md) as its description/instructions. Replace `https://a01300c2f47eea86-32-195-146-152.serveousercontent.com` with the public API URL.
+2. Paste [instructions.md](instructions.md) as its description/instructions. Replace `https://nrzgvkrbfn3ptoms2ckm4ni6ly.srv.us` with the public API URL.
 3. Add each file in [skills/](skills/) as a skill.
 4. Test the demo script below in your own chat.
 5. Share → **Create template** → **Public link**. Put that link in the server's `GROK_BOT_SHARE_URL` so the landing page's "Open in Grok Bot" button uses it.
