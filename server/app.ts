@@ -81,7 +81,7 @@ const uuid = z.uuid();
 
 /** UK-friendly phone → E.164. "07700 900123" → "+447700900123". */
 export function toE164(raw: string): string | null {
-  let s = raw.replace(/[\s\-().]/g, "");
+  let s = raw.replace(/\(0\)/g, "").replace(/[\s\-().]/g, "");
   if (s.startsWith("00")) s = `+${s.slice(2)}`;
   else if (/^0\d{9,10}$/.test(s)) s = `+44${s.slice(1)}`;
   else if (/^44\d{9,10}$/.test(s)) s = `+${s}`;
