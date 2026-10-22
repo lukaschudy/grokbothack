@@ -1,6 +1,6 @@
 # Judges' crib sheet
 
-Numbers are from `data/seed/*.json` loaded into Postgres on 22 Oct 2026 (the same files the live Supabase was seeded from). Refresh before the demo with `curl -s $PUBLIC_URL/api/stats` and add what leads entered tonight:
+Numbers are from `data/seed/*.json` loaded into Postgres on 22 Oct 2026 (the same files the live Supabase was seeded from). Refresh before the demo with `curl -s $PUBLIC_URL/api/stats` (its venue count includes the demo venue, so subtract 1) and add what leads entered tonight:
 
 ```sql
 select count(*) from venues where created_at::date = '2026-10-22' and created_by is not null;  -- venues entered tonight by people

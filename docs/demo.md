@@ -117,7 +117,7 @@ Should appear: "Sent to Demo Hall. Replies go to <C's email>, and you're CC'd." 
 Presenter: "Next organiser who asks about that Thursday gets this answer without another call: max one call per venue per week."
 
 Fallbacks:
-- No answer / voicemail / busy → bot reports `no_answer` and offers the email → "Send them the request" → continue as above. Say: "No answer, so it emails instead."
+- No answer / voicemail / busy / `failed` → bot reports it and offers the email → "Send them the request" → continue as above. Say: "No answer, so it emails instead."
 - Phone doesn't ring within 15 s (Twilio, tunnel or xAI down) → Operator plays the backup video of the rehearsal call; Presenter: "here's the call we recorded an hour ago", then "Send them the request".
 - Bot says the venue was "called recently" → the reset in step 2 was skipped; show the reused answer ("one call answers every organiser") and move on.
 - Demo Hall not in the top 3 → "Show me Demo Hall" or skip to the request on any listed venue.
@@ -140,7 +140,7 @@ Fallback: bot slow → open `<PUBLIC_URL>/api/events?limit=10` or the landing pa
 
 > 153 venues and 389 hosted events as evidence, plus what leads added tonight. Open source, open data except contacts. Three leads, post your venues tomorrow.
 
-(Replace the numbers with `GET /api/stats` at 22:00; see [judges.md](judges.md).)
+(Replace the numbers with `GET /api/stats` at 22:00, minus 1 venue for Demo Hall; see [judges.md](judges.md).)
 
 ## If everything is down
 
