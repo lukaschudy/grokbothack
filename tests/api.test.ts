@@ -185,7 +185,7 @@ describe("venues", () => {
 
     const again = await api("PATCH", `/api/venues/${id}`, { token: root, body: { capacity: 120 } });
     assert.deepEqual(again.json.confirmed, ["capacity"]);
-    const [{ n }] = await sql`select count(*)::int as n from field_log where venue_id = ${id} and field = 'capacity'`;
+    const { n } = (await sql<{ n: number }[]>`select count(*)::int as n from field_log where venue_id = ${id} and field = 'capacity'`)[0]!;
     assert.equal(n, 2);
 
     const stranger = await join("Stranger");

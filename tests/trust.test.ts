@@ -34,7 +34,7 @@ describe("posting needs a vouch", () => {
     await postVenue(b, "B Hall");
     await vouch(b, c);
     await postVenue(c, "C Hall");
-    const [{ count }] = await sql<{ count: string }[]>`select count(*) from venues`;
+    const { count } = (await sql<{ count: string }[]>`select count(*) from venues`)[0]!;
     assert.equal(Number(count), 3);
   });
 
@@ -76,7 +76,7 @@ describe("junk costs the poster and their vouchers", () => {
     await vouch(b, c);
     const [junk] = await postVenue(c, "Totally Real Venue");
 
-    const [{ report_junk: res }] = await asUser(root, (tx) => tx`select report_junk(${junk!.id}, 'fake')`);
+    const { report_junk: res } = (await asUser(root, (tx) => tx`select report_junk(${junk!.id}, 'fake')`))[0]!;
     assert.equal(res.junk, true);
 
     const visible = await asUser(null, (tx) => tx`select id from venues where id = ${junk!.id}`);
@@ -91,9 +91,9 @@ describe("junk costs the poster and their vouchers", () => {
     const [b, c, poster] = [await member("B"), await member("C"), await member("P")];
     for (const m of [b, c, poster]) await vouch(root, m);
     const [v] = await postVenue(poster);
-    const [{ report_junk: first }] = await asUser(b, (tx) => tx`select report_junk(${v!.id})`);
+    const { report_junk: first } = (await asUser(b, (tx) => tx`select report_junk(${v!.id})`))[0]!;
     assert.equal(first.junk, false);
-    const [{ report_junk: second }] = await asUser(c, (tx) => tx`select report_junk(${v!.id})`);
+    const { report_junk: second } = (await asUser(c, (tx) => tx`select report_junk(${v!.id})`))[0]!;
     assert.equal(second.junk, true);
   });
 });
