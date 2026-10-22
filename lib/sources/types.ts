@@ -139,7 +139,7 @@ export function hash(s: string): string {
 }
 
 // Neighbourhood centroids, used to label a venue's area.
-const AREAS: [string, number, number][] = [
+export const AREAS: [string, number, number][] = [
   ["Shoreditch", 51.5262, -0.0794], ["Old Street", 51.5257, -0.0875], ["Hoxton", 51.5317, -0.0817],
   ["Clerkenwell", 51.5235, -0.1055], ["Farringdon", 51.5203, -0.1053], ["King's Cross", 51.5308, -0.1238],
   ["Euston", 51.5282, -0.1337], ["Bloomsbury", 51.5219, -0.1270], ["Fitzrovia", 51.5194, -0.1384],
