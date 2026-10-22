@@ -62,3 +62,13 @@ export async function signIn(email: string, password: string): Promise<string | 
   if (!row) return null;
   return (await verifyPassword(password, row.password_hash)) ? row.id : null;
 }
+
+/**
+ * Where to send someone after signing in: a same-site path only. Rejects
+ * "//evil.com", "/\\evil.com" and control characters (browsers strip tabs and
+ * newlines, so "/\t/evil.com" would become "//evil.com").
+ */
+export function safeNextPath(next: unknown): string {
+  const s = typeof next === "string" ? next : "";
+  return /^\/(?![/\\])[^\\\x00-\x1f\x7f]*$/.test(s) ? s : "/";
+}

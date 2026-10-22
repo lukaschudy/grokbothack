@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { createAccount, signIn, signSession } from "@/lib/auth";
+import { createAccount, safeNextPath, signIn, signSession } from "@/lib/auth";
 import { asUser, sql } from "@/lib/db";
 import { currentMember, currentUid, SESSION_COOKIE } from "@/lib/session";
 import { searchVenues, type SearchResult } from "@/lib/search";
@@ -25,7 +25,7 @@ export async function signInAction(_: FormState, form: FormData): Promise<FormSt
   const uid = await signIn(String(form.get("email") ?? ""), String(form.get("password") ?? ""));
   if (!uid) return { error: "That email and password don't match." };
   await setSession(uid);
-  redirect(String(form.get("next") || "/"));
+  redirect(safeNextPath(form.get("next")));
 }
 
 export async function signUpAction(_: FormState, form: FormData): Promise<FormState> {

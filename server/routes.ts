@@ -1,3 +1,4 @@
+import { createHash, timingSafeEqual } from "node:crypto";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { asUser, sql } from "../lib/db";
 import { bus, type CallEvent } from "../lib/bus";
@@ -7,7 +8,18 @@ import { publicUrl, validTwilioSignature } from "../lib/twilio";
 import { prewarm } from "./bridge";
 import { currentlyRinging, type RingEvent } from "../lib/dialer";
 
-export const phoneKeyOk = (url: URL) => !process.env.PHONE_KEY || url.searchParams.get("key") === process.env.PHONE_KEY;
+const sha256 = (s: string) => createHash("sha256").update(s).digest();
+/** Constant-time string compare (hashing first hides the length). */
+export const sameSecret = (given: string, expected: string) => timingSafeEqual(sha256(given), sha256(expected));
+
+/** The browser phone line needs ?key=PHONE_KEY. Without PHONE_KEY it's open in dev and closed in production. */
+export function phoneKeyOk(url: URL): boolean {
+  const expected = process.env.PHONE_KEY;
+  if (!expected) return process.env.NODE_ENV !== "production";
+  return sameSecret(url.searchParams.get("key") ?? "", expected);
+}
+
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 const TWILIO_STATUS: Record<string, string> = {
   queued: "dialing", initiated: "dialing", ringing: "ringing", "in-progress": "in_progress",
@@ -99,9 +111,15 @@ export async function handleCallRoutes(req: IncomingMessage, res: ServerResponse
   }
 
   if (a === "phone" && b === "decline" && id && req.method === "POST") {
-    if (!phoneKeyOk(url)) { res.writeHead(403).end(); return true; }
-    const [row] = await sql<{ status: string }[]>`select status from calls where id = ${id}`;
-    if (row && ["ringing", "dialing"].includes(row.status)) {
+    // Only the browser phone that was rung (it holds the ring token) can decline, and only virtual calls.
+    const token = url.searchParams.get("token") ?? "";
+    if (!phoneKeyOk(url) || !token || !UUID.test(id)) { res.writeHead(403).end(); return true; }
+    const [row] = await sql<{ status: string; twilio_sid: string | null }[]>`select status, twilio_sid from calls where id = ${id}`;
+    if (!row?.twilio_sid?.startsWith("virtual:") || !sameSecret(token, row.twilio_sid.slice("virtual:".length))) {
+      res.writeHead(403).end();
+      return true;
+    }
+    if (["ringing", "dialing"].includes(row.status)) {
       await setCallStatus(id, "busy");
       bus.emit("phone", { type: "cancel", callId: id });
     }

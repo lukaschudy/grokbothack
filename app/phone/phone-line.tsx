@@ -198,7 +198,7 @@ export function PhoneLine({ lineName, offline = null }: { lineName: string; offl
 
   const decline = async () => {
     if (!ring) return;
-    await fetch(`/phone/decline/${ring.callId}?key=${encodeURIComponent(key)}`, { method: "POST" });
+    await fetch(`/phone/decline/${ring.callId}?key=${encodeURIComponent(key)}&token=${encodeURIComponent(ring.token)}`, { method: "POST" });
     setState("idle");
   };
 
