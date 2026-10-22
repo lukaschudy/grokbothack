@@ -78,7 +78,7 @@ async function ensureAccount(p: Person, password: string | null): Promise<string
     select id from profiles where lower(display_name) = lower(${p.name}) and id is distinct from ${own?.id ?? null}`;
   if (clash) throw new Error(`Another account is already called "${p.name}"; pick a different demo name`);
   if (own) {
-    await sql`update profiles set display_name = ${p.name}, community = ${p.community}, banned_at = null, vouch_revoked_at = null
+    await sql`update profiles set display_name = ${p.name}, community = coalesce(${p.community}, community), banned_at = null, vouch_revoked_at = null
               where id = ${own.id}`;
     return own.id;
   }

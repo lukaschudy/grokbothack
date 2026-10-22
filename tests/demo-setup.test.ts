@@ -62,6 +62,13 @@ describe("demo setup", () => {
     assert.equal((await sql`select count(*)::int as n from availability`)[0]!.n, 0);
   });
 
+  test("an existing account keeps its community when the env gives none", async () => {
+    const id = await setupDemo(demoConfig(env));
+    await sql`update profiles set community = 'London.js' where id = ${id.roots[0]!}`;
+    await setupDemo(demoConfig(env));
+    assert.equal((await sql`select community from profiles where id = ${id.roots[0]!}`)[0]!.community, "London.js");
+  });
+
   test("refuses to take over someone else's display name", async () => {
     await setupDemo(demoConfig(env));
     await assert.rejects(setupDemo(demoConfig({ ...env, DEMO_C: "Lead A|X|other@example.com", DEMO_A: "New A" })), /already called "Lead A"/);
