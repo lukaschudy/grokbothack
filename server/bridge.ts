@@ -10,7 +10,7 @@ import { hangUp } from "../lib/twilio";
 import { extractResultFromTranscript } from "../lib/grok";
 
 const XAI_URL = `${process.env.XAI_REALTIME_URL ?? "wss://api.x.ai/v1/realtime"}?model=${process.env.XAI_VOICE_MODEL ?? "grok-voice-latest"}`;
-const VOICE = process.env.XAI_VOICE ?? "eve";
+const VOICE = process.env.XAI_VOICE ?? "leo"; // Grok's British voice (README: calling script)
 const BYTES_PER_100MS = 800; // μ-law 8 kHz
 
 type Session = {

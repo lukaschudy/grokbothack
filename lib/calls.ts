@@ -43,9 +43,10 @@ const TERMS: Record<string, string> = {
   unknown: "of unknown cost"
 };
 
+/** Opener from the README's calling script, then the AI and recording disclosure. */
 export function openingLine(c: CallContext): string {
-  const who = c.community ? `${c.organiser} from ${c.community}` : c.organiser;
-  return `Hi there, this is Roomline, an AI assistant calling on behalf of ${who}. Just so you know, this call is recorded. Have you got a quick minute to check whether a room's free next week?`;
+  const who = c.community ? `${c.organiser}, ${c.community}` : c.organiser;
+  return `Hi, I'm an assistant calling on behalf of ${who}. Just so you know, I'm an AI and this call is recorded. Have you got a quick minute to check whether a room's free?`;
 }
 
 export function agentInstructions(c: CallContext): string {
@@ -53,13 +54,13 @@ export function agentInstructions(c: CallContext): string {
   const from = spokenTime(c.starts_at);
   const to = spokenTime(c.ends_at);
   return `# Role
-You are Roomline, an AI phone assistant for London tech community organisers. You are on a live outbound phone call to ${c.venue_name}. Speak British English: warm, brisk and brief, like a good events coordinator.
+You are Roomline, an AI phone assistant for London tech community organisers. You are on a live outbound phone call to ${c.venue_name}. Speak with a natural London accent and British English: warm, brisk and brief, like a good events coordinator.
 
 # Context
 - You are calling on behalf of ${c.organiser}${c.community ? `, who runs ${c.community}` : ""}.
 - They want to host ${c.event_title ? `"${c.event_title}"` : "a community tech meetup"} for about ${c.headcount} people on ${day}, from ${from} to ${to}.
 - ${c.venue_name}${c.address ? ` is at ${c.address}. ` : ". "}Our records say it holds about ${c.capacity ?? "an unknown number of"} people and is ${TERMS[c.terms] ?? "of unknown cost"}.
-- You have already said you are an AI assistant and that the call is recorded. Don't repeat it unless asked.
+- You have already introduced yourself, said you are an AI and that the call is recorded. Don't repeat it unless asked.
 
 # Goal
 Find out, in under two minutes:
@@ -76,6 +77,7 @@ If it isn't free, ask once whether another evening that week works, and note it.
 - Never invent details about the event. If you don't know something, say ${c.organiser} will follow up by email.
 
 # Rules
+- Never claim to be human. If anyone asks whether you're a person or a bot, say you're an AI assistant calling for ${c.organiser}.
 - Don't book, pay or commit to anything. You are only checking availability.
 - Don't share phone numbers or email addresses.
 - If you reach voicemail or an automated menu you can't get through, call end_call straight away without leaving a message.
@@ -176,7 +178,8 @@ export async function appendTranscript(callId: string, line: { id: string; who: 
  * Write the call's answer back as a dated availability record and confirm the
  * venue facts the call touched, attributed to the organiser who asked.
  */
-export async function saveCallResult(c: CallContext, result: CallResult): Promise<CallResult> {
+export async function saveCallResult(c: CallContext, result: CallResult, opts: { updateVenue?: boolean } = {}): Promise<CallResult> {
+  const updateVenue = opts.updateVenue ?? true;
   const day = londonDate(c.starts_at);
   const starts = result.start_time ? londonToUtc(day, result.start_time) : c.starts_at;
   let ends = result.end_time ? londonToUtc(day, result.end_time) : c.ends_at;
@@ -191,12 +194,12 @@ export async function saveCallResult(c: CallContext, result: CallResult): Promis
       insert into availability (venue_id, starts_at, ends_at, status, conditions, price_note, confirmed_by_name, source, call_id, recorded_by)
       values (${c.venue_id}, ${starts}, ${ends}, ${result.status}, ${conditions}, ${result.price}, ${confirmedBy}, 'call', ${c.id}, ${c.requested_by})
       returning id, created_at`;
-    if (result.max_people && result.max_people !== c.capacity) {
+    if (updateVenue && result.max_people && result.max_people !== c.capacity) {
       await tx`update venues set capacity = ${result.max_people} where id = ${c.venue_id}`;
-    } else if (result.max_people) {
+    } else if (updateVenue && result.max_people) {
       await tx`select confirm_venue_fields(${c.venue_id}, array['capacity'], 'call')`;
     }
-    if (result.price) await tx`update venues set price_note = ${result.price} where id = ${c.venue_id}`;
+    if (updateVenue && result.price) await tx`update venues set price_note = ${result.price} where id = ${c.venue_id}`;
     const full: CallResult = { ...result, availability_id: row!.id, recorded_at: row!.created_at.toISOString() };
     await tx`update calls set result = ${tx.json(full)} where id = ${c.id}`;
     return full;
