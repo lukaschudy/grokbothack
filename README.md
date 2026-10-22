@@ -22,12 +22,13 @@ Track 4 (Venues, communities, events) at the Grok Bot Community Engineering Lond
 3. **Grok Bot agent** (the interface): "free space for 80 next Thursday near Old Street" → structured PostGIS query → top 3 with reasons, past hosts and clash warnings → calls to check availability → sends the request.
 4. **Events feed**: Luma + Meetup + Devpost + BuilderBase → ranked with visible reasons → `.ics` feed.
 5. **Calling**: Grok realtime voice over Twilio. Only for bookable venues the poster marked as OK to call. Every call is written back as a dated availability record.
-6. **Website**: landing page with an "Open in Grok Bot" link and the `.ics` subscribe link. No separate web app.
+6. **Website**: one landing screen with an "Open in Grok Bot" button and the `.ics` subscribe link. No dashboard: no search, venue, people or sign-in pages. The only other web pages are `/phone` (the venue's end of a virtual call) and the APIs.
 
 **Cut:** LinkedIn/X host scraping, outreach CRM, Notion view, Overture/OSM seeding.
 
 ## Product rules
 
+- Grok Bot is the only interface. Everything an organiser does (find, add, vouch, call, request, events) happens in the chat.
 - Public and open source: code and all data except contacts.
 - Contacts (names, phones, emails) are stored but never displayed or exported. Only the agent reads them, to call and send requests. Enforced by RLS: public reads can't touch the contacts table.
 - Tech and builder communities only.
