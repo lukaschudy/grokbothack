@@ -1,5 +1,5 @@
 import { signIn, signSession } from "@/lib/auth";
-import { HttpError, json, preflight, readJson, route, str } from "../_lib/http";
+import { HttpError, json, preflight, readJson, route, str } from "@/lib/api";
 
 export const OPTIONS = preflight;
 

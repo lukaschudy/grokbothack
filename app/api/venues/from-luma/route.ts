@@ -2,7 +2,7 @@ import { asUser, sql } from "@/lib/db";
 import { LumaVenueHiddenError, type ResolvedLumaEvent } from "@/lib/sources/luma";
 import { areaFor, isInLondon, londonDate } from "@/lib/sources/types";
 import { guessKind } from "@/scripts/fetch-sources";
-import { deps, HttpError, json, preflight, readJson, requirePoster, requireUser, route, str, venueView } from "../../_lib/http";
+import { deps, HttpError, json, preflight, readJson, requirePoster, requireUser, route, str, venueView } from "@/lib/api";
 
 export const OPTIONS = preflight;
 

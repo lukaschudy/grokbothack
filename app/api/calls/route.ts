@@ -1,7 +1,6 @@
 import { asUser, sql } from "@/lib/db";
 import { formatWindow } from "@/lib/time";
-import { deps, int, json, preflight, readJson, requireUser, route, str, timeWindow, uuid } from "../_lib/http";
-import { callView } from "../_lib/calls";
+import { callView, deps, int, json, preflight, readJson, requireUser, route, str, timeWindow, uuid } from "@/lib/api";
 
 export const OPTIONS = preflight;
 
@@ -29,10 +28,10 @@ export const POST = route(async (req) => {
   if (r.outcome === "reused") {
     const [a] = await sql<{ status: string; conditions: string | null; price_note: string | null; confirmed_by_name: string | null; created_at: Date }[]>`
       select status, conditions, price_note, confirmed_by_name, created_at from availability where id = ${r.availability_id!}`;
-    return json({
-      call_id: r.call_id, outcome: "reused", availability: a ?? null, when: formatWindow(start, end),
-      message: a ? `Already checked by phone ${a.created_at.toISOString().slice(0, 10)}: ${a.status}${a.conditions ? ` (${a.conditions})` : ""}. No new call needed.` : "Recently checked."
-    });
+    const message = a
+      ? `Already checked by phone ${a.created_at.toISOString().slice(0, 10)}: ${a.status}${a.conditions ? ` (${a.conditions})` : ""}${a.price_note ? `. ${a.price_note}` : ""}. No new call needed.`
+      : "Recently checked.";
+    return json({ call_id: r.call_id, outcome: "reused", done: true, availability: a ?? null, when: formatWindow(start, end), summary: message, message });
   }
   const call = await callView(uid, r.call_id!);
   return json({
