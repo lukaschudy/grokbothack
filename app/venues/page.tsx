@@ -42,7 +42,7 @@ export default async function Venues({ searchParams }: { searchParams: Promise<{
                   {v.hosts ? ` · ${v.hosts} past event${v.hosts === 1 ? "" : "s"}` : ""}{v.communities.length ? ` (${v.communities.join(", ")})` : ""}
                 </p>
               </div>
-              <span className="pill soft">{v.poster ? `Posted by ${v.poster}` : "Seeded from events"}</span>
+              <span className="side">{v.poster ? `Posted by ${v.poster}` : "Seeded from events"}</span>
             </Link>
           ))}
         </div>

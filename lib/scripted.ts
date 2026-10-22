@@ -8,16 +8,16 @@ type Turn = { who: "agent" | "venue"; text: string };
 
 function script(c: CallContext): Turn[] {
   const contact = process.env.SCRIPTED_CONTACT ?? "Sam";
+  const first = c.organiser.split(" ")[0];
+  const fits = Math.max(c.capacity ?? 0, c.headcount + 40);
   return [
     { who: "agent", text: openingLine(c) },
-    { who: "venue", text: `Hi, yes, ${contact} here, I look after events. Go ahead.` },
-    { who: "agent", text: `Thanks ${contact}. Is your main space free on ${spokenDay(c.starts_at)}, from ${spokenTime(c.starts_at)} to ${spokenTime(c.ends_at)}, for about ${c.headcount} people?` },
-    { who: "venue", text: `Let me look. Yes, the main room's free that evening. It takes about ${Math.max(c.capacity ?? 0, c.headcount + 40)} standing, so ${c.headcount} is fine.` },
-    { who: "agent", text: "Great. Is it free for community events, or is there a charge?" },
-    { who: "venue", text: "Free for community tech events. We just need the guest list 48 hours before, and everyone out by half nine." },
-    { who: "agent", text: `Perfect. Who should ${c.organiser} send the booking to?` },
-    { who: "venue", text: "Email the events inbox with the date and headcount and I'll pencil you in." },
-    { who: "agent", text: `Brilliant, thanks ${contact}. ${c.organiser} will be in touch by email today. Have a good evening, bye.` },
+    { who: "venue", text: `Sure, ${contact} here, I run events. Go ahead.` },
+    { who: "agent", text: `Is your main room free ${spokenDay(c.starts_at)}, from ${spokenTime(c.starts_at)} to ${spokenTime(c.ends_at)}, for about ${c.headcount} people?` },
+    { who: "venue", text: `Yes, that evening's free. It takes ${fits} standing, so ${c.headcount}'s fine.` },
+    { who: "agent", text: "Great. Is there a charge for community events?" },
+    { who: "venue", text: "No, it's free for tech meetups. We need the guest list 48 hours before, and everyone out by half nine." },
+    { who: "agent", text: `Perfect, I've noted that. ${first} will email you today. Thanks ${contact}, bye!` },
     { who: "venue", text: "Cheers, bye." }
   ];
 }
@@ -28,9 +28,9 @@ export async function runScriptedCall(callId: string) {
   const c = await loadCall(callId);
   if (!c) return;
   await setCallStatus(callId, "dialing");
-  await sleep(1200);
+  await sleep(900);
   await setCallStatus(callId, "ringing");
-  await sleep(3500);
+  await sleep(2600);
   await setCallStatus(callId, "in_progress");
   await sleep(600);
 
@@ -38,7 +38,7 @@ export async function runScriptedCall(callId: string) {
   for (const [i, turn] of turns.entries()) {
     const id = `s${i}`;
     const words = turn.text.split(" ");
-    const msPerWord = turn.who === "agent" ? 290 : 320;
+    const msPerWord = turn.who === "agent" ? 230 : 250;
     let shown = "";
     for (const [w, word] of words.entries()) {
       shown = w === 0 ? word : `${shown} ${word}`;
@@ -50,13 +50,13 @@ export async function runScriptedCall(callId: string) {
     }
     emitCall(callId, { type: "transcript", id, who: turn.who, text: turn.text, final: true });
     await appendTranscript(callId, { id, who: turn.who, text: turn.text });
-    if (i === 7) {
+    if (i === 5) {
       await saveCallResult(c, {
         status: "available",
         start_time: null,
         end_time: "21:30",
         max_people: Math.max(c.capacity ?? 0, c.headcount + 40),
-        price: "Free for community tech events",
+        price: "Free for tech meetups",
         conditions: "Guest list 48 hours before; everyone out by 21:30",
         contact_name: process.env.SCRIPTED_CONTACT ?? "Sam",
         contact_role: "events",
@@ -64,7 +64,7 @@ export async function runScriptedCall(callId: string) {
         alternative: null
       });
     }
-    await sleep(turn.who === "agent" ? 700 : 500);
+    await sleep(turn.who === "agent" ? 500 : 350);
   }
   await setCallStatus(callId, "completed");
 }

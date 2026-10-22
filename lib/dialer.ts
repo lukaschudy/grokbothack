@@ -1,5 +1,5 @@
 import { randomBytes } from "node:crypto";
-import { sql } from "./db";
+import { asUser, sql } from "./db";
 import { bus, emitCall } from "./bus";
 import { loadCall, setCallStatus } from "./calls";
 import { dial } from "./twilio";
@@ -12,7 +12,7 @@ import { formatWindow } from "./time";
  * - "twilio": dials the venue's real number.
  * - "scripted": plays a written conversation (no phone, no voice model).
  */
-export const callMode = () => (process.env.CALL_MODE ?? "virtual") as "virtual" | "twilio" | "scripted";
+export const callMode = () => (process.env.CALL_MODE ?? (process.env.XAI_API_KEY ? "virtual" : "scripted")) as "virtual" | "twilio" | "scripted";
 
 export type RingEvent = { type: "ring"; callId: string; token: string; venue: string; organiser: string; when: string } | { type: "cancel"; callId: string };
 
@@ -68,4 +68,19 @@ export async function currentlyRinging(): Promise<RingEvent | null> {
   const ctx = await loadCall(row.id);
   if (!ctx) return null;
   return { type: "ring", callId: row.id, token: row.twilio_sid.slice("virtual:".length), venue: ctx.venue_name, organiser: ctx.organiser, when: formatWindow(ctx.starts_at, ctx.ends_at) };
+}
+
+export type CallOutcome = "new" | "in_progress" | "reused" | "called_recently";
+
+/**
+ * Ask for a call as `uid`. The database decides: a fresh call, an existing one
+ * in progress, or a recent answer to reuse (one call per venue per week).
+ * Throws not_trusted / not_ok_to_call / no_phone / venue_not_found.
+ */
+export async function startCall(uid: string, i: { venueId: string; startsAt: string; endsAt: string; headcount: number; title: string | null }): Promise<{ outcome: CallOutcome; callId: string }> {
+  const [row] = await asUser(uid, (tx) => tx<{ r: { outcome: CallOutcome; call_id: string } }[]>`
+    select request_call(${i.venueId}, ${i.startsAt}, ${i.endsAt}, ${i.headcount}, ${i.title}) as r`);
+  const r = row!.r;
+  if (r.outcome === "new") await placeCall(r.call_id);
+  return { outcome: r.outcome, callId: r.call_id };
 }

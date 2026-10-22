@@ -1,5 +1,4 @@
 import { headers } from "next/headers";
-import { CalendarPlus, Download } from "lucide-react";
 import { upcomingEvents } from "@/lib/events";
 import { formatDay, formatTime } from "@/lib/time";
 
@@ -20,23 +19,21 @@ export default async function Events() {
           <p>From Luma, Meetup, Devpost and BuilderBase. Each one shows why it&apos;s ranked where it is. Subscribe once; it refreshes every 12 hours.</p>
         </header>
         <div className="venue-actions" style={{ marginBottom: 32 }}>
-          <a className="button" href={webcal}><CalendarPlus size={16} aria-hidden /> Subscribe in your calendar</a>
-          <a className="button quiet" href={google} target="_blank" rel="noreferrer">Add to Google Calendar</a>
-          <a className="button quiet" href="/events.ics"><Download size={16} aria-hidden /> .ics</a>
+          <a className="button" href={webcal}>Subscribe in your calendar</a>
+          <a className="button quiet" href={google} target="_blank" rel="noreferrer">Google Calendar</a>
+          <a className="button quiet" href="/events.ics">.ics file</a>
         </div>
         <div className="list">
           {events.map((e, i) => (
             <a key={`${e.source}-${e.externalId}`} href={e.url} target="_blank" rel="noreferrer" className="list-row">
               <div>
-                <p className="muted tnum" style={{ fontSize: 13, marginTop: 0 }}>
-                  {String(i + 1).padStart(2, "0")} · {formatDay(new Date(e.startsAt))}, {formatTime(new Date(e.startsAt))} · {SOURCE[e.source]}
+                <p className="tnum" style={{ marginTop: 0, fontSize: 13 }}>
+                  {formatDay(new Date(e.startsAt))}, {formatTime(new Date(e.startsAt))} · {SOURCE[e.source]}
                 </p>
-                <h3 style={{ marginTop: 4 }}>{e.title}</h3>
-                <div className="pills" style={{ marginTop: 10 }}>
-                  {e.reasons.map((r) => <span key={r} className="pill soft">{r}</span>)}
-                </div>
+                <h3 style={{ marginTop: 2 }}>{e.title}</h3>
+                <p>{e.reasons.join(" · ")}</p>
               </div>
-              <span className="rank tnum" title="Score">{e.score.toFixed(1)}</span>
+              <span className="side tnum" title="Rank score">{String(i + 1).padStart(2, "0")}</span>
             </a>
           ))}
         </div>

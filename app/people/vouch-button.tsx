@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { ShieldCheck } from "lucide-react";
 import { vouchAction } from "../actions";
 
 export function VouchButton({ id, name }: { id: string; name: string }) {
@@ -13,7 +12,7 @@ export function VouchButton({ id, name }: { id: string; name: string }) {
         const r = await vouchAction(id);
         setMsg(r?.error ?? null);
       })}>
-        <ShieldCheck size={15} aria-hidden /> {pending ? "Vouching…" : `Vouch for ${name.split(" ")[0]}`}
+        {pending ? "Vouching…" : `Vouch for ${name.split(" ")[0]}`}
       </button>
       {msg && <span className="hint" style={{ color: "var(--bad)", maxWidth: 260, textAlign: "right" }}>{msg}</span>}
     </div>

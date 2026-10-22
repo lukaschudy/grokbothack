@@ -44,22 +44,22 @@ export default async function People({ searchParams }: { searchParams: Promise<{
                     {p.community ?? "No community listed"}
                     {p.venues ? ` · ${p.venues} venue${p.venues === 1 ? "" : "s"} posted` : ""}
                   </p>
-                  <div className="pills" style={{ marginTop: 8 }}>
-                    {p.banned ? <span className="pill" style={{ color: "var(--bad)" }}>Banned for junk</span>
-                      : p.is_root ? <span className="pill orange">Founding organiser</span>
-                      : p.can_post ? <span className="pill green">Vouched by {p.vouched_by.join(", ")}</span>
-                      : <span className="pill soft">Not vouched yet</span>}
+                  <div className="pills" style={{ marginTop: 4 }}>
+                    {p.banned ? <span className="pill">Banned for junk</span>
+                      : p.is_root ? <span className="pill accent">Founding organiser</span>
+                      : p.can_post ? <span className="pill accent">Vouched by {p.vouched_by.join(", ")}</span>
+                      : <span className="pill">Not vouched yet</span>}
                     {!p.banned && p.can_post && !p.can_vouch && <span className="pill">Lost vouching rights</span>}
                   </div>
                 </div>
                 {me && me.id !== p.id && !p.banned && (
-                  p.vouched_by_me ? <span className="pill soft">You vouched</span>
+                  p.vouched_by_me ? <span className="side">You vouched</span>
                     : me.can_vouch ? <VouchButton id={p.id} name={p.display_name} /> : null
                 )}
               </div>
             ))}
           </section>
-          <aside className="panel soft stack" style={{ gap: 14 }}>
+          <aside className="aside">
             <h2 className="section-title">How trust works</h2>
             <p>1. Founding organisers can post. Anyone they vouch for can post too.</p>
             <p>2. A vouch says: <em>I know this person runs real events.</em></p>

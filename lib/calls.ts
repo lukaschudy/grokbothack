@@ -44,8 +44,9 @@ const TERMS: Record<string, string> = {
 };
 
 export function openingLine(c: CallContext): string {
-  const who = c.community ? `${c.organiser} from ${c.community}` : c.organiser;
-  return `Hi there, this is Roomline, an AI assistant calling on behalf of ${who}. Just so you know, this call is recorded. Have you got a quick minute to check whether a room's free next week?`;
+  const first = c.organiser.split(" ")[0];
+  const who = c.community ? `${first} from ${c.community}` : first;
+  return `Hi, this is Roomline, an AI assistant calling for ${who}. This call is recorded. Is now a good time to check a date?`;
 }
 
 export function agentInstructions(c: CallContext): string {

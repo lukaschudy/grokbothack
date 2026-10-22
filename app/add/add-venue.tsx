@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Check, Link2, ShieldAlert } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { publishVenueAction, resolveLumaAction, type VenueDraft } from "../actions";
 
 const KINDS: [string, string][] = [
@@ -66,7 +66,7 @@ export function AddVenue() {
       <div className="stack">
         <div className="takeaway">
           <span>{done.updated ? "Venue updated" : "Venue live"}</span>
-          <h3 style={{ fontSize: 26 }}>{draft?.name}</h3>
+          <h3 style={{ fontSize: 24 }}>{draft?.name}</h3>
           <p style={{ marginTop: 6 }}>Live in {done.seconds}s, from paste to published. Every field is signed with your name and today&apos;s date.</p>
         </div>
         <div className="venue-actions">
@@ -82,34 +82,28 @@ export function AddVenue() {
       <form className="ask" style={{ marginTop: 0 }} onSubmit={resolve}>
         <label className="sr-only" htmlFor="luma">Luma event link</label>
         <input id="luma" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://lu.ma/your-event" autoComplete="off" />
-        <button className="button" disabled={busy || !url}><Link2 size={18} aria-hidden /> {busy && !draft ? "Reading…" : "Fill it in"}</button>
+        <button className="button" disabled={busy || !url}>{busy && !draft ? "Reading…" : "Fill it in"}</button>
       </form>
       {error && (
         <p className={`notice ${blocked ? "bad" : "warn"}`} role="alert">
-          {blocked && <ShieldAlert size={16} aria-hidden style={{ verticalAlign: -3, marginRight: 8 }} />}{error}
+          {error}
         </p>
       )}
 
       {draft && (
         <form className="stack" onSubmit={publish}>
-          <div className="venue-card">
-            <header>
-              <div>
-                <p className="kicker">From Luma · {draft.area ?? "London"}</p>
-                <h3>{draft.name}</h3>
-              </div>
-            </header>
-            <div className="venue-body">
-              <ul className="reasons">
-                {draft.address && <li><Check size={15} aria-hidden /><span>{draft.address}</span></li>}
-                <li><Check size={15} aria-hidden /><span>Hosted {draft.community ?? "an event"}: “{draft.eventTitle}”, {draft.eventDate}{draft.guestCount ? `, ${draft.guestCount} went` : ""}</span></li>
-                {draft.existingId && <li><Check size={15} aria-hidden /><span>Already in Roomline: we&apos;ll add this event as evidence and update what you confirm.</span></li>}
-              </ul>
-            </div>
+          <div>
+            <p className="eyebrow">From Luma · {draft.area ?? "London"}</p>
+            <h2 style={{ fontSize: 28 }}>{draft.name}</h2>
+            <ul className="reasons">
+              {draft.address && <li>{draft.address}</li>}
+              <li>Hosted {draft.community ?? "an event"}: “{draft.eventTitle}”, {draft.eventDate}{draft.guestCount ? `, ${draft.guestCount} went` : ""}</li>
+              {draft.existingId && <li>Already listed: this event is added as evidence, and your answers update it.</li>}
+            </ul>
           </div>
 
-          <fieldset className="panel stack" style={{ margin: 0 }}>
-            <legend className="eyebrow" style={{ padding: "0 6px" }}>1 · How many people fit?</legend>
+          <fieldset className="stack" style={{ margin: 0, padding: 0, border: 0, gap: 16 }}>
+            <legend className="section-title" style={{ padding: 0, marginBottom: 8 }}>1 · How many people fit?</legend>
             <div className="row">
               <div className="field">
                 <label htmlFor="capacity">People, standing</label>
@@ -124,16 +118,16 @@ export function AddVenue() {
             </div>
           </fieldset>
 
-          <fieldset className="panel stack" style={{ margin: 0 }}>
-            <legend className="eyebrow" style={{ padding: "0 6px" }}>2 · When can community events use it?</legend>
+          <fieldset className="stack" style={{ margin: 0, padding: 0, border: 0, gap: 16 }}>
+            <legend className="section-title" style={{ padding: 0, marginBottom: 8 }}>2 · When can community events use it?</legend>
             <div className="pills">
-              <label className="pill"><input type="checkbox" style={{ width: 16, minHeight: 16 }} checked={eveningOk} onChange={(e) => setEveningOk(e.target.checked)} /> Weekday evenings</label>
-              <label className="pill"><input type="checkbox" style={{ width: 16, minHeight: 16 }} checked={weekendOk} onChange={(e) => setWeekendOk(e.target.checked)} /> Weekends</label>
+              <label className="check"><input type="checkbox" checked={eveningOk} onChange={(e) => setEveningOk(e.target.checked)} /> Weekday evenings</label>
+              <label className="check"><input type="checkbox" checked={weekendOk} onChange={(e) => setWeekendOk(e.target.checked)} /> Weekends</label>
             </div>
           </fieldset>
 
-          <fieldset className="panel stack" style={{ margin: 0 }}>
-            <legend className="eyebrow" style={{ padding: "0 6px" }}>3 · What does it cost, and how do people reach it?</legend>
+          <fieldset className="stack" style={{ margin: 0, padding: 0, border: 0, gap: 16 }}>
+            <legend className="section-title" style={{ padding: 0, marginBottom: 8 }}>3 · What does it cost, and how do people reach it?</legend>
             <div className="row">
               <div className="field">
                 <label htmlFor="terms">Terms</label>
@@ -160,8 +154,8 @@ export function AddVenue() {
             </div>
             {kind === "bookable" ? (
               <div className="stack" style={{ gap: 10 }}>
-                <label className="pill" style={{ width: "fit-content" }}>
-                  <input type="checkbox" style={{ width: 16, minHeight: 16 }} checked={okToCall} onChange={(e) => setOkToCall(e.target.checked)} />
+                <label className="check">
+                  <input type="checkbox" checked={okToCall} onChange={(e) => setOkToCall(e.target.checked)} />
                   The venue is happy for Roomline to phone and check dates
                 </label>
                 {okToCall && (
@@ -173,8 +167,8 @@ export function AddVenue() {
                 )}
               </div>
             ) : (
-              <label className="pill" style={{ width: "fit-content" }}>
-                <input type="checkbox" style={{ width: 16, minHeight: 16 }} checked={introViaMe} onChange={(e) => setIntroViaMe(e.target.checked)} />
+              <label className="check">
+                <input type="checkbox" checked={introViaMe} onChange={(e) => setIntroViaMe(e.target.checked)} />
                 Intro via me: organisers ask me, not the venue
               </label>
             )}

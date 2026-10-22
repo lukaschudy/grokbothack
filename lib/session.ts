@@ -20,8 +20,7 @@ export async function currentUid(): Promise<string | null> {
   return readSession((await cookies()).get(SESSION_COOKIE)?.value);
 }
 
-export const currentMember = cache(async (): Promise<Member | null> => {
-  const uid = await currentUid();
+export async function memberById(uid: string | null): Promise<Member | null> {
   if (!uid) return null;
   const [m] = await sql<Member[]>`
     select p.id, p.display_name, p.community, p.is_root,
@@ -30,4 +29,6 @@ export const currentMember = cache(async (): Promise<Member | null> => {
                      from vouches vo join profiles v on v.id = vo.voucher_id where vo.vouchee_id = p.id), '{}') as vouched_by
     from profiles p where p.id = ${uid}`;
   return m ?? null;
-});
+}
+
+export const currentMember = cache(async (): Promise<Member | null> => memberById(await currentUid()));

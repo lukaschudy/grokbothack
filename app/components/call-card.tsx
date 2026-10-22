@@ -1,20 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Mail, PhoneCall } from "lucide-react";
 import type { CallResult } from "@/lib/bus";
+import { CallView, type Bar, type Line } from "./call-view";
 
-type Line = { id: string; who: "agent" | "venue"; text: string; final: boolean };
-type Bar = { who: "agent" | "venue" | "none"; h: number };
-
-const BARS = 56;
-const STEPS = [
-  { key: "dialing", label: "Dialling" },
-  { key: "ringing", label: "Ringing" },
-  { key: "in_progress", label: "Talking" },
-  { key: "completed", label: "Recorded" }
-];
-const ORDER: Record<string, number> = { queued: 0, dialing: 0, ringing: 1, in_progress: 2, completed: 3 };
+const BARS = 48;
 const ENDED: Record<string, string> = { no_answer: "No answer", busy: "Declined", failed: "Call failed", canceled: "Cancelled" };
 
 const mmss = (ms: number) => {
@@ -30,9 +20,7 @@ function ago(iso: string | undefined) {
   return `${Math.round(s / 3600)} h ago`;
 }
 
-const timeOf = (iso: string | undefined) =>
-  iso ? new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/London", hour: "2-digit", minute: "2-digit" }).format(new Date(iso)) : "";
-
+/** Live call state from the server's event stream, rendered by CallView. */
 export function CallCard(props: {
   callId: string; outcome: string; venue: string; window: string; headcount: number;
   onDraft: () => void; onResult?: (r: CallResult) => void;
@@ -43,7 +31,7 @@ export function CallCard(props: {
   const [answeredAt, setAnsweredAt] = useState<number | null>(null);
   const [endedAt, setEndedAt] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [bars, setBars] = useState<Bar[]>(() => Array.from({ length: BARS }, () => ({ who: "none", h: 0.06 })));
+  const [bars, setBars] = useState<Bar[]>(() => Array.from({ length: BARS }, () => ({ who: "none", h: 0.05 })));
   const [now, setNow] = useState(Date.now());
   const levels = useRef({ agent: 0, venue: 0 });
   const scroller = useRef<HTMLDivElement>(null);
@@ -64,7 +52,8 @@ export function CallCard(props: {
         if (e.status === "in_progress") setAnsweredAt((t) => t ?? new Date(e.at).getTime());
         if (["completed", "no_answer", "busy", "failed", "canceled"].includes(e.status)) setEndedAt((t) => t ?? new Date(e.at).getTime());
       } else if (e.type === "level") {
-        levels.current[e.who as "agent" | "venue"] = Math.max(levels.current[e.who as "agent" | "venue"], e.level);
+        const who = e.who as "agent" | "venue";
+        levels.current[who] = Math.max(levels.current[who], e.level);
       } else if (e.type === "transcript") {
         setLines((prev) => {
           const i = prev.findIndex((l) => l.id === e.id);
@@ -87,8 +76,7 @@ export function CallCard(props: {
     const t = setInterval(() => {
       const { agent, venue } = levels.current;
       const who = agent < 0.04 && venue < 0.04 ? "none" : agent >= venue ? "agent" : "venue";
-      const h = Math.max(0.06, Math.max(agent, venue));
-      setBars((prev) => [...prev.slice(1), { who, h }]);
+      setBars((prev) => [...prev.slice(1), { who, h: Math.max(0.05, agent, venue) }]);
       levels.current = { agent: agent * 0.35, venue: venue * 0.35 };
       setNow(Date.now());
     }, 100);
@@ -106,97 +94,27 @@ export function CallCard(props: {
     if (result) onResult.current?.(result);
   }, [result]);
 
-  const live = status === "in_progress";
   const finished = reused || ["completed", "no_answer", "busy", "failed", "canceled"].includes(status);
-  const transcript = lines.map((l) => (
-    <div key={l.id} className={`line ${l.who}${l.final ? "" : " interim"}`}>
-      <span className="who">{l.who === "agent" ? "Roomline" : "Venue"}</span>
-      <p>{l.text}</p>
-    </div>
-  ));
-  const ended = ENDED[status];
-  const stepIndex = ORDER[status] ?? 3;
-  const elapsed = answeredAt ? (endedAt ?? now) - answeredAt : 0;
   const label = reused
     ? `Answered by phone ${ago(result?.recorded_at)}`
-    : ended ?? (live ? "Live call" : status === "completed" ? "Call recorded" : status === "ringing" ? "Ringing" : "Dialling");
+    : ENDED[status] ?? (status === "in_progress" ? "Live call" : status === "completed" ? "Call recorded" : status === "ringing" ? "Ringing" : "Dialling");
 
   return (
-    <section className="call-card" aria-label={`Call to ${props.venue}`}>
-      <div className="call-head">
-        <div className="call-status">
-          <span>{live && <span className="live-dot" aria-hidden />}{label}</span>
-          {!reused && answeredAt && <span className="timer tnum" aria-label="Call length">{mmss(elapsed)}</span>}
-        </div>
-        <h3>{props.venue}</h3>
-        <p>Checking {props.window} for {props.headcount} people</p>
-        {!reused && (
-          <div className="steps" aria-hidden>
-            {STEPS.map((s, i) => (
-              <div key={s.key} className={`step ${ended && i >= stepIndex ? "" : i < stepIndex || (i === 3 && status === "completed") ? "done" : i === stepIndex ? "now" : ""}`}>
-                <i />{s.label}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {!reused && !finished && (
-        <>
-          <div className="wave" aria-hidden>
-            {bars.map((b, i) => <span key={i} className={b.who} style={{ height: `${Math.round(b.h * 100)}%` }} />)}
-          </div>
-          <div className="wave-legend" aria-hidden>
-            <span><b style={{ background: "var(--ink)" }} />Roomline AI</span>
-            <span><b style={{ background: "var(--orange)" }} />Venue</span>
-          </div>
-          <div className="transcript" ref={scroller}>
-            {lines.length === 0 && <p className="call-empty">{status === "ringing" ? "Ringing the venue…" : ended ? "" : "Connecting…"}</p>}
-            {transcript}
-          </div>
-        </>
-      )}
-
-      {error && <p className="result-note">{error}</p>}
-
-      {result && (
-        <>
-          <div className={`takeaway result ${result.status}`} style={finished ? { marginTop: 22 } : undefined}>
-            <span>Availability record</span>
-            <h4>
-              {result.status === "available" ? "Free" : result.status === "partial" ? "Partly free" : "Not free"} · {props.window}
-            </h4>
-            <dl>
-              {result.max_people && (<><dt>Fits</dt><dd>{result.max_people} people</dd></>)}
-              {result.price && (<><dt>Price</dt><dd>{result.price}</dd></>)}
-              {result.conditions && (<><dt>Conditions</dt><dd>{result.conditions}</dd></>)}
-              {result.alternative && (<><dt>Also offered</dt><dd>{result.alternative}</dd></>)}
-              {result.next_step && (<><dt>To book</dt><dd>{result.next_step}</dd></>)}
-              <dt>Confirmed by</dt>
-              <dd>{[result.contact_name, result.contact_role].filter(Boolean).join(", ") || "Venue staff"} · {timeOf(result.recorded_at)} by phone</dd>
-            </dl>
-          </div>
-          {finished && (
-            <>
-              <div className="result-foot">
-                <button className="button" type="button" onClick={props.onDraft}><Mail size={16} aria-hidden /> Draft request</button>
-              </div>
-              <p className="result-note">
-                {reused
-                  ? "Another organiser asked about this evening recently, so we reused their answer. No new call."
-                  : "Saved to the venue. The next organiser who asks about this evening gets this answer without a new call."}
-              </p>
-            </>
-          )}
-        </>
-      )}
-      {!result && reused && <p className="result-note"><PhoneCall size={14} aria-hidden /> This venue was called recently. We don&apos;t call a venue more than once a week.</p>}
-      {!reused && finished && lines.length > 0 && (
-        <details className="transcript-fold">
-          <summary>Transcript · {lines.length} lines · {mmss(elapsed)}</summary>
-          <div className="transcript">{transcript}</div>
-        </details>
-      )}
-    </section>
+    <CallView
+      venue={props.venue}
+      window={props.window}
+      headcount={props.headcount}
+      status={status}
+      label={label}
+      timer={!reused && answeredAt ? mmss((endedAt ?? now) - answeredAt) : null}
+      lines={lines}
+      bars={bars}
+      result={result}
+      finished={finished}
+      reused={reused}
+      error={error}
+      onDraft={props.onDraft}
+      scrollerRef={scroller}
+    />
   );
 }

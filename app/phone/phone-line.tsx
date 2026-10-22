@@ -6,8 +6,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Mic, MicOff, Phone, PhoneOff } from "lucide-react";
 
-type Ring = { type: "ring"; callId: string; token: string; venue: string; organiser: string; when: string };
-type State = "off" | "idle" | "ringing" | "connecting" | "live" | "ended";
+export type Ring = { type: "ring"; callId: string; token: string; venue: string; organiser: string; when: string };
+export type State = "off" | "idle" | "ringing" | "connecting" | "live" | "ended";
 
 function linearToMulaw(sample: number): number {
   const BIAS = 0x84;
@@ -48,9 +48,9 @@ function ringtone(ctx: AudioContext): () => void {
   return () => { oscs.forEach((o) => o.stop()); gain.disconnect(); };
 }
 
-export function PhoneLine({ lineName }: { lineName: string }) {
-  const [state, setState] = useState<State>("off");
-  const [ring, setRing] = useState<Ring | null>(null);
+export function PhoneLine({ lineName, preview }: { lineName: string; preview?: { state: State; ring: Ring } }) {
+  const [state, setState] = useState<State>(preview?.state ?? "off");
+  const [ring, setRing] = useState<Ring | null>(preview?.ring ?? null);
   const [muted, setMuted] = useState(false);
   const [startedAt, setStartedAt] = useState<number | null>(null);
   const [now, setNow] = useState(Date.now());
@@ -84,7 +84,7 @@ export function PhoneLine({ lineName }: { lineName: string }) {
 
   // Listen for rings.
   useEffect(() => {
-    if (state === "off") return;
+    if (state === "off" || preview) return;
     const es = new EventSource(`/phone/events?key=${encodeURIComponent(key)}`);
     es.onmessage = (m) => {
       const e = JSON.parse(m.data);
@@ -96,7 +96,7 @@ export function PhoneLine({ lineName }: { lineName: string }) {
 
   // Ringtone and vibration while ringing.
   useEffect(() => {
-    if (state !== "ringing" || !ctxRef.current) return;
+    if (state !== "ringing" || !ctxRef.current || preview) return;
     stopRing.current = ringtone(ctxRef.current);
     navigator.vibrate?.([400, 200, 400, 2000, 400, 200, 400, 2000, 400, 200, 400]);
     return () => { stopRing.current?.(); stopRing.current = null; navigator.vibrate?.(0); };

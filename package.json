@@ -10,7 +10,8 @@
     "db:migrate": "tsx --env-file-if-exists=.env.local scripts/migrate.ts",
     "test": "DATABASE_URL=${TEST_DATABASE_URL:-postgres://postgres@localhost:54329/roomline_test} tsx --test --test-concurrency=1 tests/*.test.ts",
     "typecheck": "tsc --noEmit",
-    "db:seed:pg": "tsx --env-file-if-exists=.env.local scripts/seed-pg.ts"
+    "db:seed:pg": "tsx --env-file-if-exists=.env.local scripts/seed-pg.ts",
+    "demo:setup": "tsx --env-file-if-exists=.env.local scripts/demo-setup.ts"
   },
   "dependencies": {
     "lucide-react": "^1.61.0",

@@ -7,7 +7,7 @@ export function VenueActions({ id }: { id: string }) {
   const [pending, start] = useTransition();
   const [msg, setMsg] = useState<string | null>(null);
   return (
-    <div className="panel stack" style={{ gap: 12 }}>
+    <div className="aside" style={{ justifyItems: "start" }}>
       <button className="button" disabled={pending} onClick={() => start(async () => { const r = await confirmVenueAction(id); setMsg(r?.ok ?? r?.error ?? null); })}>
         Still correct
       </button>

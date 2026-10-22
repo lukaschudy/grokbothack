@@ -167,4 +167,15 @@ describe("search", () => {
     assert.deepEqual(rows.map((r) => r.name), ["Near", "Far"]);
     assert.equal(Number(rows[0]!.host_count), 1);
   });
+
+  test("free means not known to be paid: unconfirmed terms stay, free ranks first", async () => {
+    const a = await member("A", { root: true });
+    await venueAt(a, { name: "Free", terms: "free" });
+    await venueAt(a, { name: "Unknown", terms: "unknown" });
+    await venueAt(a, { name: "Paid", terms: "paid" });
+    const rows = await asUser(null, (tx) => tx`
+      select name from search_venues(${OLD_STREET.lat}, ${OLD_STREET.lng}, 80,
+        '2026-10-29T18:30:00Z', '2026-10-29T21:30:00Z', 3000, true)`);
+    assert.deepEqual(rows.map((r) => r.name), ["Free", "Unknown"]);
+  });
 });

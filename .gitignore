@@ -10,3 +10,5 @@ data/raw/
 .next/
 next-env.d.ts
 *.tsbuildinfo
+.cloudroom/
+video/out/

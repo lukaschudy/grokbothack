@@ -76,7 +76,7 @@ export default async function VenuePage({ params }: { params: Promise<{ id: stri
                         <h3>{a.status === "available" ? "Free" : a.status === "partial" ? "Partly free" : "Not free"} · {formatWindow(a.starts_at, a.ends_at)}</h3>
                         <p>{[a.price_note, a.conditions].filter(Boolean).join(" · ") || "No conditions given"}</p>
                       </div>
-                      <span className="pill soft">{a.confirmed_by_name ?? "Venue"} · {a.source === "call" ? "by phone" : a.source} · {ago(a.created_at)}</span>
+                      <span className="side">{a.confirmed_by_name ?? "Venue"} · {a.source === "call" ? "by phone" : a.source} · {ago(a.created_at)}</span>
                     </div>
                   ))}
                 </div>
@@ -92,16 +92,16 @@ export default async function VenuePage({ params }: { params: Promise<{ id: stri
                         <h3>{h.community}</h3>
                         <p>{h.event_title}{h.event_date ? ` · ${h.event_date}` : ""}{h.attendees ? ` · ${h.attendees} went` : ""}</p>
                       </div>
-                      {h.event_url && <a className="link" href={h.event_url} target="_blank" rel="noreferrer">{h.source}</a>}
+                      {h.event_url && <a className="link side" href={h.event_url} target="_blank" rel="noreferrer">{h.source}</a>}
                     </div>
                   ))}
                 </div>
               )}
             </section>
           </div>
-          <aside className="stack">
-            <div className="panel soft stack" style={{ gap: 10 }}>
-              <h2 className="section-title" style={{ fontSize: 22 }}>Contact</h2>
+          <aside className="stack" style={{ gap: 40 }}>
+            <div className="aside">
+              <h2 className="section-title">Contact</h2>
               {v.intro_via_poster ? <p>Intro via {v.poster}. Ask them on the People page.</p>
                 : contact ? (
                   <>

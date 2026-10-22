@@ -77,10 +77,42 @@ export function reasonsFor(v: Omit<VenueHit, "reasons" | "callable">, headcount:
   return r;
 }
 
+export type SearchInput = { place: Place; headcount: number; startsAt: Date; endsAt: Date; freeOnly: boolean; eventTitle: string | null };
+
+/** Venue search from structured filters (used by the API and by text search). */
+export async function searchStructured(q: SearchInput, uid: string | null): Promise<Omit<SearchResult, "query" | "ms" | "parser">> {
+  // All radii and the clash check in one transaction, pipelined: one round trip to the database.
+  const RADII = [3000, 6000, 12000];
+  const [byRadius, clashes] = await asUser(uid, (tx) => Promise.all([
+    Promise.all(RADII.map((r) => tx<Omit<VenueHit, "reasons" | "callable">[]>`
+      select id, name, address, area, kind, capacity, terms, price_note, ok_to_call, intro_via_poster,
+             lat, lng, distance_m, coalesce(hosts, '{}') as hosts, host_count::int as host_count,
+             last_hosted::text as last_hosted, availability_status, availability_conditions, availability_at
+      from search_venues(${q.place.lat}, ${q.place.lng}, ${q.headcount}, ${q.startsAt}, ${q.endsAt}, ${r}, ${q.freeOnly}, 3)`)),
+    tx<Clash[]>`
+      select title, url, community, attendees, venue_name, distance_m, starts_at
+      from event_clashes(${q.place.lat}, ${q.place.lng}, ${q.startsAt}, ${q.endsAt})`
+  ]));
+  const pick = byRadius.findIndex((rows) => rows.length >= 3);
+  const i = pick === -1 ? RADII.length - 1 : pick;
+  const rows = byRadius[i]!;
+  const radius = RADII[i]!;
+  return {
+    parsed: {
+      headcount: q.headcount, starts_at: q.startsAt.toISOString(), ends_at: q.endsAt.toISOString(), window: formatWindow(q.startsAt, q.endsAt),
+      place: q.place, free_only: q.freeOnly, event_title: q.eventTitle, radius_m: radius
+    },
+    venues: rows.map((v) => ({ ...v, reasons: reasonsFor(v, q.headcount, q.place.name), callable: v.ok_to_call && v.kind === "bookable" })),
+    clashes: clashes.map((c) => ({ ...c, starts_at: new Date(c.starts_at).toISOString() }))
+  };
+}
+
+export const OLD_STREET: Place = { name: "Old Street", lat: 51.5257, lng: -0.0875 };
+
 export async function searchVenues(text: string, uid: string | null, now = new Date()): Promise<SearchResult> {
   const t0 = performance.now();
   const { ask, parser } = await parse(text, now);
-  const place = (ask.near && (await geocode(ask.near))) || { name: "Old Street", lat: 51.5257, lng: -0.0875 };
+  const place = (ask.near && (await geocode(ask.near))) || OLD_STREET;
   const date = (ask.day_phrase && resolveDay(ask.day_phrase, now)) || (ask.date && /^\d{4}-\d{2}-\d{2}$/.test(ask.date) ? ask.date : null) || londonDate(now);
   const start = ask.start_time && HHMM.test(ask.start_time) ? ask.start_time : "18:30";
   const startsAt = londonToUtc(date, start);
@@ -88,35 +120,6 @@ export async function searchVenues(text: string, uid: string | null, now = new D
     ? londonToUtc(date, ask.end_time)
     : new Date(startsAt.getTime() + 3 * 3600_000);
   const headcount = ask.headcount && ask.headcount > 0 ? ask.headcount : 50;
-
-  let rows: Omit<VenueHit, "reasons" | "callable">[] = [];
-  let radius = 3000;
-  for (const r of [3000, 6000, 12000]) {
-    radius = r;
-    rows = await asUser(uid, (tx) => tx<Omit<VenueHit, "reasons" | "callable">[]>`
-      select id, name, address, area, kind, capacity, terms, price_note, ok_to_call, intro_via_poster,
-             lat, lng, distance_m, coalesce(hosts, '{}') as hosts, host_count::int as host_count,
-             last_hosted::text as last_hosted, availability_status, availability_conditions, availability_at
-      from search_venues(${place.lat}, ${place.lng}, ${headcount}, ${startsAt}, ${endsAt}, ${r}, ${ask.free_only}, 3)`);
-    if (rows.length >= 3) break;
-  }
-  const clashes = await asUser(uid, (tx) => tx<Clash[]>`
-    select title, url, community, attendees, venue_name, distance_m, starts_at
-    from event_clashes(${place.lat}, ${place.lng}, ${startsAt}, ${endsAt})`);
-
-  return {
-    query: text,
-    parsed: {
-      headcount, starts_at: startsAt.toISOString(), ends_at: endsAt.toISOString(), window: formatWindow(startsAt, endsAt), place,
-      free_only: ask.free_only, event_title: ask.event_title, radius_m: radius
-    },
-    venues: rows.map((v) => ({
-      ...v,
-      reasons: reasonsFor(v, headcount, place.name),
-      callable: v.ok_to_call && v.kind === "bookable"
-    })),
-    clashes: clashes.map((c) => ({ ...c, starts_at: new Date(c.starts_at).toISOString() })),
-    ms: Math.round(performance.now() - t0),
-    parser
-  };
+  const found = await searchStructured({ place, headcount, startsAt, endsAt, freeOnly: ask.free_only, eventTitle: ask.event_title }, uid);
+  return { query: text, ...found, ms: Math.round(performance.now() - t0), parser };
 }
