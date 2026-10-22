@@ -18,7 +18,7 @@ Track 4 (Venues, communities, events) at the Grok Bot Community Engineering Lond
 **Build:**
 
 1. **Venue DB**: capacity, AV, evening and weekend use, terms (`free` / `free with conditions` / `paid` + note), contact, past hosts. Supabase + PostGIS.
-2. **Trust**: 3–5 root organisers. Posting needs a vouch (1 tonight, 2 after). If someone posts junk, whoever vouched for them loses vouching rights. A join request shows the applicant's Luma hosting history as evidence, but a human vouch is always required. Every field records who added it and when it was last confirmed. Enforced with RLS.
+2. **Trust**: 3–5 root organisers. Posting needs a vouch (1 tonight, 2 after). If someone posts junk, whoever vouched for them loses vouching rights. A join request shows the applicant's Luma hosting history as evidence, but a human vouch is always required. Every field records who added it and when it was last confirmed. The API enforces vouching; RLS keeps contacts, organisers and calls unreadable to the public.
 3. **Grok Bot agent** (the interface): "free space for 80 next Thursday near Old Street" → structured PostGIS query → top 3 with reasons, past hosts and clash warnings → calls to check availability → sends the request.
 4. **Events feed**: Luma + Meetup + Devpost + BuilderBase → ranked with visible reasons → `.ics` feed.
 5. **Calling**: Grok realtime voice over Twilio. Only for bookable venues the poster marked as OK to call. Every call is written back as a dated availability record.
@@ -64,7 +64,7 @@ Hackathons and build days > talks > networking. Boost by turnout and the host's 
 
 Venue DB + trust → Grok Bot search → events + `.ics` → calling. If calling isn't working by the cutoff, the agent just sends the emailed request.
 
-See [docs/data-sources.md](docs/data-sources.md) for what each source actually returns.
+See [docs/architecture.md](docs/architecture.md) for the system design and [docs/data-sources.md](docs/data-sources.md) for what each source actually returns.
 
 ## License
 
