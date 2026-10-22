@@ -22,7 +22,7 @@ Code freeze 21:50. Everything below is sized for ~2 hours.
 
 - **Grok Bot is the interface.** A public share link gives each organiser their own copy of the bot (instructions and skills, not our logins). All copies call one backend, so the shared brain is the database.
 - **Skills call our HTTPS API**, not a custom MCP connector. Skills carry over in a shared bot; connectors may not. An MCP wrapper over the same handlers is a stretch goal.
-- **Trust lives in the API.** The backend uses the Supabase service role, so the API checks `is_approved()` on every write. RLS makes contacts, organisers, calls and requests unreadable to the public key.
+- **Trust lives in the API.** The backend uses the Supabase service role, so writes go through `can_post()` and RLS. RLS makes contacts, organisers, calls and requests unreadable to the public key.
 - **Calling and email run in our backend.** The bot never sees venue contacts.
 - **One process** because Twilio media streams need a long-lived WebSocket. Run it on one laptop behind a `cloudflared` quick tunnel for the demo.
 
