@@ -31,6 +31,9 @@ Currently local Postgres 15 + PostGIS on port 54329 (`roomline` database), loade
 `npm run db:migrate && npm run db:seed:pg`. To switch to Supabase, set `DATABASE_URL` to the session pooler
 URI and restart. Supabase already has migrations 001 + 002 and the data; don't re-run them there.
 
+Demo start state (idempotent): `DEMO_VENUE_PHONE=+44… npx tsx --env-file-if-exists=.env.local scripts/demo-setup.ts`
+(`DEMO_PASSWORD` is in `.env.local`). The local DB currently uses a placeholder venue phone (+447700900123).
+
 ## Environment (`.env.local`, never committed)
 
 | Name | Notes |
@@ -41,6 +44,7 @@ URI and restart. Supabase already has migrations 001 + 002 and the data; don't r
 | `PUBLIC_URL` | the public URL above (Twilio webhooks, stream URLs) |
 | `CALL_MODE` | `scripted` now; `virtual` needs `XAI_API_KEY`; `twilio` needs the Twilio vars |
 | `PHONE_KEY` | `/phone`, `/phone/events`, `/phone/stream` need `?key=` |
+| `DEMO_PASSWORD` | password for the demo accounts (scripts/demo-setup.ts) |
 | `XAI_API_KEY` | voice agent + query parsing (not set) |
 | `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_PHONE_NUMBER` | `CALL_MODE=twilio` only (not set) |
 
