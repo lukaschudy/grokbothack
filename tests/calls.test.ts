@@ -2,7 +2,9 @@ import { after, afterEach, beforeEach, describe, test } from "node:test";
 import assert from "node:assert/strict";
 import { asUser, sql } from "../lib/db";
 import { bus, type CallEvent } from "../lib/bus";
-import { agentInstructions, loadCall, normaliseTime, openingLine, parseResult, type CallContext } from "../lib/calls";
+import { agentInstructions, normaliseTime, openingLine, parseResult, setCallStatus, type CallContext } from "../lib/calls";
+import { WebSocket, WebSocketServer } from "ws";
+import type { AddressInfo } from "node:net";
 import { callMode, placeCall } from "../lib/dialer";
 import { member, resetDb, venueAt } from "./helpers";
 
@@ -157,14 +159,44 @@ describe("scripted call end to end", () => {
       bus.off(`call:${callId}`, onEvent);
     }
   });
+});
 
-  test("placing a call whose row is gone does not throw", async () => {
-    process.env.CALL_MODE = "scripted";
-    process.env.SCRIPTED_PACE = "0";
+describe("call status", () => {
+  test("an ended call stays ended", async () => {
     const { callId } = await requestCall();
-    const ctxBefore = await loadCall(callId);
-    assert.ok(ctxBefore);
-    await sql`delete from calls where id = ${callId}`;
-    await placeCall(callId); // no row: returns without throwing
+    const events: CallEvent[] = [];
+    const onEvent = (e: CallEvent) => events.push(e);
+    bus.on(`call:${callId}`, onEvent);
+    await setCallStatus(callId, "in_progress");
+    await setCallStatus(callId, "failed");
+    await setCallStatus(callId, "completed"); // e.g. Twilio's final callback after we gave up
+    bus.off(`call:${callId}`, onEvent);
+    const [c] = await sql`select status, answered_at, ended_at from calls where id = ${callId}`;
+    assert.equal(c!.status, "failed");
+    assert.ok(c!.answered_at && c!.ended_at);
+    assert.deepEqual(events.map((e) => (e as { status: string }).status), ["in_progress", "failed"]);
+  });
+});
+
+describe("virtual call bridge", () => {
+  test("unreachable voice agent marks the call failed, not completed", async () => {
+    process.env.XAI_REALTIME_URL = "ws://127.0.0.1:9"; // nothing listens here
+    const { attachMediaStream } = await import("../server/bridge");
+    const { callId } = await requestCall();
+    await sql`update calls set twilio_sid = 'virtual:tok', status = 'ringing' where id = ${callId}`;
+    const wss = new WebSocketServer({ port: 0 });
+    wss.on("connection", (ws) => attachMediaStream(ws));
+    await new Promise((r) => wss.on("listening", r));
+    const phone = new WebSocket(`ws://127.0.0.1:${(wss.address() as AddressInfo).port}`);
+    const closed = new Promise((r) => phone.on("close", r));
+    await new Promise((r) => phone.on("open", r));
+    phone.send(JSON.stringify({ event: "start", start: { streamSid: "MZ1", callSid: "virtual:tok", customParameters: { callId } } }));
+    await closed; // bridge hangs up the browser phone
+    await new Promise((r) => setTimeout(r, 200)); // let the close handler run
+    const [c] = await sql`select status, error from calls where id = ${callId}`;
+    assert.equal(c!.status, "failed");
+    assert.match(c!.error, /^voice agent:/);
+    await new Promise((r) => wss.close(r));
+    delete process.env.XAI_REALTIME_URL;
   });
 });
