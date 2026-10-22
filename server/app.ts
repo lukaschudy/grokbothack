@@ -287,13 +287,15 @@ async function vouch(ctx: Ctx) {
   if (!ok!.ok) throw new HttpError(403, "cannot_vouch", "You can't vouch: you need to be vouched for yourself, and vouching rights are lost if someone you vouched for posted junk.");
   const matches = b.profile_id
     ? await sql`select id, display_name, community from profiles where id = ${b.profile_id}`
-    : await sql`select id, display_name, community from profiles where lower(display_name) = lower(${b.display_name!})
-                union all
-                select id, display_name, community from profiles
-                where not exists (select 1 from profiles where lower(display_name) = lower(${b.display_name!}))
-                  and display_name ilike ${"%" + b.display_name! + "%"}
-                limit 5`;
-  if (matches.length === 0) throw new HttpError(404, "not_found", `No organiser called "${b.display_name ?? b.profile_id}". They need to join first.`);
+    : await sql`select id, display_name, community from profiles where lower(display_name) = lower(${b.display_name!}) limit 5`;
+  if (matches.length === 0) {
+    // Never vouch on a fuzzy match: suggest names instead.
+    const like = b.display_name ? await sql`
+      select id, display_name, community from profiles where display_name ilike ${"%" + b.display_name + "%"} limit 5` : [];
+    throw new HttpError(404, "not_found", `No organiser called "${b.display_name ?? b.profile_id}". They need to join first.`, {
+      did_you_mean: like.map((m) => ({ profile_id: m.id, display_name: m.display_name, community: m.community }))
+    });
+  }
   if (matches.length > 1)
     throw new HttpError(409, "ambiguous", "More than one organiser matches; pass profile_id", {
       candidates: matches.map((m) => ({ profile_id: m.id, display_name: m.display_name, community: m.community }))

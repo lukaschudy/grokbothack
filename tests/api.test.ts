@@ -97,6 +97,10 @@ describe("join, login, vouch", () => {
     assert.equal((await api("POST", "/api/vouch", { token: a, body: { display_name: "B" } })).status, 403);
     assert.equal((await api("POST", "/api/vouch", { token: root, body: { display_name: "Root" } })).status, 400);
     assert.equal((await api("POST", "/api/vouch", { token: root, body: { display_name: "Nobody" } })).status, 404);
+    await join("Samantha");
+    const fuzzy = await api("POST", "/api/vouch", { token: root, body: { display_name: "Sam" } });
+    assert.equal(fuzzy.status, 404, "a partial name never vouches");
+    assert.equal(fuzzy.json.did_you_mean[0].display_name, "Samantha");
   });
 
   test("no token or a forged token is a 401", async () => {
