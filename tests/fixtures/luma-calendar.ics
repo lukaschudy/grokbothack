@@ -1,0 +1,75 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Luma//Future Forward//EN
+X-WR-CALNAME:Future Forward
+X-WR-CALDESC:Luma Calendar
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART:20241205T153000Z
+DTEND:20241205T190000Z
+DTSTAMP:20261022T182847Z
+ORGANIZER;CN="Future Forward":MAILTO:calendar-invite@lu.ma
+UID:evt-1vNKTNao46lrh1T@events.lu.ma
+SUMMARY:Shaping the Future of AI Innovation and Investment
+DESCRIPTION:Get up-to-date information at: https://luma.com/1jmjzo29\n\nAd
+ dress:\nDigital Catapult\nLondon, England\nUnited Kingdom\n\nHosted by Fut
+ ure Forward & 4 others
+LOCATION:Digital Catapult, 101 Euston Rd., London NW1 2RA, UK
+GEO:51.528429;-0.127424
+SEQUENCE:214856927
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251001T143000Z
+DTEND:20251001T180000Z
+DTSTAMP:20261022T182847Z
+ORGANIZER;CN="Future Forward":MAILTO:calendar-invite@lu.ma
+UID:evt-S58gVxjzUecOZY3@events.lu.ma
+SUMMARY:Future Forward: Funding and Innovation in AI - East of England
+DESCRIPTION:Get up-to-date information at: https://luma.com/zo0ftrya\n\nAd
+ dress:\nInnovation Centre, Knowledge Gateway\nColchester, England\nUnited 
+ Kingdom\n\nHosted by Future Forward & 4 others
+LOCATION:Innovation Centre, Knowledge Gateway, Knowledge Gateway, Boundary
+  Rd, Colchester CO4 3ZQ, UK
+GEO:51.8794299;0.9420373999999999
+SEQUENCE:214856927
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251023T140000Z
+DTEND:20251023T180000Z
+DTSTAMP:20261022T182847Z
+ORGANIZER;CN="Future Forward":MAILTO:calendar-invite@lu.ma
+UID:evt-ngi7MUqd7yLrSer@events.lu.ma
+SUMMARY:Future Forward: The Impact of Agentic AI in Financial Services and
+  Insurance
+DESCRIPTION:Get up-to-date information at: https://luma.com/cgzr5qcb\n\nAd
+ dress:\nDawn Capital\nLondon, England\nUnited Kingdom\n\nHosted by Future 
+ Forward & 4 others
+LOCATION:Dawn Capital, Level 7, Ilona Rose House, Manette St, London W1D 4
+ AL, UK
+GEO:51.5147708;-0.130216
+SEQUENCE:214856927
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20261022T160000Z
+DTEND:20261022T200000Z
+DTSTAMP:20261022T182847Z
+ORGANIZER;CN="Future Forward":MAILTO:calendar-invite@lu.ma
+UID:evt-Yz7RR89Zlv56tya@events.lu.ma
+SUMMARY:Agentic AI in Financial Services and Insurance: Pilot to Productio
+ n
+DESCRIPTION:Get up-to-date information at: https://luma.com/gkmdzbk9\n\nAd
+ dress:\nIFX Payments\nLondon, United Kingdom\n\nHosted by Future Forward &
+  5 others
+LOCATION:IFX Payments, 2nd Floor, The Carter, 11 Pilgrim St, London EC4V 6
+ RN, UK
+GEO:51.513413;-0.10274799999999999
+SEQUENCE:214856927
+STATUS:TENTATIVE
+END:VEVENT
+END:VCALENDAR
