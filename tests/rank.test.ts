@@ -50,6 +50,24 @@ describe("rankEvents", () => {
     assert.ok(out.find((e) => e.externalId === "paid")!.reasons.includes("Paid"));
   });
 
+  test("hackathons and workshops beat talks; networking and recruiting sink", () => {
+    const out = rankEvents(
+      [
+        ev({ externalId: "drinks", title: "Tech Startups in the Pub - Relaxed Networking", attendees: 60 }),
+        ev({ externalId: "talk", title: "What Breaks When You Let an Agent Loose on Your Repo", attendees: 60 }),
+        ev({ externalId: "jobs", title: "Life After Layoffs: Finding a Job in Tech", attendees: 60 }),
+        ev({ externalId: "hack", title: "Open Source Hack Day", attendees: 60 }),
+        ev({ externalId: "workshop", title: "Graphs AI Workshop", attendees: 60 })
+      ],
+      NOW
+    );
+    assert.deepEqual(out.map((e) => e.externalId), ["hack", "workshop", "talk", "drinks", "jobs"]);
+    assert.ok(out[0]!.reasons.includes("Hackathon"));
+    assert.ok(out[1]!.reasons.includes("Workshop"));
+    assert.ok(out.find((e) => e.externalId === "drinks")!.reasons.includes("Networking or social"));
+    assert.ok(out.find((e) => e.externalId === "jobs")!.reasons.includes("Careers or recruiting"));
+  });
+
   test("past events sink and say so", () => {
     const out = rankEvents([ev({ externalId: "old", startsAt: "2026-10-20T18:00:00Z" }), ev({ externalId: "new" })], NOW);
     assert.equal(out.at(-1)!.externalId, "old");
