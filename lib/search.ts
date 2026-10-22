@@ -10,7 +10,7 @@ export type VenueHit = {
   address: string | null;
   area: string | null;
   kind: string;
-  capacity: number;
+  capacity: number | null;
   terms: string;
   price_note: string | null;
   ok_to_call: boolean;
@@ -63,7 +63,7 @@ const TERMS_LABEL: Record<string, string> = {
 
 export function reasonsFor(v: Omit<VenueHit, "reasons" | "callable">, headcount: number, place: string): string[] {
   const r: string[] = [];
-  r.push(`Fits ${v.capacity} — you need ${headcount}`);
+  r.push(v.capacity ? `Fits ${v.capacity} — you need ${headcount}` : "Capacity not confirmed yet");
   r.push(`${distanceLabel(v.distance_m)} from ${place}`);
   if (v.host_count > 0) {
     const names = v.hosts.slice(0, 2).join(", ");

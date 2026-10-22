@@ -154,3 +154,106 @@ export async function confirmVenueAction(venueId: string): Promise<FormState> {
   revalidatePath(`/venues/${venueId}`);
   return { ok: "Thanks — marked as still correct." };
 }
+
+// Add a venue -------------------------------------------------------------------
+
+export type VenueDraft = {
+  url: string;
+  name: string;
+  address: string | null;
+  area: string | null;
+  lat: number;
+  lng: number;
+  googlePlaceId: string | null;
+  community: string | null;
+  eventTitle: string;
+  eventDate: string;
+  guestCount: number | null;
+  existingId: string | null;
+  kindGuess: string;
+};
+
+export async function resolveLumaAction(url: string): Promise<VenueDraft | { error: string }> {
+  const { resolveLumaEvent, LumaVenueHiddenError } = await import("@/lib/sources/luma");
+  const { areaFor, londonDate } = await import("@/lib/sources/types");
+  const { guessKind } = await import("@/scripts/fetch-sources");
+  try {
+    const e = await resolveLumaEvent(url.trim());
+    if (!e.venueName && !e.address) return { error: "That Luma event doesn't show a venue." };
+    const name = e.venueName ?? e.address!.split(",")[0]!;
+    const [existing] = await sql<{ id: string }[]>`
+      select id from venues where junk_at is null and (
+        (${e.googlePlaceId}::text is not null and google_place_id = ${e.googlePlaceId})
+        or (lower(name) = lower(${name}) and st_dwithin(location, st_setsrid(st_makepoint(${e.lng}, ${e.lat}), 4326)::geography, 100)))
+      limit 1`;
+    return {
+      url: e.url, name, address: e.address, area: areaFor(e.lat, e.lng), lat: e.lat, lng: e.lng,
+      googlePlaceId: e.googlePlaceId, community: e.community, eventTitle: e.title, eventDate: londonDate(e.startsAt),
+      guestCount: e.guestCount, existingId: existing?.id ?? null, kindGuess: guessKind(name, e.address)
+    };
+  } catch (err) {
+    if (err instanceof LumaVenueHiddenError) return { error: "This event hides its venue until you register. Try a past event from the same place." };
+    return { error: (err as Error).message.startsWith("Not a Luma link") ? "Paste a Luma event link, like lu.ma/abc123." : "Couldn't read that Luma event." };
+  }
+}
+
+export async function publishVenueAction(input: {
+  draft: VenueDraft;
+  capacity: number | null;
+  eveningOk: boolean;
+  weekendOk: boolean;
+  terms: string;
+  priceNote: string;
+  kind: string;
+  okToCall: boolean;
+  phone: string;
+  contactName: string;
+  contactEmail: string;
+  introViaMe: boolean;
+}): Promise<{ id: string; updated: boolean } | { error: string; blocked?: boolean }> {
+  const me = await currentMember();
+  if (!me) return { error: "Sign in to post a venue.", blocked: true };
+  const d = input.draft;
+  const phone = input.phone.replace(/[\s()-]/g, "").replace(/^0/, "+44");
+  if (input.okToCall && !/^\+[1-9]\d{6,14}$/.test(phone)) return { error: "Add a phone number so Roomline can call." };
+  try {
+    const id = await asUser(me.id, async (tx) => {
+      const fields = {
+        capacity: input.capacity, evening_ok: input.eveningOk, weekend_ok: input.weekendOk, terms: input.terms,
+        price_note: input.priceNote.trim() || null, kind: input.kind, ok_to_call: input.okToCall && input.kind === "bookable",
+        intro_via_poster: input.introViaMe
+      };
+      let venueId = d.existingId;
+      if (venueId) {
+        await tx`update venues set ${tx(fields)} where id = ${venueId}`;
+      } else {
+        const [row] = await tx<{ id: string }[]>`
+          insert into venues (name, address, area, location, google_place_id, created_by, capacity, evening_ok, weekend_ok, terms, price_note, kind, ok_to_call, intro_via_poster)
+          values (${d.name}, ${d.address}, ${d.area}, st_setsrid(st_makepoint(${d.lng}, ${d.lat}), 4326)::geography, ${d.googlePlaceId}, ${me.id},
+                  ${fields.capacity}, ${fields.evening_ok}, ${fields.weekend_ok}, ${fields.terms}, ${fields.price_note}, ${fields.kind}, ${fields.ok_to_call}, ${fields.intro_via_poster})
+          returning id`;
+        venueId = row!.id;
+      }
+      if (phone || input.contactName || input.contactEmail) {
+        await tx`
+          insert into venue_contacts (venue_id, contact_name, email, phone)
+          values (${venueId}, ${input.contactName.trim() || null}, ${input.contactEmail.trim() || null}, ${phone || null})
+          on conflict (venue_id) do update set contact_name = coalesce(excluded.contact_name, venue_contacts.contact_name),
+            email = coalesce(excluded.email, venue_contacts.email), phone = coalesce(excluded.phone, venue_contacts.phone), updated_at = now()`;
+      }
+      await tx`
+        insert into venue_hosts (venue_id, community, event_title, event_url, event_date, attendees, source)
+        values (${venueId}, ${d.community ?? me.community ?? "Community event"}, ${d.eventTitle}, ${d.url}, ${d.eventDate}, ${d.guestCount}, 'luma')
+        on conflict (venue_id, event_url) do nothing`;
+      return venueId!;
+    });
+    revalidatePath("/venues");
+    return { id, updated: Boolean(d.existingId) };
+  } catch (e) {
+    if (/row-level security/.test(pgMessage(e))) {
+      return { error: me.banned ? "Your account can't post: a venue you posted was marked as junk." : "Posting needs a vouch from a member. Ask an organiser who knows you to vouch for you.", blocked: true };
+    }
+    console.error("[publish]", e);
+    return { error: "Couldn't save the venue." };
+  }
+}

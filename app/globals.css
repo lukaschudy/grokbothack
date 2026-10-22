@@ -286,3 +286,35 @@ input:focus, select:focus, textarea:focus { border-color: var(--orange); box-sha
 .transcript-fold { margin: 0 22px 18px; border-top: 1px solid var(--line); padding-top: 12px; }
 .transcript-fold summary { cursor: pointer; color: var(--muted); font-size: 13px; }
 .transcript-fold .transcript { padding: 12px 0 0; max-height: 260px; }
+
+/* Venue phone (/phone) ---------------------------------------------------------- */
+.phone {
+  position: fixed; inset: 0; z-index: 50; display: grid; padding: max(40px, env(safe-area-inset-top)) 28px max(36px, env(safe-area-inset-bottom));
+  background: radial-gradient(120% 80% at 50% 0%, #2c2a27 0%, #151413 60%); color: #f7f6f2; text-align: center;
+}
+.phone h1 { font-size: clamp(30px, 8vw, 40px); line-height: 1.1; color: #fff; }
+.phone-center { align-self: center; display: grid; gap: 14px; justify-items: center; }
+.phone-kicker { color: #d9a48c; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+.phone-sub { color: #b9b6ae; font-size: 17px; line-height: 1.45; max-width: 320px; }
+.phone-hint { color: #8d8a83; font-size: 13px; }
+.phone-problem { color: #ff9b8a; }
+.phone-big {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; min-height: 56px; padding: 0 28px;
+  border: 0; border-radius: 999px; background: #f7f6f2; color: #151413; font-size: 17px; cursor: pointer;
+}
+.phone-call { display: grid; grid-template-rows: 1fr auto; height: 100%; }
+.phone-caller { display: grid; gap: 12px; justify-items: center; align-content: start; padding-top: 6vh; }
+.phone-avatar {
+  display: grid; place-items: center; width: 112px; height: 112px; margin: 18px 0 6px; border-radius: 50%;
+  background: var(--orange); color: #fff; font-family: var(--font-display); font-size: 50px; font-weight: 600;
+  transition: box-shadow 120ms linear;
+}
+.phone-ringing .phone-avatar { animation: ring-pulse 1.6s ease-out infinite; }
+.phone-buttons { display: flex; justify-content: space-around; padding-bottom: 4vh; }
+.phone-round { display: grid; place-items: center; width: 78px; height: 78px; border: 0; border-radius: 50%; color: #fff; cursor: pointer; }
+.phone-round.answer { background: #2fb457; }
+.phone-round.decline { background: #e5483b; }
+.phone-round.quiet { background: rgb(255 255 255 / 0.14); }
+.phone-round.on { background: #f7f6f2; color: #151413; }
+.phone-round:disabled { opacity: 0.5; }
+@keyframes ring-pulse { 0% { box-shadow: 0 0 0 0 rgb(189 87 45 / 0.55); } 100% { box-shadow: 0 0 0 34px rgb(189 87 45 / 0); } }
