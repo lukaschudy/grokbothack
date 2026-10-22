@@ -34,8 +34,8 @@ describe("posting needs a vouch", () => {
     await postVenue(b, "B Hall");
     await vouch(b, c);
     await postVenue(c, "C Hall");
-    const [{ count }] = await sql<{ count: string }[]>`select count(*) from venues`;
-    assert.equal(Number(count), 3);
+    const [row] = await sql<{ count: string }[]>`select count(*) from venues`;
+    assert.equal(Number(row!.count), 3);
   });
 
   test("an unvouched account cannot vouch for anyone", async () => {
@@ -76,8 +76,8 @@ describe("junk costs the poster and their vouchers", () => {
     await vouch(b, c);
     const [junk] = await postVenue(c, "Totally Real Venue");
 
-    const [{ report_junk: res }] = await asUser(root, (tx) => tx`select report_junk(${junk!.id}, 'fake')`);
-    assert.equal(res.junk, true);
+    const [res] = await asUser(root, (tx) => tx`select report_junk(${junk!.id}, 'fake') as r`);
+    assert.equal(res!.r.junk, true);
 
     const visible = await asUser(null, (tx) => tx`select id from venues where id = ${junk!.id}`);
     assert.equal(visible.length, 0, "junk is hidden");
@@ -91,10 +91,10 @@ describe("junk costs the poster and their vouchers", () => {
     const [b, c, poster] = [await member("B"), await member("C"), await member("P")];
     for (const m of [b, c, poster]) await vouch(root, m);
     const [v] = await postVenue(poster);
-    const [{ report_junk: first }] = await asUser(b, (tx) => tx`select report_junk(${v!.id})`);
-    assert.equal(first.junk, false);
-    const [{ report_junk: second }] = await asUser(c, (tx) => tx`select report_junk(${v!.id})`);
-    assert.equal(second.junk, true);
+    const [first] = await asUser(b, (tx) => tx`select report_junk(${v!.id}) as r`);
+    assert.equal(first!.r.junk, false);
+    const [second] = await asUser(c, (tx) => tx`select report_junk(${v!.id}) as r`);
+    assert.equal(second!.r.junk, true);
   });
 });
 
