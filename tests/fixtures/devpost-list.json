@@ -1,0 +1,93 @@
+{
+  "hackathons": [
+    {
+      "id": 31330,
+      "title": "WORLDS London",
+      "displayed_location": {
+        "icon": "map-marker-alt",
+        "location": "London, Waterloo"
+      },
+      "open_state": "ended",
+      "thumbnail_url": "//d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/005/298/493/datas/medium_square.png",
+      "analytics_identifier": "WORLDS London (31330)",
+      "url": "https://worlds.devpost.com/",
+      "time_left_to_submission": "Ended",
+      "submission_period_dates": "Sep 12, 2026",
+      "themes": [
+        {
+          "id": 4,
+          "name": "Gaming"
+        },
+        {
+          "id": 6,
+          "name": "Machine Learning/AI"
+        },
+        {
+          "id": 5,
+          "name": "AR/VR"
+        }
+      ],
+      "prize_amount": "£<span data-currency-value>1,000</span>",
+      "prizes_counts": {
+        "cash": 1,
+        "other": 5
+      },
+      "registrations_count": 59,
+      "featured": false,
+      "organization_name": "Multic",
+      "winners_announced": false,
+      "submission_gallery_url": "https://worlds.devpost.com/project-gallery",
+      "start_a_submission_url": "https://worlds.devpost.com/challenges/start_a_submission",
+      "invite_only": true,
+      "eligibility_requirement_invite_only_description": "Founders, Engineers and Creatives ",
+      "managed_by_devpost_badge": false
+    },
+    {
+      "id": 21922,
+      "title": "XR Hack - London",
+      "displayed_location": {
+        "icon": "map-marker-alt",
+        "location": "PwC London"
+      },
+      "open_state": "ended",
+      "thumbnail_url": "//d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/003/016/475/datas/medium_square.jpg",
+      "analytics_identifier": "XR Hack - London (21922)",
+      "url": "https://xr-hack-london.devpost.com/",
+      "time_left_to_submission": "Ended",
+      "submission_period_dates": "Aug 15 - 16, 2024",
+      "themes": [
+        {
+          "id": 5,
+          "name": "AR/VR"
+        },
+        {
+          "id": 19,
+          "name": "Education"
+        },
+        {
+          "id": 6,
+          "name": "Machine Learning/AI"
+        }
+      ],
+      "prize_amount": "£<span data-currency-value>18,190</span>",
+      "prizes_counts": {
+        "cash": 11,
+        "other": 0
+      },
+      "registrations_count": 164,
+      "featured": false,
+      "organization_name": "XR Hack",
+      "winners_announced": true,
+      "submission_gallery_url": "https://xr-hack-london.devpost.com/project-gallery",
+      "start_a_submission_url": "https://xr-hack-london.devpost.com/challenges/start_a_submission",
+      "invite_only": false,
+      "eligibility_requirement_invite_only_description": null,
+      "managed_by_devpost_badge": false
+    }
+  ],
+  "meta": {
+    "total_count": 250,
+    "per_page": 9,
+    "fuzzy": false
+  }
+}

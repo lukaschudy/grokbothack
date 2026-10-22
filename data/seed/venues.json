@@ -1,0 +1,4830 @@
+[
+  {
+    "name": "Adam Smith Institute",
+    "address": "Adam Smith Institute, 23 Great Smith St, London SW1P 3DJ, UK",
+    "area": "Westminster",
+    "lat": 51.498029,
+    "lng": -0.129684,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "2026 Global Energy Security Index Launch with Oliver McPherson-Smith",
+        "eventUrl": "https://luma.com/je8kcyel",
+        "eventDate": "2026-10-19",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Baroness Fox",
+        "eventUrl": "https://luma.com/mt12b2pi",
+        "eventDate": "2026-10-13",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Can We Be Rich Again?",
+        "eventUrl": "https://luma.com/jor1c0a9",
+        "eventDate": "2026-10-01",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Lucy Dunn",
+        "eventUrl": "https://luma.com/dkzt88dw",
+        "eventDate": "2026-09-18",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Lord Kempsell",
+        "eventUrl": "https://luma.com/6ptr785q",
+        "eventDate": "2026-09-01",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Ten Years On with Lord Elliott of Mickle Fell",
+        "eventUrl": "https://luma.com/5s36d6dq",
+        "eventDate": "2026-07-22",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Denys Demko",
+        "eventUrl": "https://luma.com/tjrsdrwq",
+        "eventDate": "2026-07-07",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Benjamin Franklin - Adam Smith's Invisible Hand?",
+        "eventUrl": "https://luma.com/zj0wetb9",
+        "eventDate": "2026-06-17",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Harriet Cross MP",
+        "eventUrl": "https://luma.com/26wdb6us",
+        "eventDate": "2026-06-02",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Kitty Thompson",
+        "eventUrl": "https://luma.com/f4k8hi0u",
+        "eventDate": "2026-05-05",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Gawain Towler",
+        "eventUrl": "https://luma.com/h1i2jtsj",
+        "eventDate": "2026-04-07",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Crude Calculations by Oliver McPherson-Smith",
+        "eventUrl": "https://luma.com/ktxvje7m",
+        "eventDate": "2026-03-11",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Will Lloyd",
+        "eventUrl": "https://luma.com/0xup5z8s",
+        "eventDate": "2026-03-03",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: The Growth Agenda",
+        "eventUrl": "https://luma.com/k28tx40z",
+        "eventDate": "2026-02-19",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Lord Elliot of Mickle Fell",
+        "eventUrl": "https://luma.com/d53xzad0",
+        "eventDate": "2026-02-03",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Laila Cunningham",
+        "eventUrl": "https://luma.com/vzctze2d",
+        "eventDate": "2026-01-13",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Hugo Gye",
+        "eventUrl": "https://luma.com/n0x0z72w",
+        "eventDate": "2025-12-02",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Rachel Gilmour MP",
+        "eventUrl": "https://luma.com/p03tvll1",
+        "eventDate": "2025-11-04",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: How Progress Ends",
+        "eventUrl": "https://luma.com/len5eb0g",
+        "eventDate": "2025-10-30",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Claire Coutinho MP",
+        "eventUrl": "https://luma.com/3xjiu74d",
+        "eventDate": "2025-10-13",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: False Dawn - Whither the New Deal?",
+        "eventUrl": "https://luma.com/ju6mptza",
+        "eventDate": "2025-10-02",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Towards A New Sanctions Framework",
+        "eventUrl": "https://luma.com/8iowrhvf",
+        "eventDate": "2025-09-09",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Jack Rankin MP",
+        "eventUrl": "https://luma.com/5vbyn9y0",
+        "eventDate": "2025-09-02",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: How Markets Shape Cities",
+        "eventUrl": "https://luma.com/cqi0kctl",
+        "eventDate": "2025-07-07",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Katie Lam MP",
+        "eventUrl": "https://luma.com/y54m9veq",
+        "eventDate": "2025-07-01",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Aria Babu",
+        "eventUrl": "https://luma.com/ihblsp99",
+        "eventDate": "2025-06-10",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Governments and Market Failure",
+        "eventUrl": "https://luma.com/7bazugsq",
+        "eventDate": "2025-05-08",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Helen Whately MP",
+        "eventUrl": "https://luma.com/6a9bg6vw",
+        "eventDate": "2025-05-06",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Lord Kamall",
+        "eventUrl": "https://luma.com/1fdp1myq",
+        "eventDate": "2025-04-01",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening - Energy: The Route to Cheap and Abundant",
+        "eventUrl": "https://luma.com/zrynw837",
+        "eventDate": "2025-03-19",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Ruby Osman",
+        "eventUrl": "https://luma.com/smitdwyf",
+        "eventDate": "2025-03-11",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Attracting Foreign Direct Investment",
+        "eventUrl": "https://luma.com/a654ae6u",
+        "eventDate": "2025-02-12",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Sam Bowman",
+        "eventUrl": "https://luma.com/g566cjhz",
+        "eventDate": "2025-02-04",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Critical remarks on the Scientific Method of Economics",
+        "eventUrl": "https://luma.com/j1g80m02",
+        "eventDate": "2025-01-30",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation: Dr. Lawrence Newport",
+        "eventUrl": "https://luma.com/j3q55i8w",
+        "eventDate": "2025-01-14",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation: The Baroness Smith",
+        "eventUrl": "https://luma.com/q2vj8vzj",
+        "eventDate": "2024-12-03",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Farewell Non-Doms",
+        "eventUrl": "https://luma.com/07eou6y5",
+        "eventDate": "2024-11-19",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Can Free Markets be Feminist?",
+        "eventUrl": "https://luma.com/7xp00bzk",
+        "eventDate": "2024-11-14",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation: Lord Mendelsohn",
+        "eventUrl": "https://luma.com/qoq55n2o",
+        "eventDate": "2024-11-05",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Selecting The Best",
+        "eventUrl": "https://luma.com/tk6cus0q",
+        "eventDate": "2024-10-14",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation with Alys Denby",
+        "eventUrl": "https://luma.com/ck4q34b0",
+        "eventDate": "2024-10-08",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Why is the UK's Sanctions Regime So Dysfunctional?",
+        "eventUrl": "https://luma.com/lmd7lbgr",
+        "eventDate": "2024-09-10",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation: Julia Willemyns, UK Day One",
+        "eventUrl": "https://luma.com/ojn10cj2",
+        "eventDate": "2024-06-04",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Special Lecture | Why Read Adam Smith in 2024?",
+        "eventUrl": "https://luma.com/ctr6stgi",
+        "eventDate": "2024-06-03",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evenings: Party Poopers",
+        "eventUrl": "https://luma.com/5iidwtxs",
+        "eventDate": "2024-05-29",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evenings: The Rent is Too Damn High!",
+        "eventUrl": "https://luma.com/09dtp7q4",
+        "eventDate": "2024-05-16",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation: Steve Baker MP",
+        "eventUrl": "https://luma.com/a9dmje3v",
+        "eventDate": "2024-05-07",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Next Generation: Rachel Cunliffe, The New Statesman",
+        "eventUrl": "https://luma.com/c1oy6c1l",
+        "eventDate": "2024-02-13",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "ChristmASI with Penny Mordaunt",
+        "eventUrl": "https://luma.com/sk0qgsa1",
+        "eventDate": "2023-12-05",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Bush House",
+    "address": "Bush House North Wing, King's College London, 30 Aldwych, London WC2B 4BG, UK",
+    "area": "Strand",
+    "lat": 51.5130562,
+    "lng": -0.11735169999999999,
+    "googlePlaceId": null,
+    "kindGuess": "university",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Java Workshops Week 4: Loops and Repetition",
+        "eventUrl": "https://luma.com/dxddbjlp",
+        "eventDate": "2026-10-21",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Java Workshops Week 3: Conditionals and Boolean Logic",
+        "eventUrl": "https://luma.com/a1x9zk8u",
+        "eventDate": "2026-10-14",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Java Workshops Week 2: User input and Strings",
+        "eventUrl": "https://luma.com/45ay2sf6",
+        "eventDate": "2026-10-07",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Start your year with Notion",
+        "eventUrl": "https://luma.com/notioncls-ssy",
+        "eventDate": "2026-10-07",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Build your Student OS in Notion",
+        "eventUrl": "https://luma.com/bgggte5w",
+        "eventDate": "2026-09-24",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Competitive Programming Workshop #10",
+        "eventUrl": "https://luma.com/xc1ql56h",
+        "eventDate": "2026-04-02",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Competitive Programming Workshop #9",
+        "eventUrl": "https://luma.com/7bkouh0n",
+        "eventDate": "2026-03-26",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "KCL Tech Academy - Workshop 2: Developing Agentic AI with JetBrains",
+        "eventUrl": "https://luma.com/f02z018z",
+        "eventDate": "2026-03-25",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "KCL Tech Academy - Workshop 1: Into Agentic AI with JetBrains",
+        "eventUrl": "https://luma.com/s9yj5j2g",
+        "eventDate": "2026-03-19",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Competitive Programming Workshop #8",
+        "eventUrl": "https://luma.com/vpvkmcpt",
+        "eventDate": "2026-03-18",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Competitive Programming Workshop #7",
+        "eventUrl": "https://luma.com/v17b78bh",
+        "eventDate": "2026-03-12",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "KCL Electronics x KCL Tech: (Vibe) Coding for Hardware",
+        "eventUrl": "https://luma.com/xtgk3brb",
+        "eventDate": "2026-03-11",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Competitive Programming Workshop #6",
+        "eventUrl": "https://luma.com/4h7zlp4l",
+        "eventDate": "2026-03-05",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "HackLondon 2026",
+        "eventUrl": "https://luma.com/4yis1lll",
+        "eventDate": "2026-02-21",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Competitive Programming Workshop #5",
+        "eventUrl": "https://luma.com/b758b1sv",
+        "eventDate": "2026-02-19",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Technical Interview Prep Workshop #5 [Final Week]",
+        "eventUrl": "https://luma.com/gkqthtdm",
+        "eventDate": "2026-02-18",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "KCL Tech Hustings",
+        "eventUrl": "https://luma.com/d3e0j89c",
+        "eventDate": "2026-02-12",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Competitive Programming Workshop #4",
+        "eventUrl": "https://luma.com/qim7nkdk",
+        "eventDate": "2026-02-12",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Technical Interview Prep Workshop #4",
+        "eventUrl": "https://luma.com/0uznwcs1",
+        "eventDate": "2026-02-11",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Competitive Programming Workshop #2",
+        "eventUrl": "https://luma.com/ot78ola4",
+        "eventDate": "2026-01-29",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Technical Interview Prep Workshop #2",
+        "eventUrl": "https://luma.com/0irx5wua",
+        "eventDate": "2026-01-28",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Competitive Programming Workshop #1",
+        "eventUrl": "https://luma.com/iuce8rqm",
+        "eventDate": "2026-01-22",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Technical Interview Prep Workshop #1",
+        "eventUrl": "https://luma.com/82zkg0qy",
+        "eventDate": "2026-01-21",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Python Weekly Workshop #8",
+        "eventUrl": "https://luma.com/s73sgzkl",
+        "eventDate": "2025-12-05",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Python Weekly Workshop #7",
+        "eventUrl": "https://luma.com/iu9bruei",
+        "eventDate": "2025-11-28",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Java Weekly Workshop #8",
+        "eventUrl": "https://luma.com/j8ld2ksg",
+        "eventDate": "2025-11-27",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Python Weekly Workshop #6",
+        "eventUrl": "https://luma.com/f5mwcs2a",
+        "eventDate": "2025-11-21",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Java Weekly Workshop #7",
+        "eventUrl": "https://luma.com/g9bj8wzq",
+        "eventDate": "2025-11-20",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Python Weekly Workshop #5",
+        "eventUrl": "https://luma.com/25yakq9c",
+        "eventDate": "2025-11-14",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Java Weekly Workshop #6",
+        "eventUrl": "https://luma.com/yi9t8529",
+        "eventDate": "2025-11-13",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "TechSummit 2025",
+        "eventUrl": "https://luma.com/yp7f5frm",
+        "eventDate": "2025-10-25",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Sycamore",
+    "address": "66 Great Queen St, London WC2B 5BX",
+    "area": "Holborn",
+    "lat": 51.515841,
+    "lng": -0.120262,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 129,
+    "hosts": [
+      {
+        "community": "London Entrepreneur & Startup Network – Tech, Biz, eCommerce",
+        "eventTitle": "SMEs & Local Businesses | Digital Transformation | Business Networking in London",
+        "eventUrl": "https://www.meetup.com/london-entrepreneur-startup-network-tech-business-ecommerce/events/316282134/",
+        "eventDate": "2026-10-17",
+        "attendees": 67,
+        "source": "meetup"
+      },
+      {
+        "community": "London Entrepreneur & Startup Network – Tech, Biz, eCommerce",
+        "eventTitle": "Founder Mixer & Business Networking | Saturday Social in Covent Garden",
+        "eventUrl": "https://www.meetup.com/london-entrepreneur-startup-network-tech-business-ecommerce/events/316287493/",
+        "eventDate": "2026-10-17",
+        "attendees": 62,
+        "source": "meetup"
+      },
+      {
+        "community": "London Entrepreneur & Startup Network – Tech, Biz, eCommerce",
+        "eventTitle": "Startups, Entrepreneurs, AI & Investors - Business Networking | Saturday Social",
+        "eventUrl": "https://www.meetup.com/london-entrepreneur-startup-network-tech-business-ecommerce/events/316641074/",
+        "eventDate": "2026-10-17",
+        "attendees": 63,
+        "source": "meetup"
+      },
+      {
+        "community": "London Entrepreneur & Startup Network – Tech, Biz, eCommerce",
+        "eventTitle": "Property, Landlords & Business Owners - Business Networking Event in London",
+        "eventUrl": "https://www.meetup.com/london-entrepreneur-startup-network-tech-business-ecommerce/events/316224522/",
+        "eventDate": "2026-10-15",
+        "attendees": 65,
+        "source": "meetup"
+      },
+      {
+        "community": "London Entrepreneur & Startup Network – Tech, Biz, eCommerce",
+        "eventTitle": "Law, Property & Business - Business Networking Event in London, Holborn",
+        "eventUrl": "https://www.meetup.com/london-entrepreneur-startup-network-tech-business-ecommerce/events/316641068/",
+        "eventDate": "2026-10-15",
+        "attendees": 58,
+        "source": "meetup"
+      },
+      {
+        "community": "London Entrepreneur & Startup Network – Tech, Biz, eCommerce",
+        "eventTitle": "Finance, Banking, Investment, Property - Business Networking Event in London",
+        "eventUrl": "https://www.meetup.com/london-entrepreneur-startup-network-tech-business-ecommerce/events/316641070/",
+        "eventDate": "2026-10-15",
+        "attendees": 64,
+        "source": "meetup"
+      },
+      {
+        "community": "Networx London - Connect & Grow",
+        "eventTitle": "Law, Tax & Compliance Networking London | Startups, Founders & Professionals",
+        "eventUrl": "https://www.meetup.com/london-networking-for-startups-professionals/events/316453745/",
+        "eventDate": "2026-10-13",
+        "attendees": 99,
+        "source": "meetup"
+      },
+      {
+        "community": "Networx London - Connect & Grow",
+        "eventTitle": "Sales & Business Development Networking London | B2B Growth & Partnerships.",
+        "eventUrl": "https://www.meetup.com/london-networking-for-startups-professionals/events/316453748/",
+        "eventDate": "2026-10-13",
+        "attendees": 129,
+        "source": "meetup"
+      },
+      {
+        "community": "Networx London - Connect & Grow",
+        "eventTitle": "Wealth & Private Capital Networking London | Property Investors",
+        "eventUrl": "https://www.meetup.com/london-networking-for-startups-professionals/events/316453753/",
+        "eventDate": "2026-10-13",
+        "attendees": 96,
+        "source": "meetup"
+      },
+      {
+        "community": "Networx London - Connect & Grow",
+        "eventTitle": "Startups & Entrepreneurship Networking | Founders & Business Owners",
+        "eventUrl": "https://www.meetup.com/london-networking-for-startups-professionals/events/316367570/",
+        "eventDate": "2026-10-06",
+        "attendees": 113,
+        "source": "meetup"
+      },
+      {
+        "community": "Networx London - Connect & Grow",
+        "eventTitle": "Agentic AI & Technology: Shaping the Future of Innovation",
+        "eventUrl": "https://www.meetup.com/london-networking-for-startups-professionals/events/316367628/",
+        "eventDate": "2026-10-06",
+        "attendees": 115,
+        "source": "meetup"
+      },
+      {
+        "community": "Networx London - Connect & Grow",
+        "eventTitle": "Biotech, Pharma & Life Sciences Networking | Healthcare & Innovation",
+        "eventUrl": "https://www.meetup.com/london-networking-for-startups-professionals/events/316368936/",
+        "eventDate": "2026-10-06",
+        "attendees": 82,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Tenth Revolution",
+    "address": "Aldgate House, 33 Aldgate High St, London, EC3N 1DL",
+    "area": "Aldgate",
+    "lat": 51.514398,
+    "lng": -0.075065,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 102,
+    "hosts": [
+      {
+        "community": "London Microsoft Fabric & Power BI User Group",
+        "eventTitle": "AI-built reports to question & comment on with Zebra BI on Fabric & Power BI",
+        "eventUrl": "https://www.meetup.com/london-fabug/events/316957735/",
+        "eventDate": "2026-10-22",
+        "attendees": 36,
+        "source": "meetup"
+      },
+      {
+        "community": "London Microsoft Fabric & Power BI User Group",
+        "eventTitle": "Visual Calculations in Power BI with Erik Svensen",
+        "eventUrl": "https://www.meetup.com/london-fabug/events/316413777/",
+        "eventDate": "2026-09-15",
+        "attendees": 58,
+        "source": "meetup"
+      },
+      {
+        "community": "London Microsoft Fabric & Power BI User Group",
+        "eventTitle": "Double Session - Deep drive into Delta & Parquet AND OneLake",
+        "eventUrl": "https://www.meetup.com/london-fabug/events/315573883/",
+        "eventDate": "2026-07-16",
+        "attendees": 56,
+        "source": "meetup"
+      },
+      {
+        "community": "London Microsoft Fabric & Power BI User Group",
+        "eventTitle": "Fabric Data Warehouse with Tino Tereshko",
+        "eventUrl": "https://www.meetup.com/london-fabug/events/314990847/",
+        "eventDate": "2026-06-04",
+        "attendees": 67,
+        "source": "meetup"
+      },
+      {
+        "community": "London Microsoft Fabric & Power BI User Group",
+        "eventTitle": "10th Anniversary Celebration with Chris Webb - Power BI Under the Bonnet",
+        "eventUrl": "https://www.meetup.com/london-fabug/events/314736887/",
+        "eventDate": "2026-05-20",
+        "attendees": 73,
+        "source": "meetup"
+      },
+      {
+        "community": "London Microsoft Fabric & Power BI User Group",
+        "eventTitle": "Visualize Without Limits: AI-Powered Custom Visuals for the No-Code Era",
+        "eventUrl": "https://www.meetup.com/london-fabug/events/313556457/",
+        "eventDate": "2026-03-11",
+        "attendees": 81,
+        "source": "meetup"
+      },
+      {
+        "community": "London Microsoft Fabric & Power BI User Group",
+        "eventTitle": "Fabric Implementation Journey at the NHS Business Services Authority (NHSBSA)",
+        "eventUrl": "https://www.meetup.com/london-fabug/events/313218128/",
+        "eventDate": "2026-02-19",
+        "attendees": 82,
+        "source": "meetup"
+      },
+      {
+        "community": "London Microsoft Fabric & Power BI User Group",
+        "eventTitle": "The Future of Location Intelligence in Power BI",
+        "eventUrl": "https://www.meetup.com/london-fabug/events/312783757/",
+        "eventDate": "2026-01-22",
+        "attendees": 74,
+        "source": "meetup"
+      },
+      {
+        "community": "London Microsoft Fabric & Power BI User Group",
+        "eventTitle": "Benni De Jagere : Fabric Capacities - Beyond the Obvious",
+        "eventUrl": "https://www.meetup.com/london-fabug/events/311685660/",
+        "eventDate": "2025-11-06",
+        "attendees": 66,
+        "source": "meetup"
+      },
+      {
+        "community": "London Microsoft Fabric & Power BI User Group",
+        "eventTitle": "Marco Russo - Introducing DAX User-Defined Functions (UDF)",
+        "eventUrl": "https://www.meetup.com/london-fabug/events/311098654/",
+        "eventDate": "2025-10-01",
+        "attendees": 102,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "AutogenAI",
+    "address": "AutogenAI, 123 Pentonville Rd, London N1 9LG, UK",
+    "area": "Angel",
+    "lat": 51.531296,
+    "lng": -0.1122,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 88,
+    "hosts": [
+      {
+        "community": "AI for the rest of us",
+        "eventTitle": "Did AI Break Recruitment?",
+        "eventUrl": "https://luma.com/AI4Sept26",
+        "eventDate": "2026-09-29",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "AI for the rest of us London",
+        "eventTitle": "Meetup #18 - Did AI Break Recruitment?",
+        "eventUrl": "https://www.meetup.com/ai-for-the-rest-of-us-london/events/316525794/",
+        "eventDate": "2026-09-29",
+        "attendees": 36,
+        "source": "meetup"
+      },
+      {
+        "community": "DevSecOps - London Gathering",
+        "eventTitle": "DSOLG June Event",
+        "eventUrl": "https://www.meetup.com/devsecops-london-gathering/events/314874838/",
+        "eventDate": "2026-06-24",
+        "attendees": 72,
+        "source": "meetup"
+      },
+      {
+        "community": "AI for the rest of us",
+        "eventTitle": "Reimagining Software Development with AI",
+        "eventUrl": "https://luma.com/AI4May26",
+        "eventDate": "2026-05-14",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "AI for the rest of us London",
+        "eventTitle": "Meetup #16 Reimagining Software Development With AI",
+        "eventUrl": "https://www.meetup.com/ai-for-the-rest-of-us-london/events/314604161/",
+        "eventDate": "2026-05-14",
+        "attendees": 63,
+        "source": "meetup"
+      },
+      {
+        "community": "AI for the rest of us",
+        "eventTitle": "Claude Code For The Rest Of Us",
+        "eventUrl": "https://luma.com/AI4April",
+        "eventDate": "2026-04-22",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "AI for the rest of us London",
+        "eventTitle": "Meetup #15 Claude Code For The Rest Of Us",
+        "eventUrl": "https://www.meetup.com/ai-for-the-rest-of-us-london/events/314152011/",
+        "eventDate": "2026-04-22",
+        "attendees": 88,
+        "source": "meetup"
+      },
+      {
+        "community": "DevSecOps - London Gathering",
+        "eventTitle": "DSOLG March 2026 - Double-header",
+        "eventUrl": "https://www.meetup.com/devsecops-london-gathering/events/313712003/",
+        "eventDate": "2026-03-25",
+        "attendees": 51,
+        "source": "meetup"
+      },
+      {
+        "community": "DevSecOps - London Gathering",
+        "eventTitle": "DSOLG and London DevOps Collaboration February Event",
+        "eventUrl": "https://www.meetup.com/devsecops-london-gathering/events/313238405/",
+        "eventDate": "2026-02-18",
+        "attendees": 48,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Royal School of Mines",
+    "address": "Royal School of Mines, Imperial College, South Kensington, London SW7 2AZ, UK",
+    "area": "South Kensington",
+    "lat": 51.498822200000006,
+    "lng": -0.1748735,
+    "googlePlaceId": null,
+    "kindGuess": "university",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "UK AI Agent lab: Gemini Edition",
+        "eventUrl": "https://luma.com/7srz7k7v",
+        "eventDate": "2026-08-22",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "UK AI Agent Hack Ep5. x Conduct",
+        "eventUrl": "https://luma.com/knoymap5",
+        "eventDate": "2026-06-28",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "bittensor x UK AI Agent Hack",
+        "eventUrl": "https://luma.com/lr9vsy8g",
+        "eventDate": "2026-06-24",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "MuleRun Workshop with Alibaba & Qwen",
+        "eventUrl": "https://luma.com/thtr7kal",
+        "eventDate": "2026-06-24",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "Fetch.ai Pizza networking",
+        "eventUrl": "https://luma.com/w26us61c",
+        "eventDate": "2026-06-24",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "MuleRun Workshop #1 with Alibaba Cloud",
+        "eventUrl": "https://luma.com/62kz79qs",
+        "eventDate": "2026-06-15",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "Bittensor Keynote @ Imperial",
+        "eventUrl": "https://luma.com/n1c7pwhp",
+        "eventDate": "2026-04-24",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "CEO Forum - Imperial",
+        "eventUrl": "https://luma.com/tkfg0zpp",
+        "eventDate": "2026-03-25",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "London Uni Dating Show",
+        "eventUrl": "https://luma.com/2clz8pe8",
+        "eventDate": "2026-02-14",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "uSwitch",
+    "address": "5 Copper Row, London, SE1 2LH, London",
+    "area": "Bermondsey",
+    "lat": 51.503521,
+    "lng": -0.075336,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 139,
+    "hosts": [
+      {
+        "community": "London Clojurians",
+        "eventTitle": "London Clojure Dojo at uSwitch",
+        "eventUrl": "https://www.meetup.com/london-clojurians/events/314524276/",
+        "eventDate": "2026-09-08",
+        "attendees": 15,
+        "source": "meetup"
+      },
+      {
+        "community": "London Clojurians",
+        "eventTitle": "London Clojure Dojo at uSwitch",
+        "eventUrl": "https://www.meetup.com/london-clojurians/events/314524268/",
+        "eventDate": "2026-08-11",
+        "attendees": 5,
+        "source": "meetup"
+      },
+      {
+        "community": "London Clojurians",
+        "eventTitle": "London Clojure Dojo at uSwitch",
+        "eventUrl": "https://www.meetup.com/london-clojurians/events/314524260/",
+        "eventDate": "2026-07-07",
+        "attendees": 8,
+        "source": "meetup"
+      },
+      {
+        "community": "London Clojurians",
+        "eventTitle": "London Clojure Dojo at uSwitch",
+        "eventUrl": "https://www.meetup.com/london-clojurians/events/314524133/",
+        "eventDate": "2026-06-09",
+        "attendees": 5,
+        "source": "meetup"
+      },
+      {
+        "community": "London Clojurians",
+        "eventTitle": "London Clojure Dojo at uSwitch",
+        "eventUrl": "https://www.meetup.com/london-clojurians/events/313545413/",
+        "eventDate": "2026-05-12",
+        "attendees": 7,
+        "source": "meetup"
+      },
+      {
+        "community": "London Clojurians",
+        "eventTitle": "London Clojure Dojo at uSwitch",
+        "eventUrl": "https://www.meetup.com/london-clojurians/events/313756078/",
+        "eventDate": "2026-04-14",
+        "attendees": 5,
+        "source": "meetup"
+      },
+      {
+        "community": "London Clojurians",
+        "eventTitle": "London Clojure Dojo at uSwitch",
+        "eventUrl": "https://www.meetup.com/london-clojurians/events/313205711/",
+        "eventDate": "2026-03-10",
+        "attendees": 7,
+        "source": "meetup"
+      },
+      {
+        "community": "London Clojurians",
+        "eventTitle": "London Clojure Dojo at uSwitch",
+        "eventUrl": "https://www.meetup.com/london-clojurians/events/312894631/",
+        "eventDate": "2026-02-10",
+        "attendees": 8,
+        "source": "meetup"
+      },
+      {
+        "community": "London.js - Learn, Share & Use JavaScript",
+        "eventTitle": "London.js at Zoopla on Thursday 27th November 2025 🏡🎄",
+        "eventUrl": "https://www.meetup.com/london-js/events/311885003/",
+        "eventDate": "2025-11-27",
+        "attendees": 139,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Blackett Laboratory",
+    "address": "Blackett Laboratory, Imperial College, South Kensington, London SW7 2AZ, UK",
+    "area": "South Kensington",
+    "lat": 51.4994235,
+    "lng": -0.17917,
+    "googlePlaceId": null,
+    "kindGuess": "university",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "Shaping the Future of AI with Microsoft",
+        "eventUrl": "https://luma.com/ukai-tg9s",
+        "eventDate": "2026-10-16",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "Microsoft @ Imperial 3rd",
+        "eventUrl": "https://luma.com/ojrzbmo7",
+        "eventDate": "2026-07-03",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "AI Agent Hackathon Workshop Day 5",
+        "eventUrl": "https://luma.com/yypzxtas",
+        "eventDate": "2026-07-03",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "Microsoft @ Imperial 2nd",
+        "eventUrl": "https://luma.com/6fj8fvp6",
+        "eventDate": "2026-07-02",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "UK AI Agent Hack Workshop - Day4",
+        "eventUrl": "https://luma.com/d84r8rfn",
+        "eventDate": "2026-07-02",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "Microsoft @ Imperial College 1st",
+        "eventUrl": "https://luma.com/1s6c91fj",
+        "eventDate": "2026-07-01",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "UK AI Agent Hack Workshop - Day3",
+        "eventUrl": "https://luma.com/wkfe1bpf",
+        "eventDate": "2026-07-01",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "UK AI Agent Hack Ep4 x OpenClaw",
+        "eventUrl": "https://luma.com/54b06cos",
+        "eventDate": "2026-03-01",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "King's College London",
+    "address": "Anatomy Theatre & Museum, 6, King's College London, Strand, London WC2R 2LS, UK",
+    "area": "Strand",
+    "lat": 51.511613,
+    "lng": -0.116228,
+    "googlePlaceId": null,
+    "kindGuess": "university",
+    "maxAttendeesSeen": 81,
+    "hosts": [
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Breaking In",
+        "eventUrl": "https://luma.com/ahths4mi",
+        "eventDate": "2026-10-17",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Tech-for-Good Start-Up Case & Careers Workshop: Hidden Roles Edition",
+        "eventUrl": "https://luma.com/lkpbencg",
+        "eventDate": "2026-10-12",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Robot Arm #1: CAD Basics",
+        "eventUrl": "https://luma.com/it9qx1jq",
+        "eventDate": "2026-10-07",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "K.A.I. x KCL Tech Workshop: Introduction to AI",
+        "eventUrl": "https://luma.com/y69nh7lb",
+        "eventDate": "2026-03-04",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "The JetBrains Student Tech Quiz, Vol. 5",
+        "eventUrl": "https://luma.com/8h3gc61b",
+        "eventDate": "2025-11-19",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "First Year Hack",
+        "eventTitle": "First Year Hack",
+        "eventUrl": "https://first-year-hack-2017.devpost.com/",
+        "eventDate": "2017-11-11",
+        "attendees": 16,
+        "source": "devpost"
+      },
+      {
+        "community": "HackKing’s 3.0",
+        "eventTitle": "HackKing’s 3.0",
+        "eventUrl": "https://hackkings3.devpost.com/",
+        "eventDate": "2016-11-27",
+        "attendees": 81,
+        "source": "devpost"
+      },
+      {
+        "community": "HackLondon 2015",
+        "eventTitle": "HackLondon 2015",
+        "eventUrl": "https://hacklondon2015.devpost.com/",
+        "eventDate": "2015-02-28",
+        "attendees": 73,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Tessl",
+    "address": "210 Pentonville Rd London N1 9JY United Kingdom",
+    "area": "King's Cross",
+    "lat": 51.53118,
+    "lng": -0.120062,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 143,
+    "hosts": [
+      {
+        "community": "Elastic London User Group",
+        "eventTitle": "What Breaks When You Let an Agent Loose on Your Repo",
+        "eventUrl": "https://www.meetup.com/london-elastic-fantastics/events/316183895/",
+        "eventDate": "2026-10-22",
+        "attendees": 50,
+        "source": "meetup"
+      },
+      {
+        "community": "AI Security Engineers - London, UK",
+        "eventTitle": "Hidden Failure Modes of AI Agents",
+        "eventUrl": "https://www.meetup.com/aiseceng-london/events/314053907/",
+        "eventDate": "2026-04-08",
+        "attendees": 33,
+        "source": "meetup"
+      },
+      {
+        "community": "London.js - Learn, Share & Use JavaScript",
+        "eventTitle": "London.js with Tessl & incident.io - Wednesday 25th February 2026!",
+        "eventUrl": "https://www.meetup.com/london-js/events/313172141/",
+        "eventDate": "2026-02-25",
+        "attendees": 143,
+        "source": "meetup"
+      },
+      {
+        "community": "AI for the rest of us",
+        "eventTitle": "AI for the rest of us - AI Coding The Right Way",
+        "eventUrl": "https://luma.com/AI4Feb26",
+        "eventDate": "2026-02-19",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "AI for the rest of us London",
+        "eventTitle": "Meetup #13 - AI Coding The Right Way",
+        "eventUrl": "https://www.meetup.com/ai-for-the-rest-of-us-london/events/313096460/",
+        "eventDate": "2026-02-19",
+        "attendees": 122,
+        "source": "meetup"
+      },
+      {
+        "community": "AI for the rest of us",
+        "eventTitle": "AI for the rest of us - The Octopus Organisation",
+        "eventUrl": "https://luma.com/AI4Jan26",
+        "eventDate": "2026-01-29",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "AI for the rest of us London",
+        "eventTitle": "Meetup #12 - The Octopus Organisation",
+        "eventUrl": "https://www.meetup.com/ai-for-the-rest-of-us-london/events/312828537/",
+        "eventDate": "2026-01-29",
+        "attendees": 97,
+        "source": "meetup"
+      },
+      {
+        "community": "AI for the rest of us London",
+        "eventTitle": "Meetup #11 - An Introduction To Evals and The Story of DearGarden",
+        "eventUrl": "https://www.meetup.com/ai-for-the-rest-of-us-london/events/311923367/",
+        "eventDate": "2025-11-27",
+        "attendees": 50,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Civo Tech Junction",
+    "address": "Civo Tech Junction, First Floor, 32-37 Cowper St, EC2A 4AW",
+    "area": "Old Street",
+    "lat": 51.525518,
+    "lng": -0.085841,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 180,
+    "hosts": [
+      {
+        "community": "DevSecOps - London Gathering",
+        "eventTitle": "DSOLG September 2026 - 9th Anniversary event",
+        "eventUrl": "https://www.meetup.com/devsecops-london-gathering/events/315325978/",
+        "eventDate": "2026-09-16",
+        "attendees": 80,
+        "source": "meetup"
+      },
+      {
+        "community": "DevSecOps - London Gathering",
+        "eventTitle": "DSOLG July Event",
+        "eventUrl": "https://www.meetup.com/devsecops-london-gathering/events/315328305/",
+        "eventDate": "2026-07-22",
+        "attendees": 58,
+        "source": "meetup"
+      },
+      {
+        "community": "DevSecOps - London Gathering",
+        "eventTitle": "DSOLG April Event - No AI Without APIs",
+        "eventUrl": "https://www.meetup.com/devsecops-london-gathering/events/313908954/",
+        "eventDate": "2026-04-29",
+        "attendees": 69,
+        "source": "meetup"
+      },
+      {
+        "community": "DevSecOps - London Gathering",
+        "eventTitle": "DSOLG January Event - Honeypots: A look at their use",
+        "eventUrl": "https://www.meetup.com/devsecops-london-gathering/events/312862632/",
+        "eventDate": "2026-01-21",
+        "attendees": 40,
+        "source": "meetup"
+      },
+      {
+        "community": "Cloud Native London",
+        "eventTitle": "Cloud Native London, January 2026",
+        "eventUrl": "https://www.meetup.com/cloud-native-london/events/310408549/",
+        "eventDate": "2026-01-07",
+        "attendees": 180,
+        "source": "meetup"
+      },
+      {
+        "community": "Elastic London User Group",
+        "eventTitle": "Elastic Observability in London",
+        "eventUrl": "https://www.meetup.com/london-elastic-fantastics/events/310469522/",
+        "eventDate": "2025-09-15",
+        "attendees": 34,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Databricks London",
+    "address": "11-14 Windmill St, London W1T 2JG",
+    "area": "Fitzrovia",
+    "lat": 51.518648,
+    "lng": -0.133825,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 175,
+    "hosts": [
+      {
+        "community": "Databricks London Meetup",
+        "eventTitle": "July 2026 - Databricks London Meetup",
+        "eventUrl": "https://www.meetup.com/databricks-london/events/315472655/",
+        "eventDate": "2026-07-30",
+        "attendees": 164,
+        "source": "meetup"
+      },
+      {
+        "community": "Databricks London Meetup",
+        "eventTitle": "Databricks DevConnect London",
+        "eventUrl": "https://www.meetup.com/databricks-london/events/313648221/",
+        "eventDate": "2026-04-29",
+        "attendees": 143,
+        "source": "meetup"
+      },
+      {
+        "community": "Databricks London Meetup",
+        "eventTitle": "April 2026 - Databricks London Meetup",
+        "eventUrl": "https://www.meetup.com/databricks-london/events/313666418/",
+        "eventDate": "2026-04-09",
+        "attendees": 175,
+        "source": "meetup"
+      },
+      {
+        "community": "Databricks London Meetup",
+        "eventTitle": "November 2025 - Databricks Meetup",
+        "eventUrl": "https://www.meetup.com/databricks-london/events/311841998/",
+        "eventDate": "2025-11-24",
+        "attendees": 166,
+        "source": "meetup"
+      },
+      {
+        "community": "Databricks London Meetup",
+        "eventTitle": "July 2025 - AI Summer Special! ☀️",
+        "eventUrl": "https://www.meetup.com/databricks-london/events/309119196/",
+        "eventDate": "2025-07-21",
+        "attendees": 173,
+        "source": "meetup"
+      },
+      {
+        "community": "Databricks London Meetup",
+        "eventTitle": "June 2025 - Data+AI Summit Recap!",
+        "eventUrl": "https://www.meetup.com/databricks-london/events/308305666/",
+        "eventDate": "2025-06-17",
+        "attendees": 159,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Encode Hub",
+    "address": "41 Pitfield St, London, N1 6DA",
+    "area": "Old Street",
+    "lat": 51.527626,
+    "lng": -0.083849,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 5,
+    "hosts": [
+      {
+        "community": "freeCodeCamp London",
+        "eventTitle": "freeCodeCamp x Encode | AI - Workshop: Hermes Agent & Local LLM models (Qwen)",
+        "eventUrl": "https://www.meetup.com/freecodecamp-london/events/316008267/",
+        "eventDate": "2026-08-19",
+        "attendees": 4,
+        "source": "meetup"
+      },
+      {
+        "community": "freeCodeCamp London",
+        "eventTitle": "freeCodeCamp x Encode | AI - Workshop: Vibecoding Using Local AIs",
+        "eventUrl": "https://www.meetup.com/freecodecamp-london/events/314948759/",
+        "eventDate": "2026-06-11",
+        "attendees": 5,
+        "source": "meetup"
+      },
+      {
+        "community": "freeCodeCamp London",
+        "eventTitle": "freeCodeCamp x Encode | AI - Workshop: Demystifying OpenClaw, the New AI Agent",
+        "eventUrl": "https://www.meetup.com/freecodecamp-london/events/313769693/",
+        "eventDate": "2026-03-25",
+        "attendees": 3,
+        "source": "meetup"
+      },
+      {
+        "community": "freeCodeCamp London",
+        "eventTitle": "freeCodeCamp x Encode | AI - Workshop: Demystifying OpenClaw, the New AI Agent",
+        "eventUrl": "https://www.meetup.com/freecodecamp-london/events/313256779/",
+        "eventDate": "2026-02-26",
+        "attendees": 2,
+        "source": "meetup"
+      },
+      {
+        "community": "freeCodeCamp London",
+        "eventTitle": "freeCodeCamp x Encode | AI Edition - Beginners Guide to AI Browsers",
+        "eventUrl": "https://www.meetup.com/freecodecamp-london/events/312191865/",
+        "eventDate": "2025-12-08",
+        "attendees": 2,
+        "source": "meetup"
+      },
+      {
+        "community": "freeCodeCamp London",
+        "eventTitle": "freeCodeCamp x Encode | AI Edition - Make Your Own Local-First AI Assistant",
+        "eventUrl": "https://www.meetup.com/freecodecamp-london/events/311639864/",
+        "eventDate": "2025-11-05",
+        "attendees": 2,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Dragon Hall Trust",
+    "address": "17 Stukeley St WC2B 5LT",
+    "area": "Holborn",
+    "lat": 51.516626,
+    "lng": -0.122665,
+    "googlePlaceId": null,
+    "kindGuess": "community_space",
+    "maxAttendeesSeen": 91,
+    "hosts": [
+      {
+        "community": "AWS London Well-Architected User Group",
+        "eventTitle": "AWS London Well-Architected User Group September Meetup!",
+        "eventUrl": "https://www.meetup.com/aws-london-well-architected-user-group/events/315790750/",
+        "eventDate": "2026-09-17",
+        "attendees": 42,
+        "source": "meetup"
+      },
+      {
+        "community": "AWS London Well-Architected User Group",
+        "eventTitle": "AWS London Well-Architected User Group June Meetup!",
+        "eventUrl": "https://www.meetup.com/aws-london-well-architected-user-group/events/314932450/",
+        "eventDate": "2026-06-25",
+        "attendees": 57,
+        "source": "meetup"
+      },
+      {
+        "community": "AWS London Well-Architected User Group",
+        "eventTitle": "AWS London Well-Architected User Group May Meetup!",
+        "eventUrl": "https://www.meetup.com/aws-london-well-architected-user-group/events/314546636/",
+        "eventDate": "2026-05-28",
+        "attendees": 54,
+        "source": "meetup"
+      },
+      {
+        "community": "AWS London Well-Architected User Group",
+        "eventTitle": "AWS London Well-Architected User Group April Meetup!",
+        "eventUrl": "https://www.meetup.com/aws-london-well-architected-user-group/events/313909633/",
+        "eventDate": "2026-04-30",
+        "attendees": 51,
+        "source": "meetup"
+      },
+      {
+        "community": "AWS London Well-Architected User Group",
+        "eventTitle": "AWS London Well-Architected User Group March Meetup!",
+        "eventUrl": "https://www.meetup.com/aws-london-well-architected-user-group/events/313355822/",
+        "eventDate": "2026-03-26",
+        "attendees": 91,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Just Eat London",
+    "address": "Fleet Place House, 2 Fleet Pl, London EC4M 7RF,",
+    "area": "St Paul's",
+    "lat": 51.516447,
+    "lng": -0.103099,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 142,
+    "hosts": [
+      {
+        "community": "Cloud Native London",
+        "eventTitle": "Cloud Native London, October 2026",
+        "eventUrl": "https://www.meetup.com/cloud-native-london/events/314662668/",
+        "eventDate": "2026-10-07",
+        "attendees": 138,
+        "source": "meetup"
+      },
+      {
+        "community": "Cloud Native London",
+        "eventTitle": "Cloud Native London, September 2026",
+        "eventUrl": "https://www.meetup.com/cloud-native-london/events/314662641/",
+        "eventDate": "2026-09-02",
+        "attendees": 124,
+        "source": "meetup"
+      },
+      {
+        "community": "Cloud Native London",
+        "eventTitle": "Cloud Native London, August 2026",
+        "eventUrl": "https://www.meetup.com/cloud-native-london/events/314662523/",
+        "eventDate": "2026-08-05",
+        "attendees": 142,
+        "source": "meetup"
+      },
+      {
+        "community": "Cloud Native London",
+        "eventTitle": "Cloud Native London, July 2026",
+        "eventUrl": "https://www.meetup.com/cloud-native-london/events/313649286/",
+        "eventDate": "2026-07-01",
+        "attendees": 132,
+        "source": "meetup"
+      },
+      {
+        "community": "Cloud Native London",
+        "eventTitle": "Cloud Native London, June 2026",
+        "eventUrl": "https://www.meetup.com/cloud-native-london/events/312972430/",
+        "eventDate": "2026-06-03",
+        "attendees": 128,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Second Home Spitalfields",
+    "address": "Second Home Spitalfields, 68-80 Hanbury St, London E1 5JL, UK",
+    "area": "Spitalfields",
+    "lat": 51.520118700000005,
+    "lng": -0.0703587,
+    "googlePlaceId": null,
+    "kindGuess": "coworking",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "enki events",
+        "eventTitle": "Fractional Fridays",
+        "eventUrl": "https://luma.com/qiyi79q0",
+        "eventDate": "2026-08-28",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "enki events",
+        "eventTitle": "Fractional Fridays",
+        "eventUrl": "https://luma.com/rdt80ucy",
+        "eventDate": "2026-06-19",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "enki events",
+        "eventTitle": "Fractional Fridays",
+        "eventUrl": "https://luma.com/7sfc8817",
+        "eventDate": "2026-05-15",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "enki events",
+        "eventTitle": "AI Automation Hackathon: For Fractional Finance Leaders",
+        "eventUrl": "https://luma.com/n9s4pjqg",
+        "eventDate": "2026-04-17",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "enki events",
+        "eventTitle": "AI for CFO's: Workshop & Networking",
+        "eventUrl": "https://luma.com/9htdtpgn",
+        "eventDate": "2025-09-12",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Angular Connect Conference",
+    "address": "Royal Victoria Dock, 1 Western Gateway, London E16 1XL",
+    "area": "Newham",
+    "lat": 51.508134,
+    "lng": 0.028673,
+    "googlePlaceId": null,
+    "kindGuess": "bookable",
+    "maxAttendeesSeen": 22,
+    "hosts": [
+      {
+        "community": "AngularConnect NativeScript Hackathon",
+        "eventTitle": "AngularConnect NativeScript Hackathon",
+        "eventUrl": "https://ac-nativescript-hackathon.devpost.com/",
+        "eventDate": "2016-09-27",
+        "attendees": 14,
+        "source": "devpost"
+      },
+      {
+        "community": "AngularConnect- Office 365 Developer Hackathon",
+        "eventTitle": "AngularConnect- Office 365 Developer Hackathon",
+        "eventUrl": "https://angularconnect2015.devpost.com/",
+        "eventDate": "2015-10-19",
+        "attendees": 22,
+        "source": "devpost"
+      },
+      {
+        "community": "IncuBus Hackathon at Interop",
+        "eventTitle": "IncuBus Hackathon at Interop",
+        "eventUrl": "https://incubuslondon.devpost.com/",
+        "eventDate": "2015-06-16",
+        "attendees": 2,
+        "source": "devpost"
+      },
+      {
+        "community": "CloudExpo Enterprise Hackathon - Powered by Huddle on a London Bus!",
+        "eventTitle": "CloudExpo Enterprise Hackathon - Powered by Huddle on a London Bus!",
+        "eventUrl": "https://cloudexpoehackathon.devpost.com/",
+        "eventDate": "2015-03-11",
+        "attendees": 4,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Code Node",
+    "address": "10 South Pl, London EC2M 7EB, UK",
+    "area": "Moorgate",
+    "lat": 51.519283,
+    "lng": -0.08727,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 147,
+    "hosts": [
+      {
+        "community": "AI Security Engineers - London, UK",
+        "eventTitle": "AI Security Summit London",
+        "eventUrl": "https://www.meetup.com/aiseceng-london/events/313831444/",
+        "eventDate": "2026-05-14",
+        "attendees": 77,
+        "source": "meetup"
+      },
+      {
+        "community": "Redis London",
+        "eventTitle": "Redis Released London 2025",
+        "eventUrl": "https://www.meetup.com/redis-london/events/310290173/",
+        "eventDate": "2025-10-09",
+        "attendees": 11,
+        "source": "meetup"
+      },
+      {
+        "community": "Cerebral Valley",
+        "eventTitle": "Mistral AI London Hackathon",
+        "eventUrl": "https://hackukmistral.devpost.com/",
+        "eventDate": "2024-10-05",
+        "attendees": 147,
+        "source": "devpost"
+      },
+      {
+        "community": "Redis London",
+        "eventTitle": "Navigating GenAI, Together",
+        "eventUrl": "https://www.meetup.com/redis-london/events/299334762/",
+        "eventDate": "2024-03-14",
+        "attendees": 7,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Dawn Capital",
+    "address": "Dawn Capital, Level 7, Ilona Rose House, Manette St, London W1D 4AL, UK",
+    "area": "Soho",
+    "lat": 51.514539,
+    "lng": -0.130476,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 138,
+    "hosts": [
+      {
+        "community": "GDG London",
+        "eventTitle": "AI DevCamp Pro: Agents — Kick Off Session",
+        "eventUrl": "https://www.meetup.com/gdglondon/events/316669641/",
+        "eventDate": "2026-09-23",
+        "attendees": 1,
+        "source": "meetup"
+      },
+      {
+        "community": "Future Forward",
+        "eventTitle": "Future Forward: The Impact of Agentic AI in Financial Services and Insurance",
+        "eventUrl": "https://luma.com/cgzr5qcb",
+        "eventDate": "2025-10-23",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Product London",
+        "eventTitle": "Product London with Skyscanner",
+        "eventUrl": "https://www.meetup.com/productlondon/events/311164915/",
+        "eventDate": "2025-10-14",
+        "attendees": 138,
+        "source": "meetup"
+      },
+      {
+        "community": "Product London",
+        "eventTitle": "Product London with Skyscanner",
+        "eventUrl": "https://www.meetup.com/productlondon/events/303274011/",
+        "eventDate": "2024-10-17",
+        "attendees": 131,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Halkin - 1-2 Paris Garden",
+    "address": "Halkin - 1-2 Paris Garden, 1-2 Paris Garden, London SE1 8ND, UK",
+    "area": "Southwark",
+    "lat": 51.506625299999996,
+    "lng": -0.10634289999999999,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 59,
+    "hosts": [
+      {
+        "community": "Multic",
+        "eventTitle": "WORLDS London",
+        "eventUrl": "https://worlds.devpost.com/",
+        "eventDate": "2026-09-12",
+        "attendees": 59,
+        "source": "devpost"
+      },
+      {
+        "community": "SpaceXAI for London, England",
+        "eventTitle": "Cursor Cybersecurity London Hackathon",
+        "eventUrl": "https://luma.com/cursor-h41d",
+        "eventDate": "2026-08-01",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "SpaceXAI for London, England",
+        "eventTitle": "Cursor Hands Off London Hackathon",
+        "eventUrl": "https://luma.com/wl7a90xe",
+        "eventDate": "2026-06-25",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "SpaceXAI for London, England",
+        "eventTitle": "Cursor AdTech London Hackathon",
+        "eventUrl": "https://luma.com/b6jccpfu",
+        "eventDate": "2026-05-28",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Incubeta",
+    "address": "14th Floor, The Bower, 207-211 Old St, London EC1V 9NR",
+    "area": "Old Street",
+    "lat": 51.526065,
+    "lng": -0.089004,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 145,
+    "hosts": [
+      {
+        "community": "London.js - Learn, Share & Use JavaScript",
+        "eventTitle": "London.js with incident.io - Thursday 30th July 2026! 🔥",
+        "eventUrl": "https://www.meetup.com/london-js/events/315611220/",
+        "eventDate": "2026-07-30",
+        "attendees": 145,
+        "source": "meetup"
+      },
+      {
+        "community": "London: Data Intelligence Network",
+        "eventTitle": "London Data Intelligence Network | Meetup | Jul 2026",
+        "eventUrl": "https://www.meetup.com/london-data-intelligence-network/events/312548500/",
+        "eventDate": "2026-07-16",
+        "attendees": 9,
+        "source": "meetup"
+      },
+      {
+        "community": "London: Data Intelligence Network",
+        "eventTitle": "London Data Intelligence Network | Meetup | Apr 2026",
+        "eventUrl": "https://www.meetup.com/london-data-intelligence-network/events/312535988/",
+        "eventDate": "2026-04-23",
+        "attendees": 5,
+        "source": "meetup"
+      },
+      {
+        "community": "London: Data Intelligence Network",
+        "eventTitle": "London R | Meetup | Jan 2026",
+        "eventUrl": "https://www.meetup.com/london-data-intelligence-network/events/312458515/",
+        "eventDate": "2026-01-29",
+        "attendees": 14,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Mercato Metropolitano",
+    "address": "42 Newington Causeway London SE1 6DR",
+    "area": "Borough",
+    "lat": 51.498456,
+    "lng": -0.098372,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 302,
+    "hosts": [
+      {
+        "community": "International Social Hub",
+        "eventTitle": "🍷 🥤 International Social Hub 🍻",
+        "eventUrl": "https://www.meetup.com/internationalsocialhub/events/315807170/",
+        "eventDate": "2026-08-15",
+        "attendees": 252,
+        "source": "meetup"
+      },
+      {
+        "community": "International Social Hub",
+        "eventTitle": "🍷 🥤 International Social Hub 🍻",
+        "eventUrl": "https://www.meetup.com/internationalsocialhub/events/315513027/",
+        "eventDate": "2026-08-01",
+        "attendees": 269,
+        "source": "meetup"
+      },
+      {
+        "community": "International Social Hub",
+        "eventTitle": "🍷 🥤 international Social Hub 🍻",
+        "eventUrl": "https://www.meetup.com/internationalsocialhub/events/315150129/",
+        "eventDate": "2026-07-18",
+        "attendees": 298,
+        "source": "meetup"
+      },
+      {
+        "community": "International Social Hub",
+        "eventTitle": "🍷 🥤 international Social Hub 🍻",
+        "eventUrl": "https://www.meetup.com/internationalsocialhub/events/315085390/",
+        "eventDate": "2026-06-20",
+        "attendees": 302,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "BrainStation",
+    "address": "BrainStation, 55-57 Rivington St, London EC2A 3QA, UK",
+    "area": "Shoreditch",
+    "lat": 51.526181900000005,
+    "lng": -0.08072209999999999,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 1,
+    "hosts": [
+      {
+        "community": "AI for the rest of us",
+        "eventTitle": "Agent Craft - A One Day Event For Agent Builders",
+        "eventUrl": "https://luma.com/AgentCraft2026",
+        "eventDate": "2026-06-12",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "AI for the rest of us London",
+        "eventTitle": "AgentCraft: A One-Day Event For Agent Builders",
+        "eventUrl": "https://www.meetup.com/ai-for-the-rest-of-us-london/events/315168756/",
+        "eventDate": "2026-06-12",
+        "attendees": 1,
+        "source": "meetup"
+      },
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Notion November: London Lock-in",
+        "eventUrl": "https://luma.com/adhhprrm",
+        "eventDate": "2025-11-29",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Campus London",
+    "address": "The Lightwell - at Techspace, 25 Worship St, London EC2A 2DX, UK",
+    "area": "Old Street",
+    "lat": 51.522579,
+    "lng": -0.085359,
+    "googlePlaceId": null,
+    "kindGuess": "coworking",
+    "maxAttendeesSeen": 79,
+    "hosts": [
+      {
+        "community": "Londroid: The London Android Community Meetup",
+        "eventTitle": "Londroid at Vonage",
+        "eventUrl": "https://www.meetup.com/android/events/313080208/",
+        "eventDate": "2026-02-26",
+        "attendees": 79,
+        "source": "meetup"
+      },
+      {
+        "community": "Novabook",
+        "eventTitle": "IWD Breakfast | Female Founders' Path to Success",
+        "eventUrl": "https://luma.com/3w9i453w",
+        "eventDate": "2025-03-05",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "PCH London Hardware Hackathon",
+        "eventTitle": "PCH London Hardware Hackathon",
+        "eventUrl": "https://pchlondonhh.devpost.com/",
+        "eventDate": "2015-10-16",
+        "attendees": 60,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Centre for Digital Music",
+    "address": "Bancroft Building, Bethnal Green, London E1 4NP, UK",
+    "area": "Mile End",
+    "lat": 51.524637,
+    "lng": -0.040683,
+    "googlePlaceId": null,
+    "kindGuess": "community_space",
+    "maxAttendeesSeen": 129,
+    "hosts": [
+      {
+        "community": "Queen Mary AI Soc, Queen Mary CS Soc",
+        "eventTitle": "QMUL AI Hackathon",
+        "eventUrl": "https://qmul-ai-hackathon.devpost.com/",
+        "eventDate": "2026-10-10",
+        "attendees": 129,
+        "source": "devpost"
+      },
+      {
+        "community": "Music Hackspace",
+        "eventTitle": "London Music Technology Hackathon",
+        "eventUrl": "https://music-techn-hackathon-nov-2025.devpost.com/",
+        "eventDate": "2025-10-03",
+        "attendees": 37,
+        "source": "devpost"
+      },
+      {
+        "community": "Music Hackspace",
+        "eventTitle": "London Music Technology Hackathon",
+        "eventUrl": "https://london-music-hackathon-2025.devpost.com/",
+        "eventDate": "2025-09-01",
+        "attendees": 47,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Craft Beer Co - St Mary Axe",
+    "address": "29-31 Mitre St, City of London, EC3A 5BU",
+    "area": "Aldgate",
+    "lat": 51.513891,
+    "lng": -0.078704,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": 43,
+    "hosts": [
+      {
+        "community": "Languages in London • Exchange & Socials",
+        "eventTitle": "🇬🇧🇪🇸🇫🇷🇯🇵🇮🇹 Global Language Social 🇩🇪🇧🇷🇨🇳🇰🇷🇪🇬🌏",
+        "eventUrl": "https://www.meetup.com/languages-in-london-exchange-social-events/events/316797532/",
+        "eventDate": "2026-10-16",
+        "attendees": 43,
+        "source": "meetup"
+      },
+      {
+        "community": "Languages in London • Exchange & Socials",
+        "eventTitle": "🇬🇧🇪🇸🇫🇷🇯🇵🇮🇹 Global Language Social 🇩🇪🇧🇷🇨🇳🇰🇷🇪🇬🌏",
+        "eventUrl": "https://www.meetup.com/languages-in-london-exchange-social-events/events/316797528/",
+        "eventDate": "2026-10-09",
+        "attendees": 28,
+        "source": "meetup"
+      },
+      {
+        "community": "Languages in London • Exchange & Socials",
+        "eventTitle": "🇬🇧🇪🇸🇫🇷🇯🇵🇮🇹 Global Language Social 🇩🇪🇧🇷🇨🇳🇰🇷🇪🇬🌏",
+        "eventUrl": "https://www.meetup.com/languages-in-london-exchange-social-events/events/316706614/",
+        "eventDate": "2026-10-02",
+        "attendees": 26,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Craft Beer Co. Covent Garden",
+    "address": "168 High Holborn, London, WC1V 7AA",
+    "area": "Holborn",
+    "lat": 51.515849,
+    "lng": -0.125219,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": 35,
+    "hosts": [
+      {
+        "community": "Languages in London • Exchange & Socials",
+        "eventTitle": "🇬🇧🇪🇸🇫🇷🇯🇵🇮🇹 Global Language Social 🇩🇪🇰🇷🇧🇷🇨🇳🌎",
+        "eventUrl": "https://www.meetup.com/languages-in-london-exchange-social-events/events/316885072/",
+        "eventDate": "2026-10-17",
+        "attendees": 18,
+        "source": "meetup"
+      },
+      {
+        "community": "Languages in London • Exchange & Socials",
+        "eventTitle": "🇬🇧🇪🇸🇫🇷🇯🇵🇮🇹 Global Language Social 🇩🇪🇰🇷🇧🇷🇨🇳🌎",
+        "eventUrl": "https://www.meetup.com/languages-in-london-exchange-social-events/events/316763884/",
+        "eventDate": "2026-10-03",
+        "attendees": 19,
+        "source": "meetup"
+      },
+      {
+        "community": "Languages in London • Exchange & Socials",
+        "eventTitle": "🇬🇧🇫🇷🇯🇵🇮🇹🇪🇸 LATE🌛 Global Language Social🍻 🇩🇪🇧🇷🇨🇳🇰🇷🌎",
+        "eventUrl": "https://www.meetup.com/languages-in-london-exchange-social-events/events/316261814/",
+        "eventDate": "2026-09-25",
+        "attendees": 35,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Elastic London office",
+    "address": "Davidson Building, 1st floor, 5 Southampton St, London WC2E 7HA",
+    "area": "Covent Garden",
+    "lat": 51.510984,
+    "lng": -0.121888,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 35,
+    "hosts": [
+      {
+        "community": "Elastic London User Group",
+        "eventTitle": "Search at Scale: From Fuzzy Queries to OCR, Text Embedding and Reranker Models",
+        "eventUrl": "https://www.meetup.com/london-elastic-fantastics/events/316371214/",
+        "eventDate": "2026-10-15",
+        "attendees": 20,
+        "source": "meetup"
+      },
+      {
+        "community": "Elastic London User Group",
+        "eventTitle": "Software Factory with SuperPlane & Elastic - When Agents Build, Ship, & Fix Code",
+        "eventUrl": "https://www.meetup.com/london-elastic-fantastics/events/315958924/",
+        "eventDate": "2026-09-01",
+        "attendees": 35,
+        "source": "meetup"
+      },
+      {
+        "community": "Elastic London User Group",
+        "eventTitle": "DevOps Society x Elastic London Hack Night",
+        "eventUrl": "https://www.meetup.com/london-elastic-fantastics/events/314800142/",
+        "eventDate": "2026-06-18",
+        "attendees": 18,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "IDEALondon",
+    "address": "IDEALondon, 69 Wilson St, London EC2A 2BB, UK",
+    "area": "Old Street",
+    "lat": 51.521965599999994,
+    "lng": -0.0848193,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "VC Pitch Night | DeepTech Founders with Empirical Ventures and Aligned Syndicate",
+        "eventUrl": "https://luma.com/novabook-9pis",
+        "eventDate": "2026-10-13",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Novabook",
+        "eventTitle": "Skills for Scale 03: Building a finance function for startups",
+        "eventUrl": "https://luma.com/ak16r3ed",
+        "eventDate": "2026-01-27",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "The Founder-writer Collective",
+        "eventTitle": "Generalists' writing group #1 @ IDEA London",
+        "eventUrl": "https://luma.com/odnyvw1d",
+        "eventDate": "2025-08-18",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Kensington Central Library",
+    "address": "Kensington Central Library, 12 Phillimore Walk, London W8 7RX, UK",
+    "area": "Kensington",
+    "lat": 51.501509000000006,
+    "lng": -0.1941385,
+    "googlePlaceId": null,
+    "kindGuess": "community_space",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "II Calendar",
+        "eventTitle": "AI Movie Club x The Matrix (1999)",
+        "eventUrl": "https://luma.com/1gpsvrbw",
+        "eventDate": "2026-09-24",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "II Calendar",
+        "eventTitle": "AI Movie Club x Ghost In The Shell (1995)",
+        "eventUrl": "https://luma.com/q7p2esdx",
+        "eventDate": "2026-07-30",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "II Calendar",
+        "eventTitle": "AI Movie Club x Blade Runner (1982)",
+        "eventUrl": "https://luma.com/1as9ed56",
+        "eventDate": "2026-05-28",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Market Halls (Canary Wharf)",
+    "address": "25 N Colonnade, Canary Wharf Estate, London E14 5HD, UK",
+    "area": "Canary Wharf",
+    "lat": 51.505703,
+    "lng": -0.020083,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 64,
+    "hosts": [
+      {
+        "community": "London Entrepreneur & Startup Network – Tech, Biz, eCommerce",
+        "eventTitle": "Startups, Entrepreneurs, Tech & eCommerce - Business Networking Event in London",
+        "eventUrl": "https://www.meetup.com/london-entrepreneur-startup-network-tech-business-ecommerce/events/316370706/",
+        "eventDate": "2026-10-20",
+        "attendees": 62,
+        "source": "meetup"
+      },
+      {
+        "community": "London Entrepreneur & Startup Network – Tech, Biz, eCommerce",
+        "eventTitle": "Finance, Banking, FinTech, eCommerce - Business Networking Event in London",
+        "eventUrl": "https://www.meetup.com/london-entrepreneur-startup-network-tech-business-ecommerce/events/316641085/",
+        "eventDate": "2026-10-20",
+        "attendees": 56,
+        "source": "meetup"
+      },
+      {
+        "community": "London Entrepreneur & Startup Network – Tech, Biz, eCommerce",
+        "eventTitle": "AI for eCommerce, Online Sellers, DTC, Brands - Business Networking in London",
+        "eventUrl": "https://www.meetup.com/london-entrepreneur-startup-network-tech-business-ecommerce/events/316641087/",
+        "eventDate": "2026-10-20",
+        "attendees": 64,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Newspeak House",
+    "address": "Newspeak House, 133 Bethnal Grn Rd, London E2 7DG, UK",
+    "area": "Shoreditch",
+    "lat": 51.5251662,
+    "lng": -0.0713456,
+    "googlePlaceId": null,
+    "kindGuess": "community_space",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "House London!",
+        "eventTitle": "House London #2 | Data Hackathon",
+        "eventUrl": "https://luma.com/tsjh0lm9",
+        "eventDate": "2026-09-26",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "House London!",
+        "eventTitle": "House London #1 | Data Hackathon",
+        "eventUrl": "https://luma.com/ufmgc59d",
+        "eventDate": "2026-08-29",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "House London!",
+        "eventTitle": "House London #0 | Data Hackathon",
+        "eventUrl": "https://luma.com/160gn1gj",
+        "eventDate": "2026-08-01",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "The Craft Beer Co.",
+    "address": "17-18 The Broadway, Hammersmith W6 9YD,",
+    "area": "Hammersmith",
+    "lat": 51.492305,
+    "lng": -0.224533,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": 11,
+    "hosts": [
+      {
+        "community": "Languages in London • Exchange & Socials",
+        "eventTitle": "🇬🇧🇪🇸🇫🇷🇯🇵🇮🇹 Global Language Exchange + Social 🇩🇪🇰🇷🇧🇷🇨🇳🇪🇬🌎",
+        "eventUrl": "https://www.meetup.com/languages-in-london-exchange-social-events/events/316797411/",
+        "eventDate": "2026-10-21",
+        "attendees": 10,
+        "source": "meetup"
+      },
+      {
+        "community": "Languages in London • Exchange & Socials",
+        "eventTitle": "🇬🇧🇪🇸🇫🇷🇯🇵🇮🇹 Global Language Exchange + Social 🇩🇪🇰🇷🇧🇷🇨🇳🇪🇬🌎",
+        "eventUrl": "https://www.meetup.com/languages-in-london-exchange-social-events/events/316797404/",
+        "eventDate": "2026-10-14",
+        "attendees": 11,
+        "source": "meetup"
+      },
+      {
+        "community": "Languages in London • Exchange & Socials",
+        "eventTitle": "🇬🇧🇪🇸🇫🇷🇯🇵🇮🇹 Global Language Exchange + Social 🇩🇪🇰🇷🇧🇷🇨🇳🇪🇬🌎",
+        "eventUrl": "https://www.meetup.com/languages-in-london-exchange-social-events/events/316261688/",
+        "eventDate": "2026-09-23",
+        "attendees": 11,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "The Savoy",
+    "address": "The Savoy, Strand, London WC2R 0EZ, UK",
+    "area": "Strand",
+    "lat": 51.510149399999996,
+    "lng": -0.12052049999999997,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "enki events",
+        "eventTitle": "Fractional Finance Breakfast at the Savoy | Cross-Border CFOs",
+        "eventUrl": "https://luma.com/pb3b6v3x",
+        "eventDate": "2026-09-24",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "enki events",
+        "eventTitle": "Fractional Finance Breakfast at the Savoy | Tech CFOs",
+        "eventUrl": "https://luma.com/enki-tpw7",
+        "eventDate": "2026-06-18",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "enki events",
+        "eventTitle": "Fractional Finance Breakfast at the Savoy",
+        "eventUrl": "https://luma.com/ysklzggl",
+        "eventDate": "2026-03-12",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Westgate House",
+    "address": "Creo Westgate House 9 Holborn, London EC1N 2LL",
+    "area": "Farringdon",
+    "lat": 51.517956,
+    "lng": -0.110834,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 16,
+    "hosts": [
+      {
+        "community": "Dev Day UK",
+        "eventTitle": "Software Factory in Practice",
+        "eventUrl": "https://www.meetup.com/devday-uk/events/316909711/",
+        "eventDate": "2026-10-22",
+        "attendees": 16,
+        "source": "meetup"
+      },
+      {
+        "community": "Dev Day UK",
+        "eventTitle": "Software Factory in Practice",
+        "eventUrl": "https://www.meetup.com/devday-uk/events/317049047/",
+        "eventDate": "2026-10-20",
+        "attendees": 4,
+        "source": "meetup"
+      },
+      {
+        "community": "Dev Day UK",
+        "eventTitle": "The Practical Guide to Reverse Engineering XXL Codebases with Agentic AI",
+        "eventUrl": "https://www.meetup.com/devday-uk/events/316481537/",
+        "eventDate": "2026-09-22",
+        "attendees": 7,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Ye Olde Cock Taverne (Holborn)",
+    "address": "22 Fleet Street, EC4Y 1AA",
+    "area": "Strand",
+    "lat": 51.513796,
+    "lng": -0.110517,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": 21,
+    "hosts": [
+      {
+        "community": "London Futurists",
+        "eventTitle": "Strengthening the spiral of technoprogressive trust",
+        "eventUrl": "https://www.meetup.com/london-futurists/events/316694616/",
+        "eventDate": "2026-10-22",
+        "attendees": 16,
+        "source": "meetup"
+      },
+      {
+        "community": "London Futurists",
+        "eventTitle": "Anticipating a technoprogressive future: hopes and fears",
+        "eventUrl": "https://www.meetup.com/london-futurists/events/316140083/",
+        "eventDate": "2026-08-27",
+        "attendees": 21,
+        "source": "meetup"
+      },
+      {
+        "community": "London Futurists",
+        "eventTitle": "Informal gathering with Steve Becht-Buss",
+        "eventUrl": "https://www.meetup.com/london-futurists/events/315787858/",
+        "eventDate": "2026-07-23",
+        "attendees": 7,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Accurx",
+    "address": "7 Curtain Road London EC2A 2DF United Kingdom",
+    "area": "Shoreditch",
+    "lat": 51.522121,
+    "lng": -0.081558,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 194,
+    "hosts": [
+      {
+        "community": "London.js - Learn, Share & Use JavaScript",
+        "eventTitle": "London.js with Accurx & Flagsmith - Wednesday 28th January 2026!",
+        "eventUrl": "https://www.meetup.com/london-js/events/312955969/",
+        "eventDate": "2026-01-28",
+        "attendees": 111,
+        "source": "meetup"
+      },
+      {
+        "community": "London.js - Learn, Share & Use JavaScript",
+        "eventTitle": "London.JS at with Accurx & Flagsmith - Thursday 29th May 2025!",
+        "eventUrl": "https://www.meetup.com/london-js/events/307662351/",
+        "eventDate": "2025-05-29",
+        "attendees": 194,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Adaptavist",
+    "address": "Adaptavist, 28 Scrutton St, London EC2A 4RP, UK",
+    "area": "Shoreditch",
+    "lat": 51.523151,
+    "lng": -0.082709,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 61,
+    "hosts": [
+      {
+        "community": "AI Security Engineers - London, UK",
+        "eventTitle": "AI Security Night London",
+        "eventUrl": "https://www.meetup.com/aiseceng-london/events/314961109/",
+        "eventDate": "2026-06-23",
+        "attendees": 61,
+        "source": "meetup"
+      },
+      {
+        "community": "AI for the rest of us",
+        "eventTitle": "What's Next for AI Agents? Multi-Agent Teams and Digital Responsibility",
+        "eventUrl": "https://luma.com/bfxl9ohy",
+        "eventDate": "2025-06-19",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Alphabeta Building",
+    "address": "Alphabeta Building, 14-18 Finsbury Square, London EC2A 2AH, UK",
+    "area": "Moorgate",
+    "lat": 51.521637,
+    "lng": -0.086291,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "What Actually Closed Our $3M+ Rounds",
+        "eventUrl": "https://luma.com/novabook-f8v8",
+        "eventDate": "2026-06-16",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Novabook",
+        "eventTitle": "Insider Secrets to Securing Angel Investment",
+        "eventUrl": "https://luma.com/fof3tkle",
+        "eventDate": "2025-05-20",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "AWS Experience",
+    "address": "60 Holborn Viaduct  EC1A 2FD",
+    "area": "Farringdon",
+    "lat": 51.517233,
+    "lng": -0.104494,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 72,
+    "hosts": [
+      {
+        "community": "AWS London Well-Architected User Group",
+        "eventTitle": "AWS London Well-Architected User Group July Meetup... Summer Special!",
+        "eventUrl": "https://www.meetup.com/aws-london-well-architected-user-group/events/315382392/",
+        "eventDate": "2026-07-30",
+        "attendees": 72,
+        "source": "meetup"
+      },
+      {
+        "community": "AWS London Well-Architected User Group",
+        "eventTitle": "Welcome to the *INAUGURAL* 2026 AWS London Well-Architected User Group Meetup!",
+        "eventUrl": "https://www.meetup.com/aws-london-well-architected-user-group/events/312876736/",
+        "eventDate": "2026-02-19",
+        "attendees": 38,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Beyond Fitness London",
+    "address": "Beyond Fitness London, 45 Berners St, London W1T 3NE, UK",
+    "area": "Fitzrovia",
+    "lat": 51.518040199999994,
+    "lng": -0.1375082,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "The Run Down: Operators Runclub",
+        "eventTitle": "TRD x BEYOND FITNESS Class 2.0 💪🔥🧡",
+        "eventUrl": "https://luma.com/krm7pgpn",
+        "eventDate": "2026-10-16",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "The Run Down: Operators Runclub",
+        "eventTitle": "TRD x BEYOND FITNESS Class 1.0 💪🔥🧡",
+        "eventUrl": "https://luma.com/8rfdvjmq",
+        "eventDate": "2026-09-11",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Big Belly Bar",
+    "address": "Big Belly Bar (Southbank), Unit 6 & 7, 30 Stamford Street, SE1 9LQ",
+    "area": "Southwark",
+    "lat": 51.507376,
+    "lng": -0.106618,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": 248,
+    "hosts": [
+      {
+        "community": "International Social Hub",
+        "eventTitle": "🍷 🥤 International Social Hub 🍻",
+        "eventUrl": "https://www.meetup.com/internationalsocialhub/events/316097563/",
+        "eventDate": "2026-09-12",
+        "attendees": 220,
+        "source": "meetup"
+      },
+      {
+        "community": "International Social Hub",
+        "eventTitle": "🍷 🥤 International Social Hub 🍻 NEW VENUE",
+        "eventUrl": "https://www.meetup.com/internationalsocialhub/events/315832095/",
+        "eventDate": "2026-08-29",
+        "attendees": 248,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Cloudflare",
+    "address": "County Hall, Belvedere Rd, London SE1 7GP, UK",
+    "area": "Waterloo",
+    "lat": 51.501972,
+    "lng": -0.119003,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 27,
+    "hosts": [
+      {
+        "community": "Devin",
+        "eventTitle": "The Devin Mixer London",
+        "eventUrl": "https://devin-mixer-london.devpost.com/",
+        "eventDate": "2026-09-17",
+        "attendees": 4,
+        "source": "devpost"
+      },
+      {
+        "community": "Elastic London User Group",
+        "eventTitle": "Building with MCP",
+        "eventUrl": "https://www.meetup.com/london-elastic-fantastics/events/314438062/",
+        "eventDate": "2026-05-14",
+        "attendees": 27,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Copper Box Arena",
+    "address": "Queen Elizabeth Olympic Park, London E20 2ST, UK",
+    "area": "Hackney Wick",
+    "lat": 51.538636,
+    "lng": -0.016404,
+    "googlePlaceId": null,
+    "kindGuess": "bookable",
+    "maxAttendeesSeen": 324,
+    "hosts": [
+      {
+        "community": "TechCrunch Disrupt London",
+        "eventTitle": "TechCrunch Disrupt London",
+        "eventUrl": "https://disrupteu2016.devpost.com/",
+        "eventDate": "2016-12-03",
+        "attendees": 308,
+        "source": "devpost"
+      },
+      {
+        "community": "TechCrunch Disrupt London",
+        "eventTitle": "TechCrunch Disrupt London",
+        "eventUrl": "https://disrupteu2015.devpost.com/",
+        "eventDate": "2015-12-05",
+        "attendees": 324,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Corgi Cafe",
+    "address": "Corgi Cafe, 74 Great Eastern St, London EC2A 3JL, UK",
+    "area": "Shoreditch",
+    "lat": 51.525692199999995,
+    "lng": -0.0824866,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Lychee",
+        "eventTitle": "Corgi x Lychee Run Club",
+        "eventUrl": "https://luma.com/f3vm4u0u",
+        "eventDate": "2026-10-21",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Lovable London Community",
+        "eventTitle": "BuildHer x Lovable SheBuilds: From Idea to MVP in a Day",
+        "eventUrl": "https://luma.com/rm4ijlmf",
+        "eventDate": "2026-10-19",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Deloitte Digital",
+    "address": "2 New St Square, London EC4A 3BZ",
+    "area": "Farringdon",
+    "lat": 51.515965,
+    "lng": -0.107832,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 85,
+    "hosts": [
+      {
+        "community": "Londroid: The London Android Community Meetup",
+        "eventTitle": "Londroid at Deloitte Digital",
+        "eventUrl": "https://www.meetup.com/android/events/314843011/",
+        "eventDate": "2026-06-03",
+        "attendees": 85,
+        "source": "meetup"
+      },
+      {
+        "community": "Londroid: The London Android Community Meetup",
+        "eventTitle": "Londroid at Deloitte Digital",
+        "eventUrl": "https://www.meetup.com/android/events/314843029/",
+        "eventDate": "2026-06-03",
+        "attendees": 1,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Design District",
+    "address": "Main entrance, ground floor, main room, 8 Soames Walk, London SE10 0AX",
+    "area": "Greenwich",
+    "lat": 51.500084,
+    "lng": 0.005767,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 45,
+    "hosts": [
+      {
+        "community": "Elastic London User Group",
+        "eventTitle": "OOPS #16 - Humans in the Loop: The Future of Incident Response",
+        "eventUrl": "https://www.meetup.com/london-elastic-fantastics/events/314624124/",
+        "eventDate": "2026-06-01",
+        "attendees": 29,
+        "source": "meetup"
+      },
+      {
+        "community": "Londroid: The London Android Community Meetup",
+        "eventTitle": "Londroid at Flipper Hackspace",
+        "eventUrl": "https://www.meetup.com/android/events/312785081/",
+        "eventDate": "2026-01-22",
+        "attendees": 45,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Dotdigital",
+    "address": "9th Floor, 1 London Bridge, London SE1 9BG",
+    "area": "London Bridge",
+    "lat": 51.506545,
+    "lng": -0.087559,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 108,
+    "hosts": [
+      {
+        "community": "Dynamics 365 & Power Platform UK User Groups",
+        "eventTitle": "London (Evening) D365PPUG - Sep 2026",
+        "eventUrl": "https://www.meetup.com/d365ppug/events/313055736/",
+        "eventDate": "2026-09-29",
+        "attendees": 108,
+        "source": "meetup"
+      },
+      {
+        "community": "Dynamics 365 & Power Platform UK User Groups",
+        "eventTitle": "London (Evening) D365PPUG - June 2026",
+        "eventUrl": "https://www.meetup.com/d365ppug/events/313055701/",
+        "eventDate": "2026-06-18",
+        "attendees": 103,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Finsbury Square Garden Bar",
+    "address": "Finsbury Square Garden Bar, 52 Finsbury Square, London EC2A 1RR, UK",
+    "area": "Moorgate",
+    "lat": 51.520898100000004,
+    "lng": -0.0863753,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": 49,
+    "hosts": [
+      {
+        "community": "AI for the rest of us",
+        "eventTitle": "AI for the rest of us | Summer Social",
+        "eventUrl": "https://luma.com/AI4July26",
+        "eventDate": "2026-07-22",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "AI for the rest of us London",
+        "eventTitle": "Meetup #17 Summer Social",
+        "eventUrl": "https://www.meetup.com/ai-for-the-rest-of-us-london/events/315630536/",
+        "eventDate": "2026-07-22",
+        "attendees": 49,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Granola",
+    "address": "Granola, 346 Old St, London EC1V 9NQ, UK",
+    "area": "Shoreditch",
+    "lat": 51.52673,
+    "lng": -0.0809555,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Granola",
+        "eventTitle": "All-women AI Workshop & Brunch @ Granola",
+        "eventUrl": "https://luma.com/sgetr751",
+        "eventDate": "2026-03-08",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Granola",
+        "eventTitle": "Speculative Software Engineering with GitHub Next",
+        "eventUrl": "https://luma.com/v5eltkec",
+        "eventDate": "2026-03-03",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Marble Arch",
+    "address": "Marble Arch, London W2 2UH, UK",
+    "area": "Marylebone",
+    "lat": 51.5132225,
+    "lng": -0.1588937,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Lychee",
+        "eventTitle": "Lychee's Startup Coffee Club",
+        "eventUrl": "https://luma.com/fbzv8894",
+        "eventDate": "2026-06-21",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Lychee",
+        "eventTitle": "Lychee's Startup Coffee Club",
+        "eventUrl": "https://luma.com/uv3nal3l",
+        "eventDate": "2026-06-07",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Marks& Spencers HQ",
+    "address": "Waterside House, 35 N Wharf Rd, London, W2 1NW",
+    "area": "Paddington",
+    "lat": 51.519558,
+    "lng": -0.17396,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 54,
+    "hosts": [
+      {
+        "community": "Beyond the Code",
+        "eventTitle": "On Kotlin #10 - Collaboration Event With Kotlin London @ M&S",
+        "eventUrl": "https://www.meetup.com/beyond-the-code/events/304452036/",
+        "eventDate": "2024-12-05",
+        "attendees": 51,
+        "source": "meetup"
+      },
+      {
+        "community": "Beyond the Code",
+        "eventTitle": "On Kotlin #10 - Collaboration Event With Kotlin London @ M&S",
+        "eventUrl": "https://www.meetup.com/beyond-the-code/events/304123337/",
+        "eventDate": "2024-11-07",
+        "attendees": 54,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "National Liberal Club",
+    "address": "National Liberal Club, 1 Whitehall Pl, London SW1A 2HE, UK",
+    "area": "South Bank",
+    "lat": 51.506247,
+    "lng": -0.124117,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "1776 Lecture with Rory Sutherland",
+        "eventUrl": "https://luma.com/7uptkfy4",
+        "eventDate": "2026-03-09",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Enlightenment Evening: Deputy Prime Minister of New Zealand",
+        "eventUrl": "https://luma.com/lwbevhpz",
+        "eventDate": "2025-06-09",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "OPUS House",
+    "address": "OPUS House, 55 Southwark St, London SE1 1RU, UK",
+    "area": "Borough",
+    "lat": 51.504694,
+    "lng": -0.09507679999999999,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "enki events",
+        "eventTitle": "The Fair Fight Coalition: Private soft launch",
+        "eventUrl": "https://luma.com/enki-sp2m",
+        "eventDate": "2026-07-16",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "enki events",
+        "eventTitle": "Capital & Castling: Chess Night for the Startup Community",
+        "eventUrl": "https://luma.com/xzgbkvoa",
+        "eventDate": "2026-03-04",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Permutive",
+    "address": "2nd floor, 8, 10 Charterhouse Bldgs, London EC1M 7AN, UK",
+    "area": "Barbican",
+    "lat": 51.522878,
+    "lng": -0.098219,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 56,
+    "hosts": [
+      {
+        "community": "London Scala User Group",
+        "eventTitle": "Scala Talks: Specialization In Scala 3, Binomials and Balatro & Suspendable DAGS",
+        "eventUrl": "https://www.meetup.com/london-scala/events/316551143/",
+        "eventDate": "2026-10-07",
+        "attendees": 32,
+        "source": "meetup"
+      },
+      {
+        "community": "London Scala User Group",
+        "eventTitle": "Scala Talks: Frameless: an introduction & Haskell for 3D Printing",
+        "eventUrl": "https://www.meetup.com/london-scala/events/311988474/",
+        "eventDate": "2026-01-14",
+        "attendees": 56,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Quant Spark",
+    "address": "230 Blackfriars Road, London, SE1 8NJ",
+    "area": "Southwark",
+    "lat": 51.504441,
+    "lng": -0.104189,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 15,
+    "hosts": [
+      {
+        "community": "London AI Developers Group",
+        "eventTitle": "AI Meetup with Google, Databricks, Vespa",
+        "eventUrl": "https://www.meetup.com/london-ai-tech-talk/events/316194042/",
+        "eventDate": "2026-09-08",
+        "attendees": 15,
+        "source": "meetup"
+      },
+      {
+        "community": "London Enterprise AI",
+        "eventTitle": "Enterprise AI Agents and Optimize LLM Context",
+        "eventUrl": "https://www.meetup.com/london-enterprise-ai/events/316194039/",
+        "eventDate": "2026-09-08",
+        "attendees": 5,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Redis Office",
+    "address": "Floor 5, Redis office, Bridge House, 4 Borough High St, London SE1 9QQ",
+    "area": "London Bridge",
+    "lat": 51.506167,
+    "lng": -0.089174,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 71,
+    "hosts": [
+      {
+        "community": "Londroid: The London Android Community Meetup",
+        "eventTitle": "Londroid at Redis",
+        "eventUrl": "https://www.meetup.com/android/events/312298073/",
+        "eventDate": "2025-12-18",
+        "attendees": 71,
+        "source": "meetup"
+      },
+      {
+        "community": "C++ London",
+        "eventTitle": "December Social",
+        "eventUrl": "https://www.meetup.com/cpplondon/events/312254272/",
+        "eventDate": "2025-12-10",
+        "attendees": 43,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Simons Muirhead Burton",
+    "address": "Simons Muirhead Burton, 87-91 Newman St, London W1T 3EY, UK",
+    "area": "Soho",
+    "lat": 51.5165315,
+    "lng": -0.1353222,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "AI Pitch Night with Haatch, EF & AlbionVC",
+        "eventUrl": "https://luma.com/novabook-m3ol",
+        "eventDate": "2026-07-15",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Novabook",
+        "eventTitle": "Inside Angel Investing | Perspectives from Active Investors",
+        "eventUrl": "https://luma.com/iu1ka51f",
+        "eventDate": "2025-11-18",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Snowflake Computing UK Ltd",
+    "address": "3 Crown Pl, London EC2A 4EB, United Kingdom",
+    "area": "Liverpool Street",
+    "lat": 51.520744,
+    "lng": -0.083158,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 9,
+    "hosts": [
+      {
+        "community": "London AI Developers Group",
+        "eventTitle": "Enterprise AI with Coder and Snowflake",
+        "eventUrl": "https://www.meetup.com/london-ai-tech-talk/events/316556827/",
+        "eventDate": "2026-09-22",
+        "attendees": 9,
+        "source": "meetup"
+      },
+      {
+        "community": "London Enterprise AI",
+        "eventTitle": "Enterprise AI with Coder and Snowflake",
+        "eventUrl": "https://www.meetup.com/london-enterprise-ai/events/316556831/",
+        "eventDate": "2026-09-22",
+        "attendees": 5,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Snyk",
+    "address": "Mainframe, 24 Eversholt St, London NW1 1AD, Level 3",
+    "area": "Euston",
+    "lat": 51.52857,
+    "lng": -0.131732,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 55,
+    "hosts": [
+      {
+        "community": "AI Security Engineers - London, UK",
+        "eventTitle": "AI Security Meetup",
+        "eventUrl": "https://www.meetup.com/aiseceng-london/events/313630797/",
+        "eventDate": "2026-03-26",
+        "attendees": 55,
+        "source": "meetup"
+      },
+      {
+        "community": "AI Security Engineers - London, UK",
+        "eventTitle": "AI Security Night",
+        "eventUrl": "https://www.meetup.com/aiseceng-london/events/313077481/",
+        "eventDate": "2026-02-26",
+        "attendees": 41,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "The Ledger Building",
+    "address": "The Ledger Building, West India Quay, 4 Hertsmere Rd, London E14 4AL, UK",
+    "area": "Canary Wharf",
+    "lat": 51.5075722,
+    "lng": -0.0245137,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "The Friendly Data Meetup London",
+        "eventTitle": "The Friendly Data Meetup March 2026",
+        "eventUrl": "https://luma.com/8s7n5e3u",
+        "eventDate": "2026-03-25",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "The Friendly Data Meetup London",
+        "eventTitle": "The Friendly Data Meetup January 2026",
+        "eventUrl": "https://luma.com/0vtumn0y",
+        "eventDate": "2026-01-20",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "The Perseverance",
+    "address": "63 Lamb's Conduit St, London WC1N 3NB, UK",
+    "area": "Holborn",
+    "lat": 51.521995,
+    "lng": -0.118754,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 43,
+    "hosts": [
+      {
+        "community": "AI in the Wild: Practical AI for Marketing & Business|London",
+        "eventTitle": "AI in the Wild #2: practical AI for marketing and sales",
+        "eventUrl": "https://www.meetup.com/ai-in-the-wild/events/316566522/",
+        "eventDate": "2026-10-22",
+        "attendees": 42,
+        "source": "meetup"
+      },
+      {
+        "community": "AI in the Wild: Practical AI for Marketing & Business|London",
+        "eventTitle": "AI in the Wild #1: Proving AI Actually Works",
+        "eventUrl": "https://www.meetup.com/ai-in-the-wild/events/315666102/",
+        "eventDate": "2026-08-27",
+        "attendees": 43,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Thought Machine, HQ",
+    "address": "7 Herbrand St, WC1N 1EX",
+    "area": "Bloomsbury",
+    "lat": 51.523556,
+    "lng": -0.125782,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 210,
+    "hosts": [
+      {
+        "community": "Cloud Native London",
+        "eventTitle": "Cloud Native London, April 2026",
+        "eventUrl": "https://www.meetup.com/cloud-native-london/events/312772371/",
+        "eventDate": "2026-04-01",
+        "attendees": 169,
+        "source": "meetup"
+      },
+      {
+        "community": "Cloud Native London",
+        "eventTitle": "Cloud Native London, March 2026",
+        "eventUrl": "https://www.meetup.com/cloud-native-london/events/312298108/",
+        "eventDate": "2026-03-04",
+        "attendees": 210,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "WeWork - Office Space & Coworking",
+    "address": "WeWork - Office Space & Coworking, 123 Buckingham Palace Rd, London SW1W 9SH, UK",
+    "area": "Victoria",
+    "lat": 51.4938,
+    "lng": -0.146477,
+    "googlePlaceId": null,
+    "kindGuess": "coworking",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "TechTrek | Run Club",
+        "eventUrl": "https://luma.com/jxcy3ry7",
+        "eventDate": "2025-05-13",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "Novabook",
+        "eventTitle": "Godfrey Asare | Tax Planning For Startup Founders",
+        "eventUrl": "https://luma.com/vibseigu",
+        "eventDate": "2024-12-10",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Wimbletech (Zone 2)",
+    "address": "Wimbledon Hill Rd, SW19 7NB,",
+    "area": "Merton",
+    "lat": 51.422403,
+    "lng": -0.207911,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 22,
+    "hosts": [
+      {
+        "community": "freeCodeCamp London",
+        "eventTitle": "freeCodeCamp Wed 14th Jan 2026",
+        "eventUrl": "https://www.meetup.com/freecodecamp-london/events/312749449/",
+        "eventDate": "2026-01-14",
+        "attendees": 15,
+        "source": "meetup"
+      },
+      {
+        "community": "freeCodeCamp London",
+        "eventTitle": "freeCodeCamp Wed 26th Nov 2025 - Git Branching",
+        "eventUrl": "https://www.meetup.com/freecodecamp-london/events/312053180/",
+        "eventDate": "2025-11-26",
+        "attendees": 22,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "XCHG Spaces",
+    "address": "XCHG Spaces, 7th Floor, 22 Bishopsgate, London EC2N 4BQ, UK",
+    "area": "Liverpool Street",
+    "lat": 51.514418899999995,
+    "lng": -0.0830479,
+    "googlePlaceId": null,
+    "kindGuess": "coworking",
+    "maxAttendeesSeen": 69,
+    "hosts": [
+      {
+        "community": "AI for the rest of us",
+        "eventTitle": "AI for the rest of us - Automating with AI Agents",
+        "eventUrl": "https://luma.com/AI4MARCH",
+        "eventDate": "2026-03-18",
+        "attendees": null,
+        "source": "luma"
+      },
+      {
+        "community": "AI for the rest of us London",
+        "eventTitle": "Meetup #14 - Automating with AI Agents",
+        "eventUrl": "https://www.meetup.com/ai-for-the-rest-of-us-london/events/313716122/",
+        "eventDate": "2026-03-18",
+        "attendees": 69,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "1 Mark Square",
+    "address": "1 Mark Square, London EC2A 4EG, UK",
+    "area": "Shoreditch",
+    "lat": 51.5243643,
+    "lng": -0.08222879999999999,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Intruder",
+        "eventTitle": "The PLG Growth Lab - London",
+        "eventUrl": "https://luma.com/417yw3qf",
+        "eventDate": "2026-07-09",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "10 Hammersmith Grove",
+    "address": "10 Hammersmith Grove, London W6 7AP, UK",
+    "area": "Hammersmith",
+    "lat": 51.494219,
+    "lng": -0.225669,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 93,
+    "hosts": [
+      {
+        "community": "BBC Tech Meetup",
+        "eventTitle": "UKTV x BBC Tech Meetup - Connected TV Development October 2026",
+        "eventUrl": "https://www.meetup.com/bbc-tech-meetup/events/316679005/",
+        "eventDate": "2026-10-22",
+        "attendees": 93,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "10 Lower Thames St",
+    "address": "10 Lower Thames St, London EC3R 6AF, UK",
+    "area": "London Bridge",
+    "lat": 51.509186199999995,
+    "lng": -0.0847566,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "SpaceXAI for London, England",
+        "eventTitle": "Cursor iOS London Hackathon",
+        "eventUrl": "https://luma.com/cursor-vh1p",
+        "eventDate": "2026-07-09",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "20-22 Commercial St",
+    "address": "20-22 Commercial St, London E1 6LP, UK",
+    "area": "Aldgate",
+    "lat": 51.516315899999995,
+    "lng": -0.0722546,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "SpaceXAI for London, England",
+        "eventTitle": "Grok Bot Commerce London Hackathon",
+        "eventUrl": "https://luma.com/cursor-td9f",
+        "eventDate": "2026-09-26",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "201 Bishopsgate",
+    "address": "201 Bishopsgate, London EC2M 3AB, UK",
+    "area": "Spitalfields",
+    "lat": 51.52112,
+    "lng": -0.079421,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "First Pitch to First Cheque | 12 Months On",
+        "eventUrl": "https://luma.com/f14bl4j1",
+        "eventDate": "2025-06-18",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "24 Eversholt Street",
+    "address": "24 Eversholt St, London NW1 1BS, UK",
+    "area": "Euston",
+    "lat": 51.530376,
+    "lng": -0.133893,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 28,
+    "hosts": [
+      {
+        "community": "AI Security Engineers - London, UK",
+        "eventTitle": "AI Security Night London",
+        "eventUrl": "https://www.meetup.com/aiseceng-london/events/316608203/",
+        "eventDate": "2026-10-06",
+        "attendees": 28,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "83 Rivington St",
+    "address": "83 Rivington St, Greater, London EC2A 3AY, UK",
+    "area": "Shoreditch",
+    "lat": 51.526082,
+    "lng": -0.079041,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 86,
+    "hosts": [
+      {
+        "community": "Perplexity",
+        "eventTitle": "Perplexity Hackathon @ London, UK",
+        "eventUrl": "https://perplexityhackathon-london.devpost.com/",
+        "eventDate": "2025-10-17",
+        "attendees": 86,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "All bar one - Cannon Street",
+    "address": "103 Cannon St, London EC4N 5AG",
+    "area": "Bank",
+    "lat": 51.511627,
+    "lng": -0.089839,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": 343,
+    "hosts": [
+      {
+        "community": "International Social Hub",
+        "eventTitle": "🍷 🥤 International Social Hub 🍻",
+        "eventUrl": "https://www.meetup.com/internationalsocialhub/events/316252282/",
+        "eventDate": "2026-10-10",
+        "attendees": 343,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Amazing Grace London Bridge",
+    "address": "Amazing Grace London Bridge, 9a St Thomas St, London SE1 9RY, UK",
+    "area": "London Bridge",
+    "lat": 51.5049991,
+    "lng": -0.0884359,
+    "googlePlaceId": "ChIJLQhK3sUDdkgRjdb6JaFRLAo",
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Intruder",
+        "eventTitle": "Funeral for the Annual Pentest by Intruder",
+        "eventUrl": "https://luma.com/k479y31u",
+        "eventDate": "2026-10-22",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Appold Street",
+    "address": "3 Appold Street, London EC2A 2AF",
+    "area": "Liverpool Street",
+    "lat": 51.520437,
+    "lng": -0.08196,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 226,
+    "hosts": [
+      {
+        "community": "Product London",
+        "eventTitle": "Product London with Monzo",
+        "eventUrl": "https://www.meetup.com/productlondon/events/304377083/",
+        "eventDate": "2024-11-21",
+        "attendees": 226,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Attio",
+    "address": "3-11 Pine St, London, EC1R 0JH",
+    "area": "Clerkenwell",
+    "lat": 51.525193,
+    "lng": -0.109583,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 161,
+    "hosts": [
+      {
+        "community": "London.js - Learn, Share & Use JavaScript",
+        "eventTitle": "London.js at Attio on Thursday 27th March 2025",
+        "eventUrl": "https://www.meetup.com/london-js/events/306424233/",
+        "eventDate": "2025-03-27",
+        "attendees": 161,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "BBC Broadcasting House",
+    "address": "Portland Place, W1A 1AA",
+    "area": "Fitzrovia",
+    "lat": 51.518563,
+    "lng": -0.143774,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 47,
+    "hosts": [
+      {
+        "community": "BBC Tech Meetup",
+        "eventTitle": "Connected TV Development - BBC Broadcasting House",
+        "eventUrl": "https://www.meetup.com/bbc-tech-meetup/events/307084666/",
+        "eventDate": "2025-05-12",
+        "attendees": 47,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "BT",
+    "address": "1 Braham St, London, E1 8EE,",
+    "area": "Aldgate",
+    "lat": 51.513987,
+    "lng": -0.072474,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 128,
+    "hosts": [
+      {
+        "community": "Product London",
+        "eventTitle": "Product London with BT",
+        "eventUrl": "https://www.meetup.com/productlondon/events/305773767/",
+        "eventDate": "2025-02-20",
+        "attendees": 128,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Bush House South Wing",
+    "address": "Strand, London WC2R 1ES, UK",
+    "area": "Strand",
+    "lat": 51.512189,
+    "lng": -0.116838,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 5,
+    "hosts": [
+      {
+        "community": "RSK Hackathon London - Positive Impact on Society",
+        "eventTitle": "RSK Hackathon London - Positive Impact on Society",
+        "eventUrl": "https://rsk-hackathon-london.devpost.com/",
+        "eventDate": "2019-03-02",
+        "attendees": 5,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Central Saint Martins",
+    "address": "Central Saint Martins, Granary Building, 1 Granary Square, London N1C 4AA, UK",
+    "area": "King's Cross",
+    "lat": 51.536380699999995,
+    "lng": -0.12457620000000001,
+    "googlePlaceId": "ChIJGy_lNTQbdkgRK1J9MfD-hIE",
+    "kindGuess": "university",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "CSM Innovation",
+        "eventTitle": "Innovation at CSM: Beyond the Scroll",
+        "eventUrl": "https://luma.com/5luq6uxf",
+        "eventDate": "2026-10-22",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Checkatrade",
+    "address": "Focus Point, 21 Caledonian Road, London, N1 9GB",
+    "area": "King's Cross",
+    "lat": 51.531918,
+    "lng": -0.121228,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 191,
+    "hosts": [
+      {
+        "community": "London.js - Learn, Share & Use JavaScript",
+        "eventTitle": "London.js at Checkatrade on Tuesday 29th April 2025 🧱",
+        "eventUrl": "https://www.meetup.com/london-js/events/307041330/",
+        "eventDate": "2025-04-29",
+        "attendees": 191,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Chocolate Studios",
+    "address": "Chocolate Studios, 7 Shepherdess Pl, London N1 7LJ, UK",
+    "area": "Old Street",
+    "lat": 51.5285039,
+    "lng": -0.09097859999999999,
+    "googlePlaceId": null,
+    "kindGuess": "bookable",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "Novabook x Jumpstart | Founders Poker Night",
+        "eventUrl": "https://luma.com/zg1uli65",
+        "eventDate": "2026-04-08",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Clerkenwell Workshops",
+    "address": "London EC1R 0AT, UK",
+    "area": "Clerkenwell",
+    "lat": 51.524129,
+    "lng": -0.106586,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 2,
+    "hosts": [
+      {
+        "community": "Tech for Good: Improving lives of blind young Londoners",
+        "eventTitle": "Tech for Good: Improving lives of blind young Londoners",
+        "eventUrl": "https://rlsb.devpost.com/",
+        "eventDate": "2015-07-25",
+        "attendees": 2,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Curzon Soho",
+    "address": "Curzon Soho, 99 Shaftesbury Ave, London W1D 5DY, UK",
+    "area": "Soho",
+    "lat": 51.5127004,
+    "lng": -0.1305849,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Real History of Communism",
+        "eventUrl": "https://luma.com/oponegbx",
+        "eventDate": "2026-05-12",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Digital Catapult",
+    "address": "Digital Catapult, 101 Euston Rd., London NW1 2RA, UK",
+    "area": "King's Cross",
+    "lat": 51.528429,
+    "lng": -0.127424,
+    "googlePlaceId": null,
+    "kindGuess": "community_space",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Future Forward",
+        "eventTitle": "Shaping the Future of AI Innovation and Investment",
+        "eventUrl": "https://luma.com/1jmjzo29",
+        "eventDate": "2024-12-05",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Drapers' Hall",
+    "address": "Drapers' Hall, Throgmorton Ave, London EC2N 2DQ, UK",
+    "area": "Bank",
+    "lat": 51.5152151,
+    "lng": -0.0864948,
+    "googlePlaceId": null,
+    "kindGuess": "bookable",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Ayn Rand Lecture 2025: Lance Forman",
+        "eventUrl": "https://luma.com/45gscukf",
+        "eventDate": "2025-10-22",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Events @ No 6",
+    "address": "Events @ No 6, 6 Alie St, London E1 8QT, UK",
+    "area": "Aldgate",
+    "lat": 51.513236,
+    "lng": -0.07259600000000001,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "Debt, Equity & Drinks with Creator Fund x TechCredit Partners",
+        "eventUrl": "https://luma.com/eqq6u8jy",
+        "eventDate": "2025-08-06",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Experian",
+    "address": "80 Victoria Street, 6th Floor, Cardinal Place, London. SW1E 5JL",
+    "area": "Victoria",
+    "lat": 51.496998,
+    "lng": -0.140357,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 57,
+    "hosts": [
+      {
+        "community": "Product London",
+        "eventTitle": "Product London with Experian",
+        "eventUrl": "https://www.meetup.com/productlondon/events/307457627/",
+        "eventDate": "2025-05-21",
+        "attendees": 57,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Fair Shot Cafe",
+    "address": "Fair Shot Cafe, 3 Slingsby Pl, London WC2E 9AB, UK",
+    "area": "Covent Garden",
+    "lat": 51.512479899999995,
+    "lng": -0.1261034,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "enki events",
+        "eventTitle": "Do you trust your revenue? | Breakfast workshop for senior SaaS finance leaders",
+        "eventUrl": "https://luma.com/2wri74pw",
+        "eventDate": "2025-11-25",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "FITCH RATINGS LTD. London Office",
+    "address": "30 N Colonnade, London E14 5GN, UK",
+    "area": "Canary Wharf",
+    "lat": 51.505338,
+    "lng": -0.016021,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 55,
+    "hosts": [
+      {
+        "community": "Fitch",
+        "eventTitle": "Fitch Code for a Cause '24 -  London - Hybrid (1 day on site - rest virtual)",
+        "eventUrl": "https://fitch-code4cause-2024-london.devpost.com/",
+        "eventDate": "2024-09-13",
+        "attendees": 55,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Fora - The Jellicoe",
+    "address": "Fora - The Jellicoe, 5 Beaconsfield St, London N1C 4EW, UK",
+    "area": "King's Cross",
+    "lat": 51.537974,
+    "lng": -0.124094,
+    "googlePlaceId": null,
+    "kindGuess": "coworking",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "GO GLOBAL: London’s Gateway to International Innovation",
+        "eventUrl": "https://luma.com/vqlrwe3e",
+        "eventDate": "2025-11-13",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "FX Digital",
+    "address": "Classic House, 174–180 Old St, London EC1V 9BP",
+    "area": "Old Street",
+    "lat": 51.525171,
+    "lng": -0.09044,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 72,
+    "hosts": [
+      {
+        "community": "BBC Tech Meetup",
+        "eventTitle": "FX Digital x BBC Tech Meetup - Connected TV Development July 2025",
+        "eventUrl": "https://www.meetup.com/bbc-tech-meetup/events/308433179/",
+        "eventDate": "2025-07-10",
+        "attendees": 72,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Google London - Pancras Square",
+    "address": "6 Pancras Sq, London N1C 4AG, United Kingdom",
+    "area": "King's Cross",
+    "lat": 51.533481,
+    "lng": -0.125043,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 89,
+    "hosts": [
+      {
+        "community": "Londroid: The London Android Community Meetup",
+        "eventTitle": "Londroid at Google",
+        "eventUrl": "https://www.meetup.com/android/events/315466886/",
+        "eventDate": "2026-07-28",
+        "attendees": 89,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Hamilton House",
+    "address": "1 Temple Avenue, Temple, London EC4Y 0HA, UK",
+    "area": "Strand",
+    "lat": 51.511367,
+    "lng": -0.10821,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 6,
+    "hosts": [
+      {
+        "community": "Elastic London User Group",
+        "eventTitle": "OOPS #17 - Women in Incident Response",
+        "eventUrl": "https://www.meetup.com/london-elastic-fantastics/events/316497042/",
+        "eventDate": "2026-10-01",
+        "attendees": 6,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Harvey Nash London",
+    "address": "Harvey Nash London, 10 Throgmorton Ave, London EC2N 2DL, UK",
+    "area": "Moorgate",
+    "lat": 51.5162422,
+    "lng": -0.0865316,
+    "googlePlaceId": "ChIJx6yJ6YAbdkgRch3AbLjwI8Q",
+    "kindGuess": "other",
+    "maxAttendeesSeen": 62,
+    "hosts": [
+      {
+        "community": "Diana Kocheva",
+        "eventTitle": "Life After Layoffs: The Reality of Finding a Job in Tech Today",
+        "eventUrl": "https://luma.com/dl0m714h",
+        "eventDate": "2026-10-22",
+        "attendees": 62,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "House of Lords",
+    "address": "House of Lords, Houses of Parliament, Parliament Sq, London SW1A 0PW, UK",
+    "area": "Westminster",
+    "lat": 51.4988393,
+    "lng": -0.12480010000000001,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "UK AI Agents Lab",
+        "eventTitle": "House of Lords Meet Up",
+        "eventUrl": "https://luma.com/gh3531qm",
+        "eventDate": "2026-09-28",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "ICE Services",
+    "address": "7 Devonshire Square, London EC2M 4YH",
+    "area": "Liverpool Street",
+    "lat": 51.516627,
+    "lng": -0.077724,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 41,
+    "hosts": [
+      {
+        "community": "London Scala User Group",
+        "eventTitle": "Scala Talks: Ports and Adapters & Complexity is a Sin",
+        "eventUrl": "https://www.meetup.com/london-scala/events/314842956/",
+        "eventDate": "2026-06-10",
+        "attendees": 41,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "IFX Payments",
+    "address": "IFX Payments, 2nd Floor, The Carter, 11 Pilgrim St, London EC4V 6RN, UK",
+    "area": "St Paul's",
+    "lat": 51.513413,
+    "lng": -0.10274799999999999,
+    "googlePlaceId": "ChIJibd0As0adkgRBnIVONIhlTU",
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 139,
+    "hosts": [
+      {
+        "community": "Future Forward",
+        "eventTitle": "Agentic AI in Financial Services and Insurance: Pilot to Production",
+        "eventUrl": "https://luma.com/gkmdzbk9",
+        "eventDate": "2026-10-22",
+        "attendees": 139,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Innovation Warehouse",
+    "address": "1 E Poultry Ave, London EC1A 9PT, Regatul Unit al Marii Britanii şi Irlandei de Nord",
+    "area": "Farringdon",
+    "lat": 51.518837,
+    "lng": -0.102438,
+    "googlePlaceId": null,
+    "kindGuess": "coworking",
+    "maxAttendeesSeen": 13,
+    "hosts": [
+      {
+        "community": "Unituhack London",
+        "eventTitle": "Unituhack London",
+        "eventUrl": "https://unituhack-london.devpost.com/",
+        "eventDate": "2015-11-14",
+        "attendees": 13,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "London E1 8GP",
+    "address": "London E1 8GP, UK",
+    "area": "Aldgate",
+    "lat": 51.511777,
+    "lng": -0.071544,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 39,
+    "hosts": [
+      {
+        "community": "IoT Week 2014 Hackathon",
+        "eventTitle": "IoT Week 2014 Hackathon",
+        "eventUrl": "https://iot-week2014.devpost.com/",
+        "eventDate": "2014-06-17",
+        "attendees": 39,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "London Southbank University",
+    "address": "Keyworth Centre, SE1 6NG",
+    "area": "Elephant & Castle",
+    "lat": 51.49685,
+    "lng": -0.100787,
+    "googlePlaceId": null,
+    "kindGuess": "community_space",
+    "maxAttendeesSeen": 18,
+    "hosts": [
+      {
+        "community": "Graph Database - United Kingdom",
+        "eventTitle": "AgentCon - London",
+        "eventUrl": "https://www.meetup.com/graphdb-uk/events/315857760/",
+        "eventDate": "2026-09-08",
+        "attendees": 18,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "LSE Generate",
+    "address": "LSE Generate, The GenDen, Clare Market, London WC2A 2AB, UK",
+    "area": "Holborn",
+    "lat": 51.5143809,
+    "lng": -0.11672099999999999,
+    "googlePlaceId": null,
+    "kindGuess": "university",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "SpaceXAI for London, England",
+        "eventTitle": "Cursor Summer Time London Workshop",
+        "eventUrl": "https://luma.com/cursor-y3q2",
+        "eventDate": "2026-06-16",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Macadam Building",
+    "address": "Macadam Building, Surrey St, London WC2R 2NS, UK",
+    "area": "Strand",
+    "lat": 51.511255299999995,
+    "lng": -0.1153154,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "KCL Tech",
+        "eventTitle": "Game Night with JetBrains!",
+        "eventUrl": "https://luma.com/pbhkafis",
+        "eventDate": "2026-03-25",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Mercator Digital",
+    "address": "1 Clink Street, Soho Wharf, SE1 9DG",
+    "area": "London Bridge",
+    "lat": 51.507218,
+    "lng": -0.091868,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 73,
+    "hosts": [
+      {
+        "community": "London Scala User Group",
+        "eventTitle": "Scala Talks: Tour of error handling & Functional Programming at Huge Companies",
+        "eventUrl": "https://www.meetup.com/london-scala/events/312878541/",
+        "eventDate": "2026-02-11",
+        "attendees": 73,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Meta Kings Cross",
+    "address": "11-22 Canal Reach, N1C 4DR",
+    "area": "King's Cross",
+    "lat": 51.536561,
+    "lng": -0.125911,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 157,
+    "hosts": [
+      {
+        "community": "C++ London",
+        "eventTitle": "RPC, OSS and Testing",
+        "eventUrl": "https://www.meetup.com/cpplondon/events/310732158/",
+        "eventDate": "2025-09-23",
+        "attendees": 157,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Mr Fogg's Hat Tavern",
+    "address": "Mr Fogg's Hat Tavern, 22a Great Chapel St, London W1F 8FR, UK",
+    "area": "Soho",
+    "lat": 51.51550220000001,
+    "lng": -0.1345901,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "enki events",
+        "eventTitle": "[enki] Fractional Finance Christmas Drinks 🎄",
+        "eventUrl": "https://luma.com/12c9oa2v",
+        "eventDate": "2025-11-26",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Muzz",
+    "address": "2nd Floor, MSF, Artesian, 9 Prescott Street, Greater London, E1 8AZ",
+    "area": "Aldgate",
+    "lat": 51.511465,
+    "lng": -0.070635,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 66,
+    "hosts": [
+      {
+        "community": "Londroid: The London Android Community Meetup",
+        "eventTitle": "Londroid @ Muzz",
+        "eventUrl": "https://www.meetup.com/android/events/316368793/",
+        "eventDate": "2026-09-24",
+        "attendees": 66,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "PwC London",
+    "address": "1 Embankment Pl, London WC2N 6RH, UK",
+    "area": "Covent Garden",
+    "lat": 51.507989,
+    "lng": -0.124663,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 164,
+    "hosts": [
+      {
+        "community": "XR Hack",
+        "eventTitle": "XR Hack - London",
+        "eventUrl": "https://xr-hack-london.devpost.com/",
+        "eventDate": "2024-08-15",
+        "attendees": 164,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Qibo Skybar",
+    "address": "48 Marsh Wall, London E14 9TP, UK",
+    "area": "Canary Wharf",
+    "lat": 51.500879,
+    "lng": -0.021935,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 61,
+    "hosts": [
+      {
+        "community": "London Entrepreneur & Startup Network – Tech, Biz, eCommerce",
+        "eventTitle": "AI, Startups, Entrepreneurs, eCommerce & Investors | Business Networking London",
+        "eventUrl": "https://www.meetup.com/london-entrepreneur-startup-network-tech-business-ecommerce/events/316579675/",
+        "eventDate": "2026-10-13",
+        "attendees": 61,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Raindrop",
+    "address": "52 Tabernacle Street, London, EC2A 4NJ",
+    "area": "Old Street",
+    "lat": 51.523826,
+    "lng": -0.085753,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 26,
+    "hosts": [
+      {
+        "community": "London Scala User Group",
+        "eventTitle": "Scala Workshop: Building Real Applications in Scala Native",
+        "eventUrl": "https://www.meetup.com/london-scala/events/316251260/",
+        "eventDate": "2026-09-30",
+        "attendees": 26,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Regent’s Park - Queen Mary’s Garden",
+    "address": "NW1 4NR",
+    "area": "Marylebone",
+    "lat": 51.528444,
+    "lng": -0.149917,
+    "googlePlaceId": null,
+    "kindGuess": "university",
+    "maxAttendeesSeen": 164,
+    "hosts": [
+      {
+        "community": "International Social Hub",
+        "eventTitle": "Picnic at Queen Mary’s Gardens 🧺🌸",
+        "eventUrl": "https://www.meetup.com/internationalsocialhub/events/315610111/",
+        "eventDate": "2026-07-18",
+        "attendees": 164,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Savage Garden Rooftop Bar",
+    "address": "7 Pepys St,EC3N 4AF,",
+    "area": "Aldgate",
+    "lat": 51.510907,
+    "lng": -0.078253,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": 97,
+    "hosts": [
+      {
+        "community": "Networx London - Connect & Grow",
+        "eventTitle": "Finance, Banking & FinTech Networking | Investors & Professionals",
+        "eventUrl": "https://www.meetup.com/london-networking-for-startups-professionals/events/316178852/",
+        "eventDate": "2026-09-29",
+        "attendees": 97,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "sevente",
+    "address": "sevente, 283 Hackney Rd, London E2 8NA, UK",
+    "area": "Hoxton",
+    "lat": 51.531174,
+    "lng": -0.06771579999999999,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Lightfern",
+        "eventTitle": "Lightfern launch event! 🎉",
+        "eventUrl": "https://luma.com/ra305mqn",
+        "eventDate": "2026-02-09",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Skype (Microsoft)",
+    "address": "Skype (Microsoft), 2 Waterhouse Square, 140 Holborn, London, EC1N 2ST",
+    "area": "Farringdon",
+    "lat": 51.51816,
+    "lng": -0.109514,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 47,
+    "hosts": [
+      {
+        "community": "Codess Hackathon London",
+        "eventTitle": "Codess Hackathon London",
+        "eventUrl": "https://codesshackathonlondon.devpost.com/",
+        "eventDate": "2014-10-11",
+        "attendees": 47,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Tesco, The Lever Building, 85 Clerkenwell Road",
+    "address": "EC1R 5AR",
+    "area": "Clerkenwell",
+    "lat": 51.521884,
+    "lng": -0.109562,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 71,
+    "hosts": [
+      {
+        "community": "DevSecOps - London Gathering",
+        "eventTitle": "Cyber Insights from Retail with Tesco",
+        "eventUrl": "https://www.meetup.com/devsecops-london-gathering/events/311089191/",
+        "eventDate": "2025-12-10",
+        "attendees": 71,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "The Bakery, 2nd Floor, Epworth House,",
+    "address": "25 City Road, EC1Y 1AA",
+    "area": "Old Street",
+    "lat": 51.523127,
+    "lng": -0.086993,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 69,
+    "hosts": [
+      {
+        "community": "GDG Cloud London",
+        "eventTitle": "Building and Prototyping AI-Powered Experiences",
+        "eventUrl": "https://www.meetup.com/gdgcloud/events/308225706/",
+        "eventDate": "2025-06-18",
+        "attendees": 69,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "The Barley Mow",
+    "address": "104 Horseferry Road, SW1P 2EE",
+    "area": "Westminster",
+    "lat": 51.495036,
+    "lng": -0.131217,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 315,
+    "hosts": [
+      {
+        "community": "International Social Hub",
+        "eventTitle": "🍷 🥤 international Social Hub 🍻 *NEW LOCATION*",
+        "eventUrl": "https://www.meetup.com/internationalsocialhub/events/315085396/",
+        "eventDate": "2026-07-04",
+        "attendees": 315,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "The Book Club",
+    "address": "The Book Club, 100-106 Leonard St, London EC2A 4RH, UK",
+    "area": "Shoreditch",
+    "lat": 51.524611,
+    "lng": -0.081424,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "Tech & Tonic | EO3",
+        "eventUrl": "https://luma.com/sd5qjkvz",
+        "eventDate": "2025-03-19",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "The Brunel Building",
+    "address": "The Brunel Building, 2 Canalside Walk, London W2 1DG, UK",
+    "area": "Paddington",
+    "lat": 51.519089,
+    "lng": -0.177928,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 68,
+    "hosts": [
+      {
+        "community": "Londroid: The London Android Community Meetup",
+        "eventTitle": "Londroid at DOJO",
+        "eventUrl": "https://www.meetup.com/android/events/316794841/",
+        "eventDate": "2026-10-22",
+        "attendees": 68,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "The Building Centre",
+    "address": "The Building Centre, 26 Store St, London WC1E 7BT, UK",
+    "area": "Bloomsbury",
+    "lat": 51.5194994,
+    "lng": -0.1315151,
+    "googlePlaceId": null,
+    "kindGuess": "community_space",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "SpaceXAI for London, England",
+        "eventTitle": "GTM Hackathon London",
+        "eventUrl": "https://luma.com/hxsfxyvb",
+        "eventDate": "2026-06-20",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "The Caledonian Club",
+    "address": "The Caledonian Club, 9 Halkin St, London SW1X 7DR, UK",
+    "area": "Victoria",
+    "lat": 51.5006742,
+    "lng": -0.1528405,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "The Smithian Economy: Family, Community and Country",
+        "eventUrl": "https://luma.com/g6tr7stz",
+        "eventDate": "2026-06-16",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "The Craft Beer Co Clerkenwell",
+    "address": "82 Leather Lane, Clerkenwell, London EC1N 7TR,",
+    "area": "Farringdon",
+    "lat": 51.521139,
+    "lng": -0.109679,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": 12,
+    "hosts": [
+      {
+        "community": "Languages in London • Exchange & Socials",
+        "eventTitle": "🇬🇧🇪🇸🇫🇷🇯🇵🇮🇹 Gobal Language Exchange Social 🇩🇪🇨🇳🇪🇬🇧🇷🇰🇷🇪🇬🌎",
+        "eventUrl": "https://www.meetup.com/languages-in-london-exchange-social-events/events/316569393/",
+        "eventDate": "2026-09-19",
+        "attendees": 12,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "The Featherstone Building EC1",
+    "address": "The Featherstone Building EC1, 66 City Rd, London EC1Y 2AL, UK",
+    "area": "Old Street",
+    "lat": 51.524582,
+    "lng": -0.087694,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "Co-Founder Matchmaking",
+        "eventUrl": "https://luma.com/eeyy2m1o",
+        "eventDate": "2025-03-18",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "The Last Talisman | Bar & Restaurant",
+    "address": "The Last Talisman | Bar & Restaurant, 171 Bermondsey St, London SE1 3UW, UK",
+    "area": "Bermondsey",
+    "lat": 51.499067,
+    "lng": -0.0808991,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "Tech & Tonic | The BIG Startup 5K Warm Up Party",
+        "eventUrl": "https://luma.com/lbjwxb4q",
+        "eventDate": "2025-07-15",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "The Lucky Saint",
+    "address": "The Lucky Saint, 58 Devonshire St, London W1W 5EA, UK",
+    "area": "Fitzrovia",
+    "lat": 51.522229,
+    "lng": -0.144209,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "Tech & Tonic | Lucky Saint",
+        "eventUrl": "https://luma.com/lpk376tk",
+        "eventDate": "2025-01-15",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "The Old Sessions House",
+    "address": "23 Clerkenwell Grn, London EC1R 0NA, UK",
+    "area": "Clerkenwell",
+    "lat": 51.522564,
+    "lng": -0.106045,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 145,
+    "hosts": [
+      {
+        "community": "Cerebral Valley",
+        "eventTitle": "Anthropic London Hackathon",
+        "eventUrl": "https://anthropiclondon.devpost.com/",
+        "eventDate": "2023-11-04",
+        "attendees": 145,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "The Orange Pub & Boutique Hotel Belgravia",
+    "address": "The Orange Pub & Boutique Hotel Belgravia, 37 Pimlico Rd, London SW1W 8NE, UK",
+    "area": "Victoria",
+    "lat": 51.490553299999995,
+    "lng": -0.1523038,
+    "googlePlaceId": null,
+    "kindGuess": "pub_or_bar",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Novabook",
+        "eventTitle": "Spring Kickoff Founder Drinks",
+        "eventUrl": "https://luma.com/0g4m1ibx",
+        "eventDate": "2026-03-05",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "The Trampery Old Street",
+    "address": "239 Old Street EC1V 9EY",
+    "area": "Old Street",
+    "lat": 51.526626,
+    "lng": -0.084295,
+    "googlePlaceId": null,
+    "kindGuess": "coworking",
+    "maxAttendeesSeen": 3,
+    "hosts": [
+      {
+        "community": "freeCodeCamp London",
+        "eventTitle": "AI CODING SUMMIT - Discount for freeCodeCamp members!",
+        "eventUrl": "https://www.meetup.com/freecodecamp-london/events/314927734/",
+        "eventDate": "2026-07-06",
+        "attendees": 3,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Tower Bridge Moorings",
+    "address": "31 Mill Street, SE1 2AX",
+    "area": "Bermondsey",
+    "lat": 51.502007,
+    "lng": -0.070228,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 70,
+    "hosts": [
+      {
+        "community": "C++ London",
+        "eventTitle": "C++ on Thames",
+        "eventUrl": "https://www.meetup.com/cpplondon/events/314529033/",
+        "eventDate": "2026-05-13",
+        "attendees": 70,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Trainline",
+    "address": "2nd Floor, 1 Stonecutter Street, London, EC4A 4AH",
+    "area": "Farringdon",
+    "lat": 51.515646,
+    "lng": -0.105309,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 128,
+    "hosts": [
+      {
+        "community": "Londroid: The London Android Community Meetup",
+        "eventTitle": "Londroid @ Trainline",
+        "eventUrl": "https://www.meetup.com/android/events/315804087/",
+        "eventDate": "2026-08-27",
+        "attendees": 128,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "TrueLayer Auditorium",
+    "address": "40 Finsbury Square, London EC2A 1PX",
+    "area": "Moorgate",
+    "lat": 51.520182,
+    "lng": -0.086137,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 83,
+    "hosts": [
+      {
+        "community": "C++ London",
+        "eventTitle": "C++ and Rust : Shared Minds, Bridging Worlds",
+        "eventUrl": "https://www.meetup.com/cpplondon/events/310272299/",
+        "eventDate": "2025-08-11",
+        "attendees": 83,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "UCL",
+    "address": "1-19 Torrington Pl, London WC1E 7HB, UK",
+    "area": "Fitzrovia",
+    "lat": 51.521897,
+    "lng": -0.134543,
+    "googlePlaceId": null,
+    "kindGuess": "university",
+    "maxAttendeesSeen": 149,
+    "hosts": [
+      {
+        "community": "CoAI Club",
+        "eventTitle": "VibeHack London 2026",
+        "eventUrl": "https://vibehack-london-2026.devpost.com/",
+        "eventDate": "2026-06-06",
+        "attendees": 149,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "University College London",
+    "address": "University College London, Gower Street, London WC1E 6BT, UK",
+    "area": "Bloomsbury",
+    "lat": 51.523571,
+    "lng": -0.132398,
+    "googlePlaceId": null,
+    "kindGuess": "university",
+    "maxAttendeesSeen": 9,
+    "hosts": [
+      {
+        "community": "FUTUReBOOKHACK",
+        "eventTitle": "FUTUReBOOKHACK",
+        "eventUrl": "https://futurebookhack.devpost.com/",
+        "eventDate": "2014-06-14",
+        "attendees": 9,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Urban Innovation Centre",
+    "address": "1 Sekforde Street, London EC1R 0BE, UK",
+    "area": "Clerkenwell",
+    "lat": 51.523975,
+    "lng": -0.104848,
+    "googlePlaceId": null,
+    "kindGuess": "community_space",
+    "maxAttendeesSeen": 7,
+    "hosts": [
+      {
+        "community": "AEC Hackathon London #aechackldn",
+        "eventTitle": "AEC Hackathon London #aechackldn",
+        "eventUrl": "https://aechackathonlondon.devpost.com/",
+        "eventDate": "2015-07-17",
+        "attendees": 7,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Veracode",
+    "address": "36 Queen Street London, EC4R 1BN",
+    "area": "City of London",
+    "lat": 51.511323,
+    "lng": -0.093267,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 61,
+    "hosts": [
+      {
+        "community": "DevSecOps - London Gathering",
+        "eventTitle": "DSOLG May 2026 - AI incident response",
+        "eventUrl": "https://www.meetup.com/devsecops-london-gathering/events/314434692/",
+        "eventDate": "2026-05-20",
+        "attendees": 61,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Vivacity Labs",
+    "address": "Unit 315 Highgate Studios 53-79 Highgate Road London, NW5 1TL",
+    "area": "Kentish Town",
+    "lat": 51.553937,
+    "lng": -0.144728,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 78,
+    "hosts": [
+      {
+        "community": "Beyond the Code",
+        "eventTitle": "On Kotlin #9",
+        "eventUrl": "https://www.meetup.com/beyond-the-code/events/302384401/",
+        "eventDate": "2024-09-19",
+        "attendees": 78,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Vue West End (Leicester Square)",
+    "address": "3 Cranbourn Street, WC2H 7AL",
+    "area": "Covent Garden",
+    "lat": 51.51152,
+    "lng": -0.129533,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 32,
+    "hosts": [
+      {
+        "community": "Databricks London Meetup",
+        "eventTitle": "Databricks Data + AI Summit Watch Party | London",
+        "eventUrl": "https://www.meetup.com/databricks-london/events/315181956/",
+        "eventDate": "2026-06-16",
+        "attendees": 32,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Waterloo Station",
+    "address": "Waterloo Station, London SE1 7ND, UK",
+    "area": "Waterloo",
+    "lat": 51.503492,
+    "lng": -0.11564,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 15,
+    "hosts": [
+      {
+        "community": "AI Work Walks, London",
+        "eventTitle": "AI Work Walks London: Why AI Rollouts Stall After the Pilot",
+        "eventUrl": "https://www.meetup.com/ai-work-walks-london/events/316633914/",
+        "eventDate": "2026-10-06",
+        "attendees": 15,
+        "source": "meetup"
+      }
+    ]
+  },
+  {
+    "name": "Wayra UK",
+    "address": "20 Air St, Soho, London W1B 5DL, UK",
+    "area": "Soho",
+    "lat": 51.510603,
+    "lng": -0.136863,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": 13,
+    "hosts": [
+      {
+        "community": "2017 AFRICA TECH DAY - LONDON",
+        "eventTitle": "2017 AFRICA TECH DAY - LONDON",
+        "eventUrl": "https://2017-london-hackathon-4469.devpost.com/",
+        "eventDate": "2017-07-07",
+        "attendees": 13,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "WeWork Moorgate",
+    "address": "1 Fore St, London EC2Y 5EJ, UK",
+    "area": "Moorgate",
+    "lat": 51.518747,
+    "lng": -0.093029,
+    "googlePlaceId": null,
+    "kindGuess": "coworking",
+    "maxAttendeesSeen": 13,
+    "hosts": [
+      {
+        "community": "Hacking Generation Y - London",
+        "eventTitle": "Hacking Generation Y - London",
+        "eventUrl": "https://hackgeny-london.devpost.com/",
+        "eventDate": "2015-10-03",
+        "attendees": 13,
+        "source": "devpost"
+      }
+    ]
+  },
+  {
+    "name": "Woburn House",
+    "address": "Woburn House, Tavistock Square, London WC1H 0HW, UK",
+    "area": "Euston",
+    "lat": 51.525789,
+    "lng": -0.129569,
+    "googlePlaceId": null,
+    "kindGuess": "other",
+    "maxAttendeesSeen": null,
+    "hosts": [
+      {
+        "community": "Adam Smith Institute",
+        "eventTitle": "Adam Smith Lecture 2024: Rory Sutherland",
+        "eventUrl": "https://luma.com/tja5llkw",
+        "eventDate": "2024-11-27",
+        "attendees": null,
+        "source": "luma"
+      }
+    ]
+  },
+  {
+    "name": "Zopa Bank",
+    "address": "Level 12, 20 Water St, Canary Wharf Estate, London E14 5GX",
+    "area": "Canary Wharf",
+    "lat": 51.502783,
+    "lng": -0.014907,
+    "googlePlaceId": null,
+    "kindGuess": "company_office",
+    "maxAttendeesSeen": 106,
+    "hosts": [
+      {
+        "community": "Londroid: The London Android Community Meetup",
+        "eventTitle": "Londroid @ Zopa Bank",
+        "eventUrl": "https://www.meetup.com/android/events/314053831/",
+        "eventDate": "2026-04-30",
+        "attendees": 106,
+        "source": "meetup"
+      }
+    ]
+  }
+]

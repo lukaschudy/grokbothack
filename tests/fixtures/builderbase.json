@@ -1,0 +1,190 @@
+{
+  "data": {
+    "events": [
+      {
+        "id": "ee8fcd6a-88e1-4dbc-91ca-a8cbb55b9c4b",
+        "name": "AgentVerse",
+        "slug": "agentverse",
+        "start_at": "2026-11-07T09:00:00+00:00",
+        "end_at": "2026-11-08T14:00:00+00:00",
+        "tz": "Europe/London",
+        "cover_image_url": "https://sbnxiexidrjwubdfjepb.supabase.co/storage/v1/object/public/uploads/super_event/ee8fcd6a-88e1-4dbc-91ca-a8cbb55b9c4b/193b14e1-65fb-4326-a2d9-3549170bc417.png",
+        "format": "onsite",
+        "event_type": "hackathon",
+        "location": {
+          "lat": 51.54,
+          "lng": -0.01,
+          "city": "London",
+          "country": "GB",
+          "precise": false
+        },
+        "registration_open": true,
+        "registration_deadline": null,
+        "track_count": 4,
+        "participant_count": 0,
+        "organization": {
+          "id": "754a9098-c1ae-4b2b-913f-c3c5a0eaccf5",
+          "name": "UCL AI Society's Base",
+          "slug": "ucl-ai-societys-base",
+          "logo_url": null
+        },
+        "kind": "native",
+        "theme_tags": [],
+        "external_url": null,
+        "source": null
+      },
+      {
+        "id": "070bb4d9-fad7-4028-a8b8-1891ba16ef48",
+        "name": "Agentic Payments Hackathon Toronto",
+        "slug": "agentic-payments-hackathon-toronto",
+        "start_at": "2026-11-13T15:30:00+00:00",
+        "end_at": "2026-11-15T18:00:00+00:00",
+        "tz": "Europe/Athens",
+        "cover_image_url": "https://sbnxiexidrjwubdfjepb.supabase.co/storage/v1/object/public/uploads/super_event/070bb4d9-fad7-4028-a8b8-1891ba16ef48/3cd53c1d-6065-439d-9a33-634a5cc9def1.jpg",
+        "format": "onsite",
+        "event_type": "hackathon",
+        "location": {
+          "lat": 43.6548253,
+          "lng": -79.388447,
+          "city": "Toronto",
+          "country": "CA",
+          "precise": true
+        },
+        "registration_open": true,
+        "registration_deadline": null,
+        "track_count": 1,
+        "participant_count": 12,
+        "organization": {
+          "id": "73ca1832-c08e-43d4-89b5-7aa8a3c1efc9",
+          "name": "Highline Beta",
+          "slug": "highline-beta-yoiy",
+          "logo_url": "https://sbnxiexidrjwubdfjepb.supabase.co/storage/v1/object/public/organization-logos/73ca1832-c08e-43d4-89b5-7aa8a3c1efc9/logo-1774297608231.png"
+        },
+        "kind": "native",
+        "theme_tags": [],
+        "external_url": null,
+        "source": null
+      },
+      {
+        "kind": "external",
+        "id": "488104c0-f9d3-4490-a826-4e9f91e11b1b",
+        "slug": null,
+        "name": "LarpHacks",
+        "start_at": "2026-10-23T00:00:00+00:00",
+        "end_at": "2026-10-23T00:00:00+00:00",
+        "tz": "",
+        "format": "onsite",
+        "event_type": "hackathon",
+        "theme_tags": [
+          "Other"
+        ],
+        "cover_image_url": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/982/889/datas/medium_square.png",
+        "location": {
+          "lat": 43.6532,
+          "lng": -79.3832,
+          "city": "Toronto",
+          "country": "Canada",
+          "precise": true
+        },
+        "organization": {
+          "name": "LarpHacks"
+        },
+        "registration_open": null,
+        "registration_deadline": null,
+        "track_count": 0,
+        "external_url": "https://larphacks.devpost.com/?utm_source=builderbase.com&utm_medium=referral",
+        "source": "devpost"
+      },
+      {
+        "kind": "external",
+        "id": "feead9db-7c8a-4358-b6e8-566499187393",
+        "slug": null,
+        "name": "Encode London Hackathon and Conference",
+        "start_at": "2026-10-23T00:00:00+00:00",
+        "end_at": "2026-10-25T00:00:00+00:00",
+        "tz": "",
+        "format": "onsite",
+        "event_type": "hackathon",
+        "theme_tags": [
+          "AI",
+          "Web3"
+        ],
+        "cover_image_url": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,background=white,quality=75,width=400,height=400/event-social/8h/34e94b7a-3c67-4dbf-88ab-110a75b6a12d.png",
+        "location": {
+          "lat": 51.5074,
+          "lng": -0.1278,
+          "city": "London",
+          "country": "GB",
+          "precise": true
+        },
+        "organization": {
+          "name": "Encode Club"
+        },
+        "registration_open": null,
+        "registration_deadline": null,
+        "track_count": 0,
+        "external_url": "https://luma.com/encode-london-2026?utm_source=builderbase.com&utm_medium=referral",
+        "source": "luma"
+      },
+      {
+        "kind": "external",
+        "id": "230223e2-6f36-4e46-803d-0340d8d4e23d",
+        "slug": null,
+        "name": "UofTHacks 14",
+        "start_at": "2027-01-15T00:00:00+00:00",
+        "end_at": "2027-01-17T00:00:00+00:00",
+        "tz": "",
+        "format": "onsite",
+        "event_type": "hackathon",
+        "theme_tags": [
+          "Other"
+        ],
+        "cover_image_url": "https://uofthacks.com/metadata/preview.webp?v=2",
+        "location": {
+          "lat": 43.6532,
+          "lng": -79.3832,
+          "city": "Toronto",
+          "country": "Canada",
+          "precise": true
+        },
+        "organization": {
+          "name": "UofTHacks"
+        },
+        "registration_open": null,
+        "registration_deadline": null,
+        "track_count": 0,
+        "external_url": "https://uofthacks.com/?utm_source=builderbase.com&utm_medium=referral",
+        "source": "mlh"
+      },
+      {
+        "kind": "external",
+        "id": "a5f7ee8c-5c78-42b0-87af-1c1500258414",
+        "slug": null,
+        "name": "MakeUofT 2027",
+        "start_at": "2027-02-13T00:00:00+00:00",
+        "end_at": "2027-02-14T00:00:00+00:00",
+        "tz": "",
+        "format": "onsite",
+        "event_type": "hackathon",
+        "theme_tags": [
+          "Hardware",
+          "Other"
+        ],
+        "cover_image_url": "https://www.google.com/s2/favicons?domain=makeuoft.ca&sz=256",
+        "location": {
+          "lat": 43.6532,
+          "lng": -79.3832,
+          "city": "Toronto",
+          "country": "Canada",
+          "precise": true
+        },
+        "organization": null,
+        "registration_open": null,
+        "registration_deadline": null,
+        "track_count": 0,
+        "external_url": "https://makeuoft.ca/?utm_source=builderbase.com&utm_medium=referral",
+        "source": "mlh"
+      }
+    ]
+  }
+}
