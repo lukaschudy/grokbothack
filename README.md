@@ -46,6 +46,19 @@ Venue DB + trust → chat search → events + `.ics` → calling. If calling isn
 
 See [docs/data-sources.md](docs/data-sources.md) for what each source actually returns.
 
+## Run it
+
+```sh
+npm install
+cp .env.example .env.local   # fill in DATABASE_URL, SESSION_SECRET, XAI_API_KEY
+npm run dev                  # http://localhost:3000 (Next + call bridge in one process)
+```
+
+- **Schema:** `db/migrations/*.sql`. Local Postgres: `npm run db:migrate`. Supabase: `npx tsx --env-file=.env.local scripts/supabase-sql.ts db/migrations/<file>.sql`.
+- **Data:** `npx tsx scripts/fetch-sources.ts` writes `data/seed/*.json`; `npm run db:seed:pg` loads them over `DATABASE_URL`.
+- **Calls:** `CALL_MODE=virtual` rings `/phone` (open it on a teammate's phone; it needs HTTPS, e.g. `cloudflared tunnel --url http://localhost:3000`) and Grok voice talks live. `scripted` plays a written call with no voice model. `twilio` dials real numbers.
+- **Tests:** `npm test` (needs a local Postgres + PostGIS; see `tests/helpers.ts`).
+
 ## License
 
 MIT
