@@ -1,6 +1,6 @@
 # grokbothack
 
-Open database of London venues, communities and events, kept up to date by approved organisers who vouch for each other. A shared agent finds a free venue in seconds and can phone it to check availability.
+Open database of London venues, communities and events, kept up to date by approved organisers who vouch for each other. A shared Grok Bot agent finds a free venue in seconds, phones it to check availability, and sends the request.
 
 Track 4 (Venues, communities, events) at the Grok Bot Community Engineering London Hackathon, 22 Oct 2026. London only.
 
@@ -15,34 +15,51 @@ Track 4 (Venues, communities, events) at the Grok Bot Community Engineering Lond
 
 **Build:**
 
-1. **Venue DB**: capacity, AV, evening and weekend use, free or paid terms, contact, past hosts. Supabase + PostGIS.
-2. **Trust**: root organisers; posting needs vouches; vouchers lose vouching rights if the person they vouched for posts junk. Every field records who added it and when it was last confirmed. Enforced with RLS.
-3. **Chat agent**: "free space for 80 next Thursday near Old Street" → structured PostGIS query → top 3 with reasons, past hosts, clash warning, drafted request.
+1. **Venue DB**: capacity, AV, evening and weekend use, terms (`free` / `free with conditions` / `paid` + note), contact, past hosts. Supabase + PostGIS.
+2. **Trust**: 3–5 root organisers. Posting needs a vouch (1 tonight, 2 after). If someone posts junk, whoever vouched for them loses vouching rights. A join request shows the applicant's Luma hosting history as evidence, but a human vouch is always required. Every field records who added it and when it was last confirmed. Enforced with RLS.
+3. **Grok Bot agent** (the interface): "free space for 80 next Thursday near Old Street" → structured PostGIS query → top 3 with reasons, past hosts and clash warnings → calls to check availability → sends the request.
 4. **Events feed**: Luma + Meetup + Devpost + BuilderBase → ranked with visible reasons → `.ics` feed.
-5. **Calling**: Grok realtime voice over Twilio checks availability. Only for bookable venues the poster marked as OK to call. Every call is written back as a dated availability record.
+5. **Calling**: Grok realtime voice over Twilio. Only for bookable venues the poster marked as OK to call. Every call is written back as a dated availability record.
+6. **Website**: landing page with an "Open in Grok Bot" link and the `.ics` subscribe link. No separate web app.
 
 **Cut:** LinkedIn/X host scraping, outreach CRM, Notion view, Overture/OSM seeding.
 
 ## Product rules
 
+- Public and open source: code and data.
+- Tech and builder communities only.
 - Seed venues from evidence (events that actually happened there), not from maps.
 - Adding a venue = paste a Luma link; the bot fills in the rest and asks 3 questions.
-- Free venues are a scarce shared resource: contacts are members-only, and posters can choose "intro via me".
+- Hosts: store name, community and Luma profile link. No LinkedIn or X.
+- The agent sends venue requests on the organiser's behalf, with the organiser in Reply-To and CC so replies go to them.
 - Free evening venues are mostly company offices, which you reach through a person. Call bookable venues; ask past hosts for warm intros to company offices.
-- Never auto-dial. One call answers every organiser: reuse recent answers, max ~1 call per venue per week.
+- Never auto-dial: the organiser confirms. One call answers every organiser: reuse recent answers, max ~1 call per venue per week.
 - All times are in `Europe/London`. Clocks go back on 25 Oct 2026.
+
+## Event ranking
+
+Hackathons and build days > talks > networking. Boost by turnout and the host's track record. Penalise online, paid, recurring drinks and recruiter-led events. Two leads hand-label 30 events to check it.
+
+## Calling script
+
+- Opens: "Hi, I'm an assistant calling on behalf of [organiser], [community]."
+- Voice: Grok's British voice (Leo), prompted for a London accent.
+- Asks: is the date free, is it free or what does it cost, any conditions. Offers to email details. Under 2 minutes.
+- Never claims to be human. If asked, it says it's an AI assistant.
+- Callbacks: the same agent answers, takes a message and posts it to the organiser's thread (after the demo).
+- Demo uses any Twilio number. A UK number needs Twilio regulatory approval (~48 business hours).
 
 ## Demo
 
-1. Lead A pastes a Luma link → venue live in 30s.
+1. Lead A pastes a Luma link into Grok Bot → venue live in 30s.
 2. Lead B adds a venue and vouches for C.
 3. An unvouched account tries to post → blocked.
-4. C asks the Old Street question → 3 venues → "call them?" → a phone rings on stage → result card → send request.
+4. C asks the Old Street question → 3 venues → "call them?" → a phone rings on stage → result card → agent sends the request.
 5. A calendar subscribed to the `.ics` feed shows the ranked events.
 
 ## Build order
 
-Venue DB + trust → chat search → events + `.ics` → calling. If calling isn't working by the cutoff, fall back to an emailed request.
+Venue DB + trust → Grok Bot search → events + `.ics` → calling. If calling isn't working by the cutoff, the agent just sends the emailed request.
 
 See [docs/data-sources.md](docs/data-sources.md) for what each source actually returns.
 
