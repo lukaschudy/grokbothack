@@ -1,16 +1,36 @@
-// Boot the Mates Rates server: API + static site + calling (Twilio webhooks and media WebSocket).
-import { attachCallStreams, placeCall } from "../lib/calls";
-import { sql } from "../lib/db";
-import { createApp } from "./app";
+import { createServer } from "node:http";
+import next from "next";
+import { WebSocketServer } from "ws";
+import { attachMediaStream } from "./bridge";
+import { handleCallRoutes, phoneKeyOk } from "./routes";
 
-const port = Number(process.env.PORT ?? 8787);
-const server = createApp({ placeCall });
-attachCallStreams(server);
-server.listen(port, () => {
-  console.log(`Mates Rates on http://localhost:${port}${process.env.PUBLIC_URL ? ` (public ${process.env.PUBLIC_URL})` : ""}`);
-  if (!process.env.RESEND_API_KEY || !process.env.MAIL_FROM) console.log("Email not configured: requests stay as drafts");
+const dev = process.env.NODE_ENV !== "production";
+const port = Number(process.env.PORT ?? 3000);
+const app = next({ dev, hostname: "0.0.0.0", port });
+const handle = app.getRequestHandler();
+await app.prepare();
+const nextUpgrade = app.getUpgradeHandler();
+
+const wss = new WebSocketServer({ noServer: true });
+
+const server = createServer(async (req, res) => {
+  try {
+    if (await handleCallRoutes(req, res)) return;
+  } catch (e) {
+    console.error("[server]", e);
+    if (!res.headersSent) res.writeHead(500).end();
+    return;
+  }
+  void handle(req, res);
 });
 
-const stop = () => server.close(() => sql.end().finally(() => process.exit(0)));
-process.on("SIGTERM", stop);
-process.on("SIGINT", stop);
+server.on("upgrade", (req, socket, head) => {
+  const url = new URL(req.url ?? "/", "http://local");
+  if (url.pathname === "/twilio/stream" || (url.pathname === "/phone/stream" && phoneKeyOk(url))) {
+    wss.handleUpgrade(req, socket, head, (ws) => attachMediaStream(ws));
+  } else {
+    void nextUpgrade(req, socket, head);
+  }
+});
+
+server.listen(port, () => console.log(`Roomline on http://localhost:${port}${dev ? " (dev)" : ""}`));
