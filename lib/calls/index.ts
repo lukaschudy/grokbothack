@@ -1,6 +1,14 @@
 // AI availability calls. The API server uses exactly two things:
 //   placeCall(callId)          dial the venue for a `calls` row made by request_call()
 //   attachCallStreams(server)  mount /twilio/status and the /twilio/media WebSocket
+//
+// Env (read when used, not at import):
+//   TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN   Twilio REST + webhook signatures
+//   TWILIO_FROM (or TWILIO_PHONE_NUMBER)    caller ID, E.164
+//   PUBLIC_URL                              https base Twilio can reach; wss host is derived from it
+//   XAI_API_KEY                             Grok realtime voice
+//   XAI_REALTIME_URL, XAI_VOICE_MODEL       optional; default wss://api.x.ai/v1/realtime, grok-voice-latest
+// End-to-end test against your own phone: scripts/test-call.ts.
 
 import type { IncomingMessage, Server, ServerResponse } from "node:http";
 import WebSocket, { WebSocketServer } from "ws";
@@ -27,7 +35,8 @@ export async function placeCall(callId: string): Promise<void> {
   } catch (e) {
     return fail("failed", (e as Error).message);
   }
-  await sql`update calls set status = 'dialing', twilio_sid = ${sid} where id = ${callId} and status = 'queued'`;
+  // A status callback may already have moved it past 'queued'.
+  await sql`update calls set twilio_sid = ${sid}, status = case when status = 'queued' then 'dialing' else status end where id = ${callId}`;
 }
 
 /** Apply a Twilio status / async AMD callback. Hangs up on voicemail. */
@@ -44,7 +53,7 @@ export async function applyTwilioStatus(callId: string, params: URLSearchParams)
         status = coalesce(${next}, status),
         answered_at = case when ${next} = 'in_progress' then coalesce(answered_at, now()) else answered_at end,
         ended_at = case when ${ended} then coalesce(ended_at, now()) else ended_at end,
-        error = case when ${next} = 'completed' and result is null then 'ended_without_result' else error end
+        error = case when ${next} = 'completed' and result is null then coalesce(error, 'ended_without_result') else error end
       where id = ${callId}`;
   }
   const machine = !!answeredBy && (answeredBy.startsWith("machine") || answeredBy === "fax");
@@ -89,7 +98,10 @@ function bridgeSocket(ws: WebSocket, callId: string): void {
         console.error(`[call ${callId}] bad xai message`, e);
       }
     });
-    xai.on("error", (e) => console.error(`[call ${callId}] xai socket error: ${e.message}`));
+    xai.on("error", (e) => {
+      console.error(`[call ${callId}] xai socket error: ${e.message}`);
+      void sql`update calls set error = ${`xai: ${e.message}`} where id = ${callId}`.catch(() => {});
+    });
     xai.on("close", (code) => {
       console.log(`[call ${callId}] xai closed ${code}`);
       ws.close();

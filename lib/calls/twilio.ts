@@ -14,7 +14,7 @@ export function twilioEnv() {
   return {
     sid: need("TWILIO_ACCOUNT_SID"),
     token: need("TWILIO_AUTH_TOKEN"),
-    from: need("TWILIO_FROM"),
+    from: process.env.TWILIO_FROM || need("TWILIO_PHONE_NUMBER"),
     publicUrl,
     publicHost: new URL(publicUrl).host
   };

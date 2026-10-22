@@ -7,7 +7,8 @@ import { sql } from "../db";
 import { buildSessionUpdate, type CallContext } from "./prompt";
 import { hangUp } from "./twilio";
 
-export const xaiRealtimeUrl = () => process.env.XAI_REALTIME_URL ?? "wss://api.x.ai/v1/realtime?model=grok-voice-latest";
+export const xaiRealtimeUrl = () =>
+  `${process.env.XAI_REALTIME_URL ?? "wss://api.x.ai/v1/realtime"}?model=${process.env.XAI_VOICE_MODEL ?? "grok-voice-latest"}`;
 const GOODBYE_GRACE_MS = 12_000;
 
 export type Sendable = { send(data: string): void; close(): void };

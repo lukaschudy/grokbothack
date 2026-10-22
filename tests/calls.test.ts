@@ -21,7 +21,7 @@ const ENDS = new Date("2026-10-29T21:30:00Z");
 
 type Sent = { url: string; body: URLSearchParams; auth: string | null };
 let sent: Sent[] = [];
-let reply: () => Response = () => Response.json({ sid: "CA123" }, { status: 201 });
+let reply: () => Response | Promise<Response> = () => Response.json({ sid: "CA123" }, { status: 201 });
 const realFetch = globalThis.fetch;
 globalThis.fetch = (async (url: string | URL, init?: RequestInit) => {
   sent.push({ url: String(url), body: new URLSearchParams(String(init?.body ?? "")), auth: new Headers(init?.headers).get("authorization") });
@@ -140,6 +140,18 @@ describe("placeCall", () => {
       `<Response><Connect><Stream url="wss://calls.example.dev/twilio/media?call=${callId}"/></Connect></Response>`);
     const c = await callRow(callId);
     assert.equal(c.status, "dialing");
+    assert.equal(c.twilio_sid, "CA123");
+  });
+
+  test("keeps the sid when a status callback lands before Twilio's reply", async () => {
+    const { callId } = await makeCall();
+    reply = async () => {
+      await applyTwilioStatus(callId, new URLSearchParams({ CallSid: "CA123", CallStatus: "ringing" }));
+      return Response.json({ sid: "CA123" }, { status: 201 });
+    };
+    await placeCall(callId);
+    const c = await callRow(callId);
+    assert.equal(c.status, "ringing");
     assert.equal(c.twilio_sid, "CA123");
   });
 
