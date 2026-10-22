@@ -99,7 +99,7 @@ export default async function Home() {
 
         <section className="home-events" aria-labelledby="events-title">
           <div className="section-head">
-            <h2 id="events-title" className="section-title">This week&apos;s best London builder events</h2>
+            <h2 id="events-title" className="section-title">The best London builder events, ranked</h2>
             <Link className="link" href="/events">All ranked events</Link>
           </div>
           {events.length === 0 ? (
