@@ -292,6 +292,8 @@ describe("public feeds", () => {
     assert.equal(c.json.communities[0].name, "London.js");
     assert.equal(c.json.communities[0].upcoming_events, 1);
     assert.equal(c.json.communities[0].past_events, 1);
+    assert.equal((await api("GET", "/api/communities?q=ondo", { token })).json.communities.length, 0, "matches words, not substrings");
+    assert.equal((await api("GET", "/api/communities?q=lond", { token })).json.communities.length, 1);
     assert.equal((await api("GET", "/api/communities")).status, 401);
   });
 });

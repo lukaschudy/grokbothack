@@ -1,5 +1,5 @@
 // Mates Rates HTTP API. One node:http server: /api/*, /events.ics, static public/.
-// /twilio/* is left to lib/calls (attachCallStreams) and never answered here.
+// /twilio/* is intercepted by lib/calls (attachCallStreams) before this handler runs.
 import { createReadStream, existsSync, statSync } from "node:fs";
 import http from "node:http";
 import path from "node:path";
@@ -670,7 +670,9 @@ async function listEvents(ctx: Ctx) {
 async function communities(ctx: Ctx) {
   await requireUser(ctx);
   const q = (ctx.url.searchParams.get("q") ?? "").trim();
-  const like = `%${q}%`;
+  // Word match ("AI" must not match "chair"); short queries need the whole word, longer ones a word prefix.
+  const esc = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const like = q.length <= 3 ? `\\m${esc}\\M` : `\\m${esc}`;
   const rows = await sql`
     with items as (
       select distinct on (community, coalesce(url, id::text)) * from (
@@ -694,7 +696,7 @@ async function communities(ctx: Ctx) {
       (array_agg(url order by at desc) filter (where url is not null))[1] as link
     from items
     group by community
-    having ${q} = '' or community ilike ${like} or bool_or(title ilike ${like}) or bool_or(venue ilike ${like}) or bool_or(area ilike ${like})
+    having ${q} = '' or community ~* ${like} or bool_or(title ~* ${like}) or bool_or(venue ~* ${like}) or bool_or(area ~* ${like})
     order by count(*) desc, max(at) desc nulls last
     limit 15`;
   return {
@@ -825,7 +827,6 @@ export function createApp(overrides: Partial<Deps> = {}): http.Server {
 
   return http.createServer(async (req, res) => {
     const url = new URL(req.url ?? "/", "http://localhost");
-    if (url.pathname.startsWith("/twilio/")) return; // owned by lib/calls attachCallStreams
     const method = req.method === "HEAD" ? "GET" : (req.method ?? "GET");
     try {
       if (method === "OPTIONS") {
