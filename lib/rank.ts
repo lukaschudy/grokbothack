@@ -7,6 +7,13 @@ export type RankOpts = {
 };
 
 const DAY = 86400_000;
+
+// Event type from the title (README: hackathons and build days > talks > networking;
+// penalise recurring drinks and recruiter-led events). Talks are the neutral default.
+const HACK_RE = /\b(hack(athon|ers?|s)?|buildathon|hack ?(day|night))\b/i;
+const WORKSHOP_RE = /\b(workshop|hands-on|game jam)\b/i;
+const SOCIAL_RE = /\b(network(ing)?|social|drinks|pub|mixer|party|run ?club|running|walks?|stroll|games? night|chess|movie|screening)\b/i;
+const CAREERS_RE = /\b(recruit\w*|hiring|jobs?|careers?|layoffs?)\b/i;
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -44,17 +51,26 @@ export function rankEvents(events: SourceEvent[], now: Date, opts: RankOpts = {}
       score += 3 * Math.max(0, 1 - (start - now.getTime()) / (21 * DAY));
     }
 
-    if (e.tags.includes("hackathon")) {
+    if (e.tags.includes("hackathon") || HACK_RE.test(e.title)) {
       reasons.push("Hackathon");
-      score += 1.5;
+      score += 3;
+    } else if (WORKSHOP_RE.test(e.title)) {
+      reasons.push("Workshop");
+      score += 3;
+    } else if (SOCIAL_RE.test(e.title)) {
+      reasons.push("Networking or social");
+      score -= 3;
+    } else if (CAREERS_RE.test(e.title)) {
+      reasons.push("Careers or recruiting");
+      score -= 3;
     }
 
+    // Free is the norm for community events (Meetup only marks paid ones), so penalise paid instead of boosting free.
     if (e.isFree === true) {
       reasons.push("Free");
-      score += 2;
     } else if (e.isFree === false) {
       reasons.push("Paid");
-      score -= 1;
+      score -= 2;
     }
 
     if (e.attendees && e.attendees > 0) {
