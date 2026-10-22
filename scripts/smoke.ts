@@ -1,6 +1,7 @@
 // Smoke-test a running deployment from the outside.
 //   npx tsx scripts/smoke.ts https://<public-url>
 // Exits non-zero if any check fails. Creates one throwaway account (smoke+<time>@example.com).
+// Set PHONE_KEY to also check that /phone?key=… opens.
 import WebSocket from "ws";
 
 const base = (process.argv[2] ?? process.env.PUBLIC_URL ?? "http://localhost:8787").replace(/\/$/, "");
@@ -124,6 +125,17 @@ async function main() {
     const { res } = await get("/phone");
     assert(res.status === 404 || res.status === 403, `status ${res.status} (PHONE_KEY not set?)`);
     return String(res.status);
+  });
+  if (process.env.PHONE_KEY)
+    await check("/phone?key=PHONE_KEY → 200", async () => {
+      const { res } = await get(`/phone?key=${encodeURIComponent(process.env.PHONE_KEY!)}`);
+      assert(res.status === 200, `status ${res.status}`);
+      return "200";
+    });
+  await check("GET /setup.html (Grok Bot setup)", async () => {
+    const { res, text } = await get("/setup.html");
+    assert(res.ok && /<html/i.test(text), `status ${res.status}`);
+    return "200";
   });
   await check("/ is one button: Add Mates Rates to Grok Bot", async () => {
     const { text } = await get("/");
