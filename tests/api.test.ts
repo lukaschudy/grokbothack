@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { sql } from "../lib/db";
 import { signSession } from "../lib/auth";
 import type { ResolvedLumaEvent } from "../lib/sources/luma";
-import { deps, parseLondonTime, toE164, type Email } from "../app/api/_lib/http";
+import { callSummary, deps, parseLondonTime, toE164, type Email } from "../lib/api";
 import * as join from "../app/api/join/route";
 import * as login from "../app/api/login/route";
 import * as me from "../app/api/me/route";
@@ -269,6 +269,29 @@ describe("requests and calls", () => {
     assert.equal(s.json.when, "Thu 29 Oct, 18:30–21:30");
   });
 
+  test("GET /api/calls/:id gives the bot a human summary while ringing, on the line, and with the answer", async () => {
+    const rootId = await member("Root", { root: true });
+    const token = signSession(rootId);
+    const id = await venueAt(rootId, { name: "Callable Hall", phone: "+447700900123" });
+    const r = await api(calls.POST, "POST", "/api/calls", { token, body: { venue_id: id, start: "2026-10-29T18:30", headcount: 80 } });
+    const get = () => api(callById.GET, "GET", `/api/calls/${r.json.call_id}`, { token, id: r.json.call_id });
+    assert.equal(r.json.summary, "Dialling Callable Hall about Thu 29 Oct, 18:30–21:30 for 80 people…");
+
+    await sql`update calls set status = 'in_progress', transcript = '[{"id":"s1","who":"venue","text":"Hi, Sam here."}]' where id = ${r.json.call_id}`;
+    let s = await get();
+    assert.equal(s.json.summary, 'On the phone with Callable Hall now. Last said (venue): "Hi, Sam here."');
+    assert.equal(s.json.done, false);
+
+    const result = { status: "available", start_time: null, end_time: "21:30", max_people: 120, price: "Free for community tech events",
+      conditions: "Guest list 48 hours before", contact_name: "Sam", contact_role: "events", next_step: "Email the events inbox", alternative: null };
+    await sql`update calls set status = 'completed', result = ${sql.json(result)} where id = ${r.json.call_id}`;
+    s = await get();
+    assert.equal(s.json.done, true);
+    assert.equal(s.json.summary,
+      "Callable Hall is free Thu 29 Oct, 18:30–21:30: up to 120 people. Free for community tech events. Conditions: Guest list 48 hours before. Confirmed by Sam, events. Next step: Email the events inbox.");
+    assert.equal((await api(callById.GET, "GET", `/api/calls/${r.json.call_id}`, { token: await joinAs("Stranger"), id: r.json.call_id })).status, 404, "members only");
+  });
+
   test("a venue not marked OK to call is refused with not_ok_to_call", async () => {
     const rootId = await member("Root", { root: true });
     const id = await venueAt(rootId, { ok_to_call: false, phone: "+447700900123" });
@@ -311,6 +334,16 @@ describe("helpers", () => {
     assert.equal(parseLondonTime("2026-10-29T18:30")!.toISOString(), "2026-10-29T18:30:00.000Z");
     assert.equal(parseLondonTime("2026-10-29T18:30:00+00:00")!.toISOString(), "2026-10-29T18:30:00.000Z");
     assert.equal(parseLondonTime("next thursday"), null);
+  });
+
+  test("call summaries for dead ends offer the email fallback", () => {
+    const base = { venue_name: "X Hall", when: "Thu 29 Oct, 18:30–21:30", headcount: 80, result: null, error: null, last_said: null };
+    assert.equal(callSummary({ ...base, status: "no_answer" }), "No answer from X Hall. Want me to email them a request instead?");
+    assert.match(callSummary({ ...base, status: "failed", error: "no phone" }), /didn't go through \(no phone\)\. Email them/);
+    assert.match(callSummary({ ...base, status: "completed" }), /without a clear answer/);
+    const no = callSummary({ ...base, status: "completed", result: { status: "unavailable", start_time: null, end_time: null, max_people: null, price: null,
+      conditions: null, contact_name: null, contact_role: null, next_step: null, alternative: "Wed 28 Oct" } });
+    assert.equal(no, "X Hall isn't free Thu 29 Oct, 18:30–21:30. They offered: Wed 28 Oct.");
   });
 
   test("phone numbers normalise to E.164", () => {

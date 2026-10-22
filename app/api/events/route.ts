@@ -1,7 +1,7 @@
 import { upcomingEvents } from "@/lib/events";
 import { areaFor } from "@/lib/sources/types";
 import { formatWindow } from "@/lib/time";
-import { json, preflight, publicBase, route } from "../_lib/http";
+import { json, preflight, publicBase, route } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
 export const OPTIONS = preflight;

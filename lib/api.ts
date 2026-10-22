@@ -1,11 +1,12 @@
 // Shared plumbing for the JSON API the Grok Bot skills call (bot/skills/*.md).
 // Auth is `Authorization: Bearer <lib/auth signSession token>`; writes run through asUser so RLS decides.
-import { readSession } from "@/lib/auth";
-import { sql } from "@/lib/db";
-import { placeCall } from "@/lib/dialer";
-import { geocode } from "@/lib/places";
-import { resolveLumaEvent } from "@/lib/sources/luma";
-import { londonToUtc } from "@/lib/time";
+import { readSession } from "./auth";
+import { placeCall } from "./dialer";
+import { geocode } from "./places";
+import { resolveLumaEvent } from "./sources/luma";
+import type { CallResult } from "./bus";
+import { asUser, sql } from "./db";
+import { formatWindow, londonToUtc } from "./time";
 
 export class HttpError extends Error {
   constructor(public status: number, public code: string, message: string, public extra: Record<string, unknown> = {}) {
@@ -209,4 +210,68 @@ export async function venueView(id: string) {
     from venues v where v.id = ${id} and v.junk_at is null`;
   if (!v) throw new HttpError(404, "venue_not_found", "No such venue (or it was removed as junk).");
   return v;
+}
+
+// ---------- calls: what Grok Bot polls ----------
+
+const DONE = new Set(["completed", "failed", "no_answer", "busy", "canceled"]);
+
+export type CallState = {
+  status: string;
+  venue_name: string;
+  when: string;
+  headcount: number;
+  result: CallResult | null;
+  error: string | null;
+  last_said: { who: "agent" | "venue"; text: string } | null;
+};
+
+/** One or two plain sentences for the organiser: where the call is, or what the venue said. */
+export function callSummary(c: CallState): string {
+  const v = c.venue_name;
+  const r = c.result;
+  if (r) {
+    const said = [
+      r.max_people ? `up to ${r.max_people} people` : null,
+      r.price,
+      r.conditions ? `Conditions: ${r.conditions}` : null
+    ].filter(Boolean).join(". ");
+    const who = r.contact_name ? ` Confirmed by ${[r.contact_name, r.contact_role].filter(Boolean).join(", ")}.` : "";
+    const next = r.next_step ? ` Next step: ${r.next_step}.` : "";
+    const alt = r.alternative ? ` They offered: ${r.alternative}.` : "";
+    const head =
+      r.status === "available" ? `${v} is free ${c.when}` :
+      r.status === "partial" ? `${v} is partly free ${c.when}` :
+      `${v} isn't free ${c.when}`;
+    return `${head}${said ? `: ${said}` : ""}.${who}${alt}${next}`.replace(/\.\./g, ".");
+  }
+  switch (c.status) {
+    case "queued":
+    case "dialing": return `Dialling ${v} about ${c.when} for ${c.headcount} people…`;
+    case "ringing": return `Ringing ${v}…`;
+    case "in_progress": return `On the phone with ${v} now.${c.last_said ? ` Last said (${c.last_said.who}): "${c.last_said.text.slice(0, 160)}"` : ""}`;
+    case "no_answer": return `No answer from ${v}. Want me to email them a request instead?`;
+    case "busy": return `${v}'s line was busy. Try again later, or email them a request?`;
+    case "canceled": return `The call to ${v} was cancelled${c.error ? ` (${c.error})` : ""}.`;
+    case "failed": return `The call to ${v} didn't go through${c.error ? ` (${c.error})` : ""}. Email them a request instead?`;
+    case "completed": return `The call to ${v} ended without a clear answer. Email them a request instead?`;
+    default: return `Call status: ${c.status}.`;
+  }
+}
+
+/** A call as the bot sees it: status, summary, the venue's answer and the dated availability record. Members only (RLS). */
+export async function callView(uid: string, id: string) {
+  const [c] = await asUser(uid, (tx) => tx`
+    select c.id, c.venue_id, v.name as venue_name, c.status, c.starts_at, c.ends_at, c.headcount, c.event_title,
+      c.answered_at, c.ended_at, c.result, c.error, c.created_at, c.transcript -> -1 as last_line,
+      (select json_build_object('status', a.status, 'conditions', a.conditions, 'price_note', a.price_note,
+              'confirmed_by_name', a.confirmed_by_name, 'created_at', a.created_at)
+       from availability a where a.call_id = c.id order by a.created_at desc limit 1) as availability
+    from calls c join venues v on v.id = c.venue_id where c.id = ${id}`);
+  if (!c) throw new HttpError(404, "call_not_found", "No such call (only vouched members can see calls).");
+  const { last_line, ...rest } = c;
+  const last_said = last_line?.who && last_line?.text ? { who: last_line.who, text: last_line.text } : null;
+  const when = formatWindow(c.starts_at, c.ends_at);
+  const summary = callSummary({ status: c.status, venue_name: c.venue_name, when, headcount: c.headcount, result: c.result, error: c.error, last_said });
+  return { ...rest, when, done: DONE.has(c.status), summary, last_said };
 }

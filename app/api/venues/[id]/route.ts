@@ -1,7 +1,7 @@
 import { asUser } from "@/lib/db";
 import {
   bool, email, HttpError, int, json, oneOf, preflight, readJson, requirePoster, requireUser, route, str, toE164, uuid, venueView
-} from "../../_lib/http";
+} from "@/lib/api";
 
 export const dynamic = "force-dynamic";
 export const OPTIONS = preflight;

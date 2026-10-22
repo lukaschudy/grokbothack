@@ -1,5 +1,5 @@
 import { asUser, sql } from "@/lib/db";
-import { canPost, HttpError, json, preflight, readJson, requireUser, route, str, uuid } from "../_lib/http";
+import { canPost, HttpError, json, preflight, readJson, requireUser, route, str, uuid } from "@/lib/api";
 
 export const OPTIONS = preflight;
 
