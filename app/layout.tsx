@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mates Rates — free venues for London communities",
-  description: "Free venues for London communities, sorted by mates. Ask the shared Grok Bot."
+  title: "Mates Rates",
+  description: "Free venues for London communities, sorted by mates. Add Mates Rates to Grok Bot."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
