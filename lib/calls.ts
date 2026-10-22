@@ -159,14 +159,18 @@ export function parseResult(args: Record<string, unknown>): CallResult {
   };
 }
 
+const TERMINAL = ["completed", "failed", "no_answer", "busy", "canceled"];
+
+/** Ended calls stay ended: a late Twilio "completed" must not turn a failed call into a completed one. */
 export async function setCallStatus(callId: string, status: string) {
-  const terminal = ["completed", "failed", "no_answer", "busy", "canceled"].includes(status);
-  await sql`
+  const terminal = TERMINAL.includes(status);
+  const updated = await sql`
     update calls set status = ${status},
       answered_at = case when ${status} = 'in_progress' and answered_at is null then now() else answered_at end,
       ended_at = case when ${terminal} then coalesce(ended_at, now()) else ended_at end
-    where id = ${callId}`;
-  emitCall(callId, { type: "status", status, at: new Date().toISOString() });
+    where id = ${callId} and status <> all(${TERMINAL})
+    returning id`;
+  if (updated.length) emitCall(callId, { type: "status", status, at: new Date().toISOString() });
 }
 
 export async function appendTranscript(callId: string, line: { id: string; who: "agent" | "venue"; text: string }) {

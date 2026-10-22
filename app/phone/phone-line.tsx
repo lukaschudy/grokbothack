@@ -48,7 +48,7 @@ function ringtone(ctx: AudioContext): () => void {
   return () => { oscs.forEach((o) => o.stop()); gain.disconnect(); };
 }
 
-export function PhoneLine({ lineName }: { lineName: string }) {
+export function PhoneLine({ lineName, offline = null }: { lineName: string; offline?: string | null }) {
   const [state, setState] = useState<State>("off");
   const [ring, setRing] = useState<Ring | null>(null);
   const [muted, setMuted] = useState(false);
@@ -220,6 +220,7 @@ export function PhoneLine({ lineName }: { lineName: string }) {
           <button className="phone-big" onClick={goOnDuty}><Phone size={22} aria-hidden /> Go on duty</button>
           <p className="phone-hint">Use earbuds so the AI doesn&apos;t hear itself.</p>
           {problem && <p className="phone-problem">{problem}</p>}
+          {offline && <p className="phone-problem">{offline}</p>}
         </div>
       )}
       {state === "idle" && (
@@ -227,6 +228,7 @@ export function PhoneLine({ lineName }: { lineName: string }) {
           <p className="phone-kicker">On duty</p>
           <h1>{lineName}</h1>
           <p className="phone-sub">Waiting for calls…</p>
+          {offline && <p className="phone-problem">{offline}</p>}
         </div>
       )}
       {(state === "ringing" || state === "connecting") && ring && (

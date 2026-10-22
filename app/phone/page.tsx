@@ -1,8 +1,13 @@
+import { callMode } from "@/lib/dialer";
 import { PhoneLine } from "./phone-line";
 
 export const metadata = { title: "Venue line · Roomline" };
 
 export default async function PhonePage({ searchParams }: { searchParams: Promise<{ line?: string }> }) {
   const { line } = await searchParams;
-  return <PhoneLine lineName={line ?? "Bookings line"} />;
+  const mode = callMode();
+  const offline = mode === "virtual" ? null
+    : mode === "scripted" ? "The voice agent is offline (no XAI_API_KEY or CALL_MODE=scripted), so calls play as scripted rehearsals on the call card and won't ring here."
+    : "CALL_MODE=twilio: calls go to the venue's real phone, not this screen.";
+  return <PhoneLine lineName={line ?? "Bookings line"} offline={offline} />;
 }

@@ -2,6 +2,7 @@
 // both ways; we also tap it for live levels and transcript for the call card.
 import WebSocket from "ws";
 import { emitCall } from "../lib/bus";
+import { sql } from "../lib/db";
 import {
   agentInstructions, agentTools, appendTranscript, loadCall, openingLine, parseResult,
   saveCallResult, setCallStatus, type CallContext
@@ -99,6 +100,7 @@ export function attachMediaStream(twilio: WebSocket) {
   let timers: NodeJS.Timeout[] = [];
   let hangingUp = false;
   let resultSaved = false;
+  let failed = false;
   let firstTurnTranscribed = false;
   let firstTurnDone = false;
   const agentText = new Map<string, string>();
@@ -239,6 +241,10 @@ export function attachMediaStream(twilio: WebSocket) {
     } catch (e) {
       emitCall(callId, { type: "error", message: "Couldn't reach the voice agent." });
       console.error("[call] xai", e);
+      // Failed, not completed: a completed call would block re-calling this venue for the cooldown.
+      failed = true;
+      await sql`update calls set error = ${`voice agent: ${(e as Error).message}`} where id = ${callId}`.catch(() => {});
+      await setCallStatus(callId, "failed").catch(() => {});
       if (isVirtual()) twilio.close();
       else if (ctx.twilio_sid) await hangUp(ctx.twilio_sid).catch(() => {});
       return;
@@ -273,7 +279,7 @@ export function attachMediaStream(twilio: WebSocket) {
   twilio.on("close", async () => {
     for (const t of timers) clearTimeout(t);
     session?.xai.close();
-    if (ctx && isVirtual()) await setCallStatus(ctx.id, "completed").catch(() => {});
+    if (ctx && isVirtual() && !failed) await setCallStatus(ctx.id, "completed").catch(() => {});
     if (!ctx || resultSaved || lines.length < 2) return;
     // The agent hung up without recording an answer: extract it from the transcript.
     try {
