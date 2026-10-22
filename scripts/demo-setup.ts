@@ -61,7 +61,7 @@ export function demoConfig(env: Record<string, string | undefined> = process.env
       capacity: Number(env.DEMO_VENUE_CAPACITY || 120),
       phone,
       email: env.DEMO_VENUE_EMAIL || null,
-      contactName: env.DEMO_VENUE_CONTACT || "Bookings"
+      contactName: env.DEMO_VENUE_CONTACT || env.SCRIPTED_CONTACT || "Sam"
     }
   };
 }
