@@ -19,7 +19,8 @@
         "139 going",
         "Run by Future Forward, 4 past events",
         "At IFX Payments, St Paul's"
-      ]
+      ],
+      "area": "St Paul's"
     },
     {
       "title": "HACKATHON - Agent Eval Harness",
@@ -43,7 +44,8 @@
         "72 going",
         "Run by The Friendly Data Meetup London, 3 past events",
         "At 230 Blackfriars Rd, Southwark"
-      ]
+      ],
+      "area": "Southwark"
     },
     {
       "title": "Lychee's Startup Games Night",
@@ -64,7 +66,8 @@
         "115 going",
         "Run by Lychee, 13 past events",
         "Venue shown after registering"
-      ]
+      ],
+      "area": null
     },
     {
       "title": "Is AI making us less creative?: An Oxford-style debate",
@@ -85,7 +88,8 @@
         "126 going",
         "Run by The Founder-writer Collective, 7 past events",
         "At Granola, Shoreditch"
-      ]
+      ],
+      "area": "Shoreditch"
     },
     {
       "title": "Grok Bot Community Engineering London Hackathon",
@@ -108,7 +112,8 @@
         "Free",
         "Run by SpaceXAI for London, England, 18 past events",
         "Venue shown after registering"
-      ]
+      ],
+      "area": null
     },
     {
       "title": "Halloween Edition TRD: London Startups Operator RunClub & Social",
@@ -129,7 +134,8 @@
         "76 going",
         "Run by The Run Down: Operators Runclub, 14 past events",
         "Venue shown after registering"
-      ]
+      ],
+      "area": null
     },
     {
       "title": "Capital & Castling: Chess Night for the Startup Community (October edition)",
@@ -150,7 +156,8 @@
         "87 going",
         "Run by enki events, 22 past events",
         "Venue shown after registering"
-      ]
+      ],
+      "area": null
     },
     {
       "title": "House London #3 | Data Hackathon",
@@ -174,7 +181,8 @@
         "112 going",
         "Run by House London!, 3 past events",
         "At Newspeak House, Shoreditch"
-      ]
+      ],
+      "area": "Shoreditch"
     },
     {
       "title": "Halloween At Imperial: Gemini Edition",
@@ -195,7 +203,8 @@
         "99 going",
         "Run by UK AI Agents Lab, 20 past events",
         "Venue shown after registering"
-      ]
+      ],
+      "area": null
     },
     {
       "title": "The Startup Stroll x FoundHers",
@@ -216,7 +225,8 @@
         "67 going",
         "Run by The Startup Stroll, 17 past events",
         "Venue shown after registering"
-      ]
+      ],
+      "area": null
     },
     {
       "title": "Life After Layoffs: The Reality of Finding a Job in Tech Today",
@@ -237,7 +247,8 @@
         "62 going",
         "Run by Diana Kocheva",
         "At Harvey Nash London, Moorgate"
-      ]
+      ],
+      "area": "Moorgate"
     },
     {
       "title": "Company Brain Buildathon",
@@ -260,7 +271,10 @@
         "Free",
         "Run by Lightfern, 1 past event",
         "At The Building Centre, Bloomsbury"
-      ]
+      ],
+      "area": "Bloomsbury"
     }
-  ]
+  ],
+  "ics_url": "http://localhost:3000/events.ics",
+  "webcal_url": "webcal://localhost:3000/events.ics"
 }

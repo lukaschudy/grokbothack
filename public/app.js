@@ -43,6 +43,7 @@ export function normaliseEvent(r) {
     url: safeUrl(r.url),
     startsAt: r.starts_at ?? r.startsAt,
     venueName: r.venue_name ?? r.venueName ?? null,
+    area: r.area ?? null,
     address: r.address ?? null,
     reasons: Array.isArray(r.reasons) ? r.reasons.filter((x) => typeof x === "string") : [],
   };
@@ -63,10 +64,10 @@ export function postcodeDistrict(address) {
   return m ? m[1] : null;
 }
 
-/** "Granola · Shoreditch", using the ranker's "At <venue>, <area>" reason for the area. */
+/** "Granola · Shoreditch": the API's area, else the ranker's "At <venue>, <area>" reason, else the postcode district. */
 export function whereLine(ev) {
   const at = ev.reasons.find((r) => r.startsWith("At "));
-  const area = at && at.includes(", ") ? at.slice(at.lastIndexOf(", ") + 2) : postcodeDistrict(ev.address);
+  const area = ev.area ?? (at && at.includes(", ") ? at.slice(at.lastIndexOf(", ") + 2) : postcodeDistrict(ev.address));
   const venue = ev.venueName ?? (at && at.includes(", ") ? at.slice(3, at.lastIndexOf(", ")) : null);
   if (venue && area && venue !== area) return `${venue} · ${area}`;
   if (venue || area) return venue ?? area;

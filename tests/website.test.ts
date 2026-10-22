@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-type Ev = { title: string; url: string | null; startsAt: string; venueName: string | null; address: string | null; reasons: string[] };
+type Ev = { title: string; url: string | null; startsAt: string; venueName: string | null; area: string | null; address: string | null; reasons: string[] };
 type App = {
   formatLondon(iso: string): string;
   relativeDay(iso: string, now?: Date): string;
@@ -32,9 +32,9 @@ test("relative day uses the London calendar day", () => {
 });
 
 test("normalises API rows and the seed's camelCase rows", () => {
-  const api = app.eventsFrom({ events: [{ title: "A", url: "https://luma.com/x", starts_at: "2026-10-29T18:30:00Z", venue_name: "Granola", address: null, reasons: ["Free"] }] });
+  const api = app.eventsFrom({ events: [{ title: "A", url: "https://luma.com/x", starts_at: "2026-10-29T18:30:00Z", venue_name: "Granola", area: "Shoreditch", address: null, reasons: ["Free"] }] });
   const seed = app.eventsFrom([{ title: "B", url: "javascript:alert(1)", startsAt: "2026-10-29T18:30:00Z", venueName: null, reasons: null }]);
-  assert.deepEqual(api[0], { title: "A", url: "https://luma.com/x", startsAt: "2026-10-29T18:30:00Z", venueName: "Granola", address: null, reasons: ["Free"] });
+  assert.deepEqual(api[0], { title: "A", url: "https://luma.com/x", startsAt: "2026-10-29T18:30:00Z", venueName: "Granola", area: "Shoreditch", address: null, reasons: ["Free"] });
   assert.equal(seed[0]!.url, null);
   assert.deepEqual(seed[0]!.reasons, []);
   assert.deepEqual(app.eventsFrom({ nope: true }), []);
@@ -46,7 +46,8 @@ test("chips drop date and venue reasons the card already shows", () => {
 });
 
 test("where line prefers the ranker's area, then the postcode district", () => {
-  const ev = (o: Partial<Ev>): Ev => ({ title: "", url: null, startsAt: "", venueName: null, address: null, reasons: [], ...o });
+  const ev = (o: Partial<Ev>): Ev => ({ title: "", url: null, startsAt: "", venueName: null, area: null, address: null, reasons: [], ...o });
+  assert.equal(app.whereLine(ev({ venueName: "Granola", area: "Old Street", reasons: ["At Granola, Shoreditch"] })), "Granola · Old Street");
   assert.equal(app.whereLine(ev({ venueName: "Granola", reasons: ["At Granola, Shoreditch"] })), "Granola · Shoreditch");
   assert.equal(app.whereLine(ev({ venueName: "Civo", address: "32-37 Cowper St, EC2A 4AW" })), "Civo · EC2A");
   assert.equal(app.whereLine(ev({ reasons: ["Venue shown after registering"] })), "Venue shown after registering");
@@ -63,5 +64,7 @@ test("feed URLs: webcal on the current host, absolute config kept", () => {
 test("stats accept a few key spellings and leave gaps as null", () => {
   assert.deepEqual(app.pickStats({ venues: 143, communities: "98", events: 60, past_hosts: 389 }), { venues: 143, communities: 98, events: 60, past_hosts: 389 });
   assert.deepEqual(app.pickStats({ stats: { venues: 1, pastHosts: 2 } }), { venues: 1, communities: null, events: null, past_hosts: 2 });
+  // api-server shape
+  assert.deepEqual(app.pickStats({ venues: 153, communities: 98, events: 60, hosts: 389 }), { venues: 153, communities: 98, events: 60, past_hosts: 389 });
   assert.deepEqual(app.pickStats(null), { venues: null, communities: null, events: null, past_hosts: null });
 });
