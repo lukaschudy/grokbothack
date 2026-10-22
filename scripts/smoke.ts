@@ -125,12 +125,14 @@ async function main() {
     assert(res.status === 404 || res.status === 403, `status ${res.status} (PHONE_KEY not set?)`);
     return String(res.status);
   });
-  await check("/ is the minimal landing (Grok Bot + webcal, no dashboard)", async () => {
+  await check("/ is one button: Add Mates Rates to Grok Bot", async () => {
     const { text } = await get("/");
-    assert(/webcal:\/\//.test(text), "no webcal link");
-    assert(/grok/i.test(text), "no Grok Bot link");
+    const links = [...text.matchAll(/<a\b[^>]*href="([^"]*)"/g)].map((m) => m[1]!);
+    assert(links.length === 1, `${links.length} links`);
+    assert(/^https:\/\/|^\/setup\.html$/.test(links[0]!), `href ${links[0]}`);
+    assert(/Add Mates Rates to Grok Bot/.test(text), "no button text");
     assert(!/<form|type="password"|type="search"/i.test(text), "has a form, search or sign-in");
-    return "ok";
+    return links[0]!;
   });
   // Grok Bot is the only interface: no web dashboard.
   for (const path of ["/events", "/venues", "/venues/00000000-0000-0000-0000-000000000000", "/people", "/add", "/account", "/signin", "/communities"]) {
