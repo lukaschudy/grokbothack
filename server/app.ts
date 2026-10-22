@@ -381,7 +381,7 @@ async function search(ctx: Ctx) {
     else reasons.push("Capacity unconfirmed");
     if (x.biggest_turnout) reasons.push(`Biggest turnout seen: ${x.biggest_turnout}`);
     if (hostCount > 0 && r.hosts?.length)
-      reasons.push(`Hosted ${hostCount} event${hostCount === 1 ? "" : "s"}: ${r.hosts.join(", ")}${hostCount > r.hosts.length ? " and others" : ""}`);
+      reasons.push(`Hosted ${hostCount} event${hostCount === 1 ? "" : "s"}: ${r.hosts.join(", ")}${r.hosts.length >= 4 ? ", …" : ""}`);
     if (r.last_hosted) reasons.push(`Last hosted ${shortDate(r.last_hosted)}`);
     reasons.push(r.terms === "paid" && r.price_note ? `Paid: ${r.price_note}` : TERMS_LABEL[r.terms] ?? r.terms);
     if (r.availability_status)
@@ -778,7 +778,9 @@ const ROUTES: Route[] = [
   ["GET", /^\/api\/communities$/, communities],
   ["GET", /^\/api\/stats$/, stats],
   ["GET", /^\/events\.ics$/, ics],
-  ["GET", /^\/api\/health$/, async () => ({ body: { ok: true } })]
+  ["GET", /^\/api\/health$/, async () => ({ body: { ok: true } })],
+  // Landing page config (public/app.js reads it): the Grok Bot share link comes from env.
+  ["GET", /^\/config\.json$/, async () => ({ body: { grokBotUrl: process.env.GROK_BOT_SHARE_URL || null, icsUrl: "/events.ics" } })]
 ];
 
 function readBody(req: http.IncomingMessage, limit = 100_000): Promise<unknown> {
