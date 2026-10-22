@@ -1,31 +1,68 @@
+import { headers } from "next/headers";
+import { ArrowRight, CalendarPlus } from "lucide-react";
 import { sql } from "@/lib/db";
-import { currentMember } from "@/lib/session";
-import { Finder } from "./components/finder";
 
 export const dynamic = "force-dynamic";
 
+type Counts = { venues: number; communities: number; events: number; hosts: number };
+
+async function liveCounts(): Promise<Counts | null> {
+  try {
+    const [c] = await sql<Counts[]>`
+      select (select count(*) from venues where junk_at is null)::int as venues,
+             (select count(distinct c) from (select community as c from venue_hosts
+                union select community from events where community is not null) x)::int as communities,
+             (select count(*) from events where coalesce(ends_at, starts_at + interval '3 hours') > now())::int as events,
+             (select count(*) from venue_hosts)::int as hosts`;
+    return c ?? null;
+  } catch (e) {
+    console.error("[home] counts", e);
+    return null; // the landing still works without the database
+  }
+}
+
+function botUrl(): string | null {
+  // Bracket access so the link is read at request time, not baked in at build time.
+  const raw = process.env["NEXT_PUBLIC_GROK_BOT_URL"];
+  try {
+    const u = new URL(raw ?? "");
+    return u.protocol === "https:" ? u.href : null;
+  } catch {
+    return null;
+  }
+}
+
 export default async function Home() {
-  const me = await currentMember();
-  const [stats] = await sql<{ venues: number; organisers: number; calls: number; tonight: number }[]>`
-    select (select count(*) from venues where junk_at is null)::int as venues,
-           (select count(*) from profiles where can_post(id))::int as organisers,
-           (select count(*) from availability where source = 'call')::int as calls,
-           (select count(*) from venues where junk_at is null and created_at > now() - interval '12 hours')::int as tonight`;
+  const [counts, host] = await Promise.all([liveCounts(), headers().then((h) => h.get("host") ?? "localhost:3000")]);
+  const bot = botUrl();
+  const n = (x: number) => x.toLocaleString("en-GB");
+
   return (
-    <main className="page">
-      <div className="shell">
-        <header className="product-heading">
-          <p className="eyebrow">London · {stats!.venues} venues · {stats!.tonight} added tonight</p>
-          <h1>Find a room for your next meetup.</h1>
-          <p>
-            Free and bookable London venues, posted and vouched for by organisers who&apos;ve hosted there.
-            Ask in plain English. If a venue is happy to take calls, our AI rings them to check the date.
+    <main className="landing">
+      <div className="landing-inner">
+        <p className="landing-name">Mates Rates</p>
+        <h1>Free venues for London communities, sorted by mates.</h1>
+        <div className="landing-cta">
+          {bot ? (
+            <a className="landing-button primary" href={bot} target="_blank" rel="noreferrer">
+              Open in Grok Bot <ArrowRight size={18} aria-hidden />
+            </a>
+          ) : (
+            <span className="landing-button primary" aria-disabled="true" aria-describedby="bot-soon">
+              Open in Grok Bot <ArrowRight size={18} aria-hidden />
+            </span>
+          )}
+          <a className="landing-button" href={`webcal://${host}/events.ics`}>
+            <CalendarPlus size={17} aria-hidden /> Subscribe to London builder events
+          </a>
+        </div>
+        {!bot && <p className="landing-note" id="bot-soon">Grok Bot link coming soon.</p>}
+        {counts && (
+          <p className="landing-counts tnum">
+            {n(counts.venues)} venues · {n(counts.communities)} communities · {n(counts.events)} upcoming events ·{" "}
+            {n(counts.hosts)} past hosts recorded
           </p>
-        </header>
-        <Finder
-          me={me ? { name: me.display_name, canPost: me.can_post } : null}
-          stats={stats!}
-        />
+        )}
       </div>
     </main>
   );
