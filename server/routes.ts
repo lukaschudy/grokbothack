@@ -4,7 +4,7 @@ import { asUser, sql } from "../lib/db";
 import { bus, type CallEvent } from "../lib/bus";
 import { readSession } from "../lib/auth";
 import { setCallStatus } from "../lib/calls";
-import { publicUrl, validTwilioSignature } from "../lib/twilio";
+import { hangUp, isMachine, publicUrl, validTwilioSignature } from "../lib/twilio";
 import { prewarm } from "./bridge";
 import { currentlyRinging, type RingEvent } from "../lib/dialer";
 
@@ -63,6 +63,14 @@ export async function handleCallRoutes(req: IncomingMessage, res: ServerResponse
     } else if (b === "status") {
       const status = TWILIO_STATUS[form.CallStatus ?? ""];
       if (status) await setCallStatus(id, status);
+      res.writeHead(204).end();
+    } else if (b === "amd") {
+      // Voicemail: no answer, no availability record; hang up instead of talking to a machine.
+      if (isMachine(form.AnsweredBy)) {
+        await sql`update calls set error = ${`answered by ${form.AnsweredBy}`} where id = ${id} and status not in ('completed', 'failed', 'no_answer', 'busy', 'canceled')`;
+        await setCallStatus(id, "no_answer");
+        if (form.CallSid) await hangUp(form.CallSid).catch((e) => console.error("[twilio] amd hangup", e));
+      }
       res.writeHead(204).end();
     } else if (b === "recording") {
       if (form.RecordingUrl) {

@@ -13,6 +13,8 @@ import { extractResultFromTranscript } from "../lib/grok";
 const XAI_URL = `${process.env.XAI_REALTIME_URL ?? "wss://api.x.ai/v1/realtime"}?model=${process.env.XAI_VOICE_MODEL ?? "grok-voice-latest"}`;
 const VOICE = process.env.XAI_VOICE ?? "leo"; // Grok's British voice (README: calling script)
 const BYTES_PER_100MS = 800; // μ-law 8 kHz
+// After the answer is saved the agent should say goodbye and call end_call; hang up anyway after this.
+const goodbyeMs = () => Number(process.env.CALL_GOODBYE_MS ?? 15_000);
 
 type Session = {
   ctx: CallContext;
@@ -99,6 +101,7 @@ export function attachMediaStream(twilio: WebSocket) {
   let playhead = 0; // when the agent's queued audio finishes playing, ms epoch
   let timers: NodeJS.Timeout[] = [];
   let hangingUp = false;
+  let goodbyeTimer: NodeJS.Timeout | undefined;
   let resultSaved = false;
   let failed = false;
   let firstTurnTranscribed = false;
@@ -153,7 +156,11 @@ export function attachMediaStream(twilio: WebSocket) {
     if (name === "record_availability") {
       let output = { saved: true };
       try {
-        if (!resultSaved) { await saveCallResult(ctx, parseResult(args)); resultSaved = true; }
+        if (!resultSaved) {
+          await saveCallResult(ctx, parseResult(args));
+          resultSaved = true;
+          goodbyeTimer = setTimeout(() => void endCall("goodbye timeout"), goodbyeMs());
+        }
       } catch (e) {
         console.error("[call] save result", e);
         output = { saved: false };
@@ -278,9 +285,13 @@ export function attachMediaStream(twilio: WebSocket) {
 
   twilio.on("close", async () => {
     for (const t of timers) clearTimeout(t);
+    clearTimeout(goodbyeTimer);
     session?.xai.close();
     if (ctx && isVirtual() && !failed) await setCallStatus(ctx.id, "completed").catch(() => {});
     if (!ctx || resultSaved || lines.length < 2) return;
+    // Voicemail or a failed call: don't invent an answer from a greeting.
+    const [row] = await sql<{ status: string }[]>`select status from calls where id = ${ctx.id}`.catch(() => []);
+    if (!row || !["in_progress", "completed"].includes(row.status)) return;
     // The agent hung up without recording an answer: extract it from the transcript.
     try {
       const extracted = await extractResultFromTranscript(ctx, lines);

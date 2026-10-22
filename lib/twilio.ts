@@ -27,8 +27,13 @@ export async function dial(callId: string, to: string): Promise<string> {
   const base = publicUrl();
   const call = await twilio("/Calls.json", {
     To: process.env.CALL_TARGET_OVERRIDE || to,
-    From: env("TWILIO_PHONE_NUMBER"),
+    From: process.env.TWILIO_FROM || env("TWILIO_PHONE_NUMBER"),
     Url: `${base}/twilio/twiml/${callId}`,
+    // Voicemail detection in the background, so a person hears the agent straight away.
+    MachineDetection: "Enable",
+    AsyncAmd: "true",
+    AsyncAmdStatusCallback: `${base}/twilio/amd/${callId}`,
+    AsyncAmdStatusCallbackMethod: "POST",
     StatusCallback: `${base}/twilio/status/${callId}`,
     StatusCallbackEvent: ["initiated", "ringing", "answered", "completed"],
     Record: "true",
@@ -40,6 +45,9 @@ export async function dial(callId: string, to: string): Promise<string> {
   if (!call.sid) throw new Error("Twilio returned no call SID");
   return call.sid;
 }
+
+/** AnsweredBy from answering machine detection: machine_start, machine_end_*, fax → nobody to talk to. */
+export const isMachine = (answeredBy: string | undefined) => !!answeredBy && (answeredBy.startsWith("machine") || answeredBy === "fax");
 
 export async function hangUp(twilioSid: string) {
   await twilio(`/Calls/${twilioSid}.json`, { Status: "completed" });
