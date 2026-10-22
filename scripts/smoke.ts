@@ -98,7 +98,7 @@ async function main() {
     const body = await json("/api/join", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email: `smoke+${Date.now()}@example.com`, password: `smoke-${Date.now()}-pw`, display_name: "Smoke Test", community: "Smoke Tests" })
+      body: JSON.stringify({ email: `smoke+${Date.now()}@example.com`, password: `smoke-${Date.now()}-pw`, display_name: `Smoke Test ${Date.now()}`, community: "Smoke Tests" })
     });
     token = String(body.token ?? "");
     assert(token, "no token in response");
@@ -125,6 +125,21 @@ async function main() {
     assert(res.status === 404 || res.status === 403, `status ${res.status} (PHONE_KEY not set?)`);
     return String(res.status);
   });
+  await check("/ is the minimal landing (Grok Bot + webcal, no dashboard)", async () => {
+    const { text } = await get("/");
+    assert(/webcal:\/\//.test(text), "no webcal link");
+    assert(/grok/i.test(text), "no Grok Bot link");
+    assert(!/<form|type="password"|type="search"/i.test(text), "has a form, search or sign-in");
+    return "ok";
+  });
+  // Grok Bot is the only interface: no web dashboard.
+  for (const path of ["/events", "/venues", "/venues/00000000-0000-0000-0000-000000000000", "/people", "/add", "/account", "/signin", "/communities"]) {
+    await check(`dashboard ${path} → 404`, async () => {
+      const { res } = await get(path, { redirect: "manual" });
+      assert(res.status === 404, `status ${res.status}`);
+      return "404";
+    });
+  }
   await check("WebSocket /twilio/stream upgrades", async () => {
     assert(await wsOpens("/twilio/stream"), "upgrade failed");
     return "open";
