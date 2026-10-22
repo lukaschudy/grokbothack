@@ -5,8 +5,8 @@ import { NavLink } from "./components/nav-link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Roomline — London venues, vouched for by organisers",
-  description: "Find a free or bookable London venue in seconds. Posted and vouched for by the organisers who've hosted there."
+  title: "Mates Rates — free venues for London communities",
+  description: "Ask the shared Grok Bot for a free London venue. Organisers vouch for each other, every field shows its source, and the assistant can ring the venue for you."
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -16,12 +16,12 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body>
         <header className="account-header">
           <div className="account-navigation">
-            <Link className="account-brand" href="/" aria-label="Roomline — home">
-              <span className="account-wordmark">Roomline</span>
-              <span className="account-brand-credit">London venues, vouched for</span>
+            <Link className="account-brand" href="/" aria-label="Mates Rates — home">
+              <span className="account-wordmark">Mates Rates</span>
+              <span className="account-brand-credit">London venues, sorted by mates</span>
             </Link>
             <nav className="account-navigation-links" aria-label="Main navigation">
-              <NavLink href="/">Find a room</NavLink>
+              <NavLink href="/#find">Find a room</NavLink>
               <NavLink href="/venues">Venues</NavLink>
               <NavLink href="/events">Events</NavLink>
               <NavLink href="/people">People</NavLink>
@@ -36,7 +36,10 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         </header>
         {children}
         <footer className="site-foot">
-          <span>Open data for London&apos;s tech communities. All times Europe/London.</span>
+          <span>
+            Open data for London&apos;s tech communities. All times Europe/London.{" "}
+            <a className="link" href="https://github.com/lukaschudy/grokbothack" rel="noreferrer">Open source (MIT) on GitHub</a>
+          </span>
           <span>Built at the Grok Bot Community Engineering Hackathon, 22 Oct 2026.</span>
         </footer>
       </body>

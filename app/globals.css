@@ -252,6 +252,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--orange); box-sha
   .account-header { padding: 0 16px; }
   .account-navigation { flex-wrap: wrap; gap: 8px 20px; padding: 16px 0 12px; }
   .account-wordmark { font-size: 26px; }
+  .account-brand-credit { display: none; }
   .page { padding: 32px 16px 64px; }
   .ask { grid-template-columns: 1fr; }
   .rules { grid-template-columns: 1fr; }
@@ -318,3 +319,75 @@ input:focus, select:focus, textarea:focus { border-color: var(--orange); box-sha
 .phone-round.on { background: #f7f6f2; color: #151413; }
 .phone-round:disabled { opacity: 0.5; }
 @keyframes ring-pulse { 0% { box-shadow: 0 0 0 0 rgb(189 87 45 / 0.55); } 100% { box-shadow: 0 0 0 34px rgb(189 87 45 / 0); } }
+
+/* Home (Mates Rates landing) ------------------------------------------------ */
+.home ol, .home ul.pills { margin: 0; padding: 0; list-style: none; }
+.home-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 56px; align-items: center; padding-bottom: 48px; }
+.home h1 { font-size: clamp(40px, 5.2vw, 64px); line-height: 1.02; letter-spacing: -0.02em; max-width: 14ch; text-wrap: balance; }
+.home-lede { margin-top: 20px; color: var(--muted); font-size: 19px; line-height: 1.55; max-width: 44ch; text-wrap: pretty; }
+.home-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.home-primary { min-height: 52px; padding: 0 24px; border-color: var(--orange); background: var(--orange); font-size: 16px; }
+.home-primary[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
+.home-cta .button.secondary { min-height: 52px; padding: 0 20px; font-size: 15px; }
+.home-cta-note { margin-top: 12px; }
+
+.home-chat { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--card-shadow); font-size: 15px; }
+.home-chat figcaption { color: var(--muted); font-size: 12px; }
+.home-chat-me { align-self: flex-end; max-width: 90%; padding: 10px 14px; border-radius: 14px 14px 4px 14px; background: var(--ink); color: #fff; }
+.home-chat-bot { display: grid; gap: 10px; max-width: 94%; padding: 12px 14px; border-radius: 14px 14px 14px 4px; background: var(--soft); }
+.home-chat-bot ol { display: grid; gap: 8px; counter-reset: v; }
+.home-chat-bot li { position: relative; padding-left: 28px; counter-increment: v; }
+.home-chat-bot li::before { content: counter(v); position: absolute; left: 0; top: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--orange); color: #fff; font-size: 12px; line-height: 20px; text-align: center; }
+.home-chat-bot li span { display: block; color: var(--muted); font-size: 13px; line-height: 1.4; }
+
+.home-stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0 0 64px; border-block: 1px solid var(--line); }
+.home-stats > div { display: flex; flex-direction: column-reverse; gap: 4px; padding: 22px 20px; border-left: 1px solid var(--line); }
+.home-stats > div:first-child { padding-left: 0; border-left: 0; }
+.home-stats dd { margin: 0; font-family: var(--font-display); font-size: 40px; font-weight: 600; line-height: 1; }
+.home-stats dt { color: var(--muted); font-size: 14px; }
+
+.home-find { margin-bottom: 80px; }
+.home-find .rules { display: none; } /* the numbers are in the strip above */
+/* Once a search runs, drop the pitch so the results stay on screen. */
+.home:has(.results) :is(.home-hero, .home-stats) { display: none; }
+
+.home-events { margin-bottom: 80px; }
+.home-event-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.home-event { display: flex; flex-direction: column; gap: 10px; padding: 20px; border: 1px solid var(--line); border-radius: var(--card-radius); background: #fff; }
+.home-event-when { display: flex; align-items: center; gap: 10px; color: var(--orange-dark); font-size: 13px; }
+.home-event-rel { padding: 2px 8px; border-radius: var(--button-radius); background: var(--orange); color: #fff; font-size: 11px; font-weight: 600; }
+.home-event h3 { font-size: 20px; line-height: 1.22; }
+.home-event h3 a:hover { color: var(--orange-dark); text-decoration: underline; text-underline-offset: 3px; }
+.home-event h3 svg { color: var(--muted); vertical-align: -1px; }
+.home-event-where { color: var(--muted); font-size: 14px; }
+.home-event .pills { margin-top: auto; padding-top: 4px; gap: 6px; }
+.home-event .pill { min-height: 26px; padding: 3px 10px; font-size: 12px; border-radius: 8px; }
+
+.home-trust ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 20px; counter-reset: t; }
+.home-trust li { padding-top: 16px; border-top: 2px solid var(--ink); counter-increment: t; }
+.home-trust li::before { content: "0" counter(t); display: block; margin-bottom: 12px; color: var(--orange); font-size: 13px; }
+.home-trust h3 { font-size: 21px; line-height: 1.2; }
+.home-trust p { margin-top: 8px; color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+@media (max-width: 1000px) {
+  .home-hero { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .home-chat { max-width: 560px; }
+  .home-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .home-stats > div:nth-child(4) { padding-left: 0; border-left: 0; }
+  .home-stats > div:nth-child(n+4) { border-top: 1px solid var(--line); }
+  .home-event-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .home h1 { font-size: clamp(34px, 9.5vw, 48px); }
+  .home-lede { font-size: 17px; }
+  .home-cta .button { width: 100%; white-space: normal; text-align: center; }
+  .home-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-stats > div { padding: 18px 0; border-left: 0; }
+  .home-stats > div:nth-child(even) { padding-left: 18px; border-left: 1px solid var(--line); }
+  .home-stats > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .home-stats > div:nth-child(4) { padding-left: 18px; border-left: 1px solid var(--line); }
+  .home-stats dd { font-size: 32px; }
+  .home-event-grid, .home-trust ol { grid-template-columns: minmax(0, 1fr); }
+  .home .section-head { flex-direction: column; gap: 6px; }
+  .home-chat { display: none; } /* keep the search near the top on phones */
+}
