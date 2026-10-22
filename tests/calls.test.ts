@@ -308,6 +308,7 @@ describe("call bridge", () => {
     assert.equal(c.status, "completed");
     assert.equal(c.result.status, "available");
     assert.deepEqual(c.transcript.map((t: any) => t.role), ["agent", "venue"]);
+    assert.match(c.transcript[1].text, /no charge/);
 
     const out = xai.sent.find((m) => m.type === "conversation.item.create");
     assert.equal(out.item.type, "function_call_output");
@@ -315,6 +316,10 @@ describe("call bridge", () => {
     assert.equal(xai.sent.at(-1).type, "response.create");
 
     assert.equal(sent.length, 0, "no hang up until the goodbye has played");
+    b.onXai({ type: "response.done" }); // end of the response that called the tool
+    assert.ok(!twilio.sent.some((m) => m.event === "mark"), "no mark before the goodbye response starts");
+    b.onXai({ type: "response.created" });
+    b.onXai({ type: "response.output_audio_transcript.done", transcript: "Brilliant, thanks Sam. Bye!" });
     b.onXai({ type: "response.done" });
     assert.deepEqual(twilio.sent.at(-1), { event: "mark", streamSid: "MZ1", mark: { name: "goodbye" } });
     b.onTwilio({ event: "mark", mark: { name: "goodbye" } });

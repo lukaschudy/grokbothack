@@ -65,7 +65,9 @@ export class CallBridge {
   private streamSid: string | null = null;
   private twilioSid: string | null = null;
   private handledToolCalls = new Set<string>();
-  private ending = false;
+  private ending = false; // report_result saved; waiting for the goodbye response
+  private saidGoodbye = false; // a response started after that
+  private closed = false;
   private hungUp = false;
   private timer: NodeJS.Timeout | null = null;
   private writes: Promise<unknown> = Promise.resolve();
@@ -82,7 +84,9 @@ export class CallBridge {
 
   /** Twilio "start": check it's the call we placed, then open Grok. Returns false if refused. */
   async start(msg: { streamSid: string; callSid: string }): Promise<boolean> {
+    if (this.streamSid) return false;
     const call = await loadCall(this.callId);
+    if (this.closed) return false;
     if (!call || call.twilioSid !== msg.callSid || !["dialing", "ringing", "in_progress"].includes(call.status)) {
       this.log(`refused stream (status=${call?.status}, sid match=${call?.twilioSid === msg.callSid})`);
       this.twilio.close();
@@ -137,9 +141,12 @@ export class CallBridge {
       case "response.output_item.done":
         if (ev.item?.type === "function_call") this.onToolCall(ev.item.call_id, ev.item.name, ev.item.arguments);
         return;
+      case "response.created":
+        if (this.ending) this.saidGoodbye = true;
+        return;
       case "response.done":
         // Goodbye generated; ask Twilio to tell us when it has finished playing.
-        if (this.ending && this.streamSid) this.toTwilio({ event: "mark", streamSid: this.streamSid, mark: { name: "goodbye" } });
+        if (this.saidGoodbye && this.streamSid) this.toTwilio({ event: "mark", streamSid: this.streamSid, mark: { name: "goodbye" } });
         return;
       case "error":
         this.log(`xai error: ${JSON.stringify(ev.error ?? ev)}`);
@@ -193,6 +200,7 @@ export class CallBridge {
 
   /** Twilio stream ended. Wait for pending DB writes, then drop Grok. */
   close(): Promise<unknown> {
+    this.closed = true;
     if (this.timer) clearTimeout(this.timer);
     this.xai?.close();
     this.xai = null;
