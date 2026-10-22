@@ -1,4 +1,6 @@
-# grokbothack
+# Mates Rates
+
+Free venues for London communities, sorted by mates.
 
 Open database of London venues, communities and events, kept up to date by approved organisers who vouch for each other. A shared Grok Bot agent finds a free venue in seconds, phones it to check availability, and sends the request.
 
@@ -26,7 +28,8 @@ Track 4 (Venues, communities, events) at the Grok Bot Community Engineering Lond
 
 ## Product rules
 
-- Public and open source: code and data.
+- Public and open source: code and all data except contacts.
+- Contacts (names, phones, emails) are stored but never displayed or exported. Only the agent reads them, to call and send requests. Enforced by RLS: public reads can't touch the contacts table.
 - Tech and builder communities only.
 - Seed venues from evidence (events that actually happened there), not from maps.
 - Adding a venue = paste a Luma link; the bot fills in the rest and asks 3 questions.
@@ -51,7 +54,7 @@ Hackathons and build days > talks > networking. Boost by turnout and the host's 
 
 ## Demo
 
-1. Lead A pastes a Luma link into Grok Bot → venue live in 30s.
+1. Lead A pastes a Luma link into Mates Rates (Grok Bot) → venue live in 30s.
 2. Lead B adds a venue and vouches for C.
 3. An unvouched account tries to post → blocked.
 4. C asks the Old Street question → 3 venues → "call them?" → a phone rings on stage → result card → agent sends the request.
