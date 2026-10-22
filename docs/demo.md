@@ -1,6 +1,6 @@
 # Demo runbook (3 minutes, 22:20)
 
-Grok Bot is the only interface. On stage: one laptop showing the Grok Bot chat, one phone as the venue (`/phone`, only in virtual-voice mode), and a calendar app subscribed to `/events.ics`. There are no web app beats.
+Live: https://nrzgvkrbfn3ptoms2ckm4ni6ly.srv.us. Grok Bot is the only interface. On stage: one laptop showing the Grok Bot chat, one phone as the venue (`/phone`, only in virtual-voice mode), and a calendar app subscribed to `/events.ics`. There are no web app beats.
 
 The API calls behind every beat (`/api/venues/from-luma`, `/api/vouch`, `/api/venues/search`, `/api/calls`, `/api/requests`, `/api/events`) were run on 22 Oct against local Postgres with the seed data and `CALL_MODE=scripted` (branch `api-server` + `demo`). The responses quoted below are from that run. The Grok Bot side (how fast it replies, how it words things) was not tested here; rehearse it.
 
@@ -14,7 +14,7 @@ The API calls behind every beat (`/api/venues/from-luma`, `/api/vouch`, `/api/ve
 
 ## Before going on (from 21:50)
 
-1. Server up at the public URL (see `DEPLOY.md` on `integration`); `npx tsx scripts/smoke.ts <PUBLIC_URL>` passes.
+1. Server up (see `DEPLOY.md` on `integration`): `npx tsx scripts/smoke.ts https://nrzgvkrbfn3ptoms2ckm4ni6ly.srv.us` passes. Checked 22 Oct, 20:2x: `/api/stats`, `/api/events` (hackathons first) and `/events.ics` answer, and `/phone` without the key is a 404.
 2. Pick the call mode by 22:00 (switching needs a restart):
    - **virtual**, if `XAI_API_KEY` is set and a rehearsal call worked: the Venue's phone rings in the browser and Grok talks live.
    - **scripted** otherwise: the same pipeline plays a written call (about 55 s) and nothing rings. Without the key, virtual calls fall back to scripted anyway.
@@ -26,8 +26,8 @@ The API calls behind every beat (`/api/venues/from-luma`, `/api/vouch`, `/api/ve
    ```
    Expect `C … BLOCKED (unvouched)` and `venue Demo Hall, Old Street … callable`. Without the reset, the stage call returns the rehearsal's answer ("reused") instead of calling, and C is already vouched. If Lukas already has an account: `DEMO_ROOTS="Lukas||<his email>"`.
 4. Three copies of the bot from the share link on the laptop (Mates Rates A, B, C), each with its `MATES_RATES_TOKEN` secret set to the token printed for A, B or C. Open each one in a **fresh chat**, so C's chat isn't already vouched in its memory. Check each with "Who am I?": the bot calls `/api/me`, and C should say it can't post yet.
-5. Venue phone (virtual mode): open `<PUBLIC_URL>/phone?key=<PHONE_KEY>` in the phone's browser and tap once, so audio is allowed. Ringer up, screen-lock off.
-6. Calendar: Apple Calendar → File → New Calendar Subscription → `webcal://<host>/events.ics`, done before the demo (Google Calendar takes hours to refresh).
+5. Venue phone (virtual mode): open `https://nrzgvkrbfn3ptoms2ckm4ni6ly.srv.us/phone?key=<PHONE_KEY>` in the phone's browser and tap once, so audio is allowed. Ringer up, screen-lock off.
+6. Calendar: Apple Calendar → File → New Calendar Subscription → `webcal://nrzgvkrbfn3ptoms2ckm4ni6ly.srv.us/events.ics`, done before the demo (Google Calendar takes hours to refresh).
 7. Lead A has a Luma link to an in-person event **they ran**, at a venue not yet in the database, unused in rehearsal, plus a second link as backup.
 8. Search wording: if the question contains "free", the bot filters to venues **confirmed** free, and seeded venues are unconfirmed. Right now "free space for 80…" returns only Demo Hall. Unless 3 or more free venues near Old Street have been confirmed by 22:00, ask without "free" (below).
 9. Paste buffer: keep the messages below in a note on the laptop. Paste them, don't type them.

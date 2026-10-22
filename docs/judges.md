@@ -1,6 +1,6 @@
 # Judges' crib sheet
 
-Numbers are from `data/seed/*.json` loaded into a fresh local Postgres with `scripts/seed-pg.ts` on 22 Oct 2026 (the files the live database is seeded from), excluding the demo venue. Refresh at 22:00 against the live database:
+Numbers are from `data/seed/*.json` loaded into a fresh local Postgres with `scripts/seed-pg.ts` on 22 Oct 2026 (the files the live database is seeded from), excluding the demo venue. Live: https://nrzgvkrbfn3ptoms2ckm4ni6ly.srv.us (`/api/stats` at 20:2x: 144 venues including Demo Hall, 389 hosts, 98 communities, 59 upcoming events). Refresh at 22:00 against the live database:
 
 ```sql
 select count(*) from venues where junk_at is null and name <> 'Demo Hall, Old Street';                  -- venues
@@ -32,6 +32,6 @@ Caveat: our coding agent made the labels from titles and event pages; two leads 
 
 **10x over today's tooling.** Today it's a WhatsApp "anyone know a space for 80?", a spreadsheet nobody updates, cold emails that get no reply, and a phone call during work hours. Here one message in the Grok Bot chat gets three evidence-backed rooms and a clash check. One "yes" gets an AI assistant to call the venue: it says it's an AI and that the call is recorded, and takes under two minutes. The answer is saved as a dated availability record, so the next organiser asking about that evening gets it without another call. One more "yes" sends the request, with the organiser in Reply-To and CC (stored as a draft until the mail key is set).
 
-**Real-world usefulness.** Open source (MIT); open data except contacts. Organisers subscribe to the ranked events once (`webcal://…/events.ics`) in Apple or Google Calendar. The calling rules are safe by default: never auto-dial (the organiser has to say yes), only bookable venues whose poster said OK, at most one call per venue per week, and company offices are reached through intros from past hosts, not cold calls. Limits: London only; without an xAI key tonight, calls run in scripted mode; there are no Twilio keys; a UK Twilio number needs about 48 hours of regulatory approval.
+**Real-world usefulness.** Open source (MIT); open data except contacts. Organisers subscribe to the ranked events once (`webcal://nrzgvkrbfn3ptoms2ckm4ni6ly.srv.us/events.ics`) in Apple or Google Calendar. The calling rules are safe by default: never auto-dial (the organiser has to say yes), only bookable venues whose poster said OK, at most one call per venue per week, and company offices are reached through intros from past hosts, not cold calls. Limits: London only; without an xAI key tonight, calls run in scripted mode; there are no Twilio keys; a UK Twilio number needs about 48 hours of regulatory approval.
 
 **Demo quality.** Real data, real accounts with the real trust rules, a live Grok Bot chat, and a call that runs through the same pipeline as a live one. `scripts/demo-setup.ts` resets the start state in one command (C unvouched, no rehearsal calls), and every beat has a fallback; see [demo.md](demo.md).
