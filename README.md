@@ -66,6 +66,20 @@ Venue DB + trust → Grok Bot search → events + `.ics` → calling. If calling
 
 See [docs/architecture.md](docs/architecture.md) for the system design and [docs/data-sources.md](docs/data-sources.md) for what each source actually returns.
 
+## Run
+
+Needs Node 23.6+ and `psql`.
+
+```sh
+npm install
+npm test
+npm run ingest                      # fetch all sources → data/seed.sql (raw cache in data/raw/)
+psql "$SUPABASE_DB_URL" -f supabase/schema.sql   # once, on an empty project
+npm run ingest -- --cached --apply  # load data/seed.sql into SUPABASE_DB_URL
+```
+
+`.env` holds `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_DB_URL` (never committed).
+
 ## License
 
 MIT

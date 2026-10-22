@@ -1,0 +1,17 @@
+{
+  "name": "mates-rates",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "ingest": "node --env-file-if-exists=.env ingest/main.ts",
+    "test": "node --test 'ingest/*.test.ts'",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  }
+}
